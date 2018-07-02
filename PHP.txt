@@ -1,0 +1,63 @@
+﻿Thiên Duyên
+----------
+PHP
+
+1. Tags
+<?php
+#code- comment = # hoặc //
+?>
+- Lệnh in ra mh:
+echo "hello world";
+print ("hello world");
+xuống dòng: <br> <br />
+
+2. Biến
+$a = 1;
+$b = 2;
+$tong = $a + $b;
+#print("$a + $b = $tong");
+#KQ: 1 + 2 = 3
+---
+chuỗi:
+trong cặp nháy đơn: chuỗi tĩnh
+trong nháy kép: $a thay thế = giá trị của biến $a
+dấu nháy kép: \"
+ ---
+* Biến cục bộ: chỉ có giá trị trong hàm
+* Biến toàn cục: GLOBAL $tenbien
+* Biến tĩnh: STATIC $tenbien = <giá trị>
+* Truyền tham số vào hàm:
+vd: Hàm tổng a,b
+<?php
+   function TinhTong($a,$b)
+   {
+	   $Tong = $a + $b;
+	   return $Tong;
+   }
+   $kq = TinhTong(5,3);
+   print "Ket qua: $kq <br>";
+   $c=10;
+   $kq2 =TinhTong($c,5);
+   print "Ket qua: $kq2";
+?>
+
+3. Hằng số
+Khai báo:
+define("tenhang", 5);
+
+4. Toán tử (như C; có thể thêm and, or)
+5. Mảng
+$mang = array(1,2,3,4,5)
+hoặc: 
+$mang[0] =1;
+$mang[1] =2;
+chỉ mục:
+$mang = array("tenbien1"=> 1, "tenbien2"=> 2);
+echo "Số 1: ".$mang['tenbien1'].";
+số ptu: count($mang1)
+
+
+6. Chuỗi
+nối chuỗi: Dùng dấu .
+strlen() strpos()
+
