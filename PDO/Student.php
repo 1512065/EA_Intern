@@ -4,24 +4,24 @@
 		public $FirstName;
 		public $LastName;
 		public $ClassNo;
-		/*
-		#function
-		public function setAllAtt($iID,$iFirstName,$iLastName.$iClassNo)
+		
+		//function
+		/*function setAllAtt($iID,$iFirstName,$iLastName.$iClassNo)
 		{
 			$this->ID = $iID;
 			$this->FirstName = $iFirstName;
 			$this->LastName = $iLastName;
 			$this->ClassNo = $iClassNo;
 		}
-		public function getFirstName()
+		function getFirstName()
 		{
 			return $this->FirstName;
 		}
-		public function getLastName()
+		function getLastName()
 		{
 			return $this->LastName;
 		}
-		public function getClassNo()
+		function getClassNo()
 		{
 			return $this->ClassNo;
 		}
