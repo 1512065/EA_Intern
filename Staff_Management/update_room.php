@@ -23,4 +23,5 @@
 	$stmt->close();
 	mysqli_close($connection);
 	unset($_POST['uID'],$_POST['uName'],$_POST['uRoom'],$_POST['uBranch']);
+	header("Location: manage_room_delete.php");
 ?>

@@ -11,4 +11,5 @@
 	$stmt->close();
 	mysqli_close($connection);
 	unset($_POST['iID']);
+	header("Location: manage_room_delete.php");
 ?>

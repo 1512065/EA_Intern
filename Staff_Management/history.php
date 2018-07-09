@@ -11,8 +11,9 @@
     while($row = $result->fetch_assoc()) {
         echo "Time " . $row["Stamp_Time"]. " -- Old Room " . $row["OldRoom"]. " -- New Room " . $row["NewRoom"]. "<br>";
     }
-	} else {
+	} 
+	else {
     echo "0 results";
 	}
-	mysqli_close($connection);
+	mysqli_close($connection);	
 ?>

@@ -29,4 +29,5 @@
 	$stmt->close();
 	mysqli_close($connection);
 	unset($_POST['iID'],$_POST['iName'],$_POST['iPhone'],$_POST['iRoomID'],$_POST['iJoin_date']);
+	header("Location: manage_staff.php");
 ?>
