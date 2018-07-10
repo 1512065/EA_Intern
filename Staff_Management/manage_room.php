@@ -25,5 +25,25 @@
 	}
 	echo "</table>";
 	mysqli_close($connection);
+	# CHOOSE FUNCTION
+	echo "<br><br><br>";
+	# delete
+	echo '<form action="delete_room" method="post"> DELETE ID: <input type="int" name="iID">
+		<button type="submit">DELETE</button>
+		</form>';
+	# insert
+	echo "<br><br>INSERT NEW ROOM <br>";
+	echo '<form action="insert_room" method="post">
+	ID:<br>
+	<input type="int" name="iID"><br>
+	Name:<br>
+	<input type="text" name="iName"><br>
+	Room Number:<br>
+	<input type="int" name="iRoom"><br>
+	Branch:<br>
+	<input type="text" name="iBranch"><br><br>
+	<button type="submit">INSERT</button>
+	</form>';
+	
 }
 ?>

@@ -5,6 +5,8 @@ $ROUTE_PREFIX = './Staff_Management/';
 $ROUTE_ARR = array();
 
 function registerRoute($path, $file = null, $prefix = null) {
+	GLOBAL $ROUTE_PREFIX;
+	GLOBAL $ROUTE_ARR;
 	if (is_null($prefix)) {
 		$prefix = $ROUTE_PREFIX;
 	}
@@ -14,17 +16,18 @@ function registerRoute($path, $file = null, $prefix = null) {
 	$file = $prefix . $file;
 	
 	$ROUTE_ARR[] = array(
-		'path' => $path,
-		'file' => $file,
+		"path"=> $path,
+		"file"=> $file,
 	);
+	
 }
 
 function initRoutes() {
 	$request = $_SERVER['REQUEST_URI'];
 	$rootPath = strtok($request,'/');
 	#echo $rootPath;
-	$rootPath = $rootPath."/";
-	$request= str_replace($rootPath,'',$request);
+	#$rootPath = $rootPath."/";
+	#$request= str_replace($rootPath,'',$request);
 	
 	switch ($rootPath) {
 	case 'login/':

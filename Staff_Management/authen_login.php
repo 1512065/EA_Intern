@@ -1,6 +1,3 @@
-<?php 
-header("Content-type: text/html; charset=utf-8");
-?>
 <?php
 	require_once('dbconnect.php');
 	#require_once('login.php');
@@ -13,59 +10,45 @@ header("Content-type: text/html; charset=utf-8");
 			$query = "SELECT * from `account` WHERE Username='$username' and U_Password='$password'";
 			$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 			$count = mysqli_num_rows($result);
-			$_SESSION['isLogIn']=$count;
-			if ($count >= 1){
+			$_SESSION['isLogIn']=$count;			
+	}
+	// SHOW MENU
+	if ($_SESSION['isLogIn'] == 1){
 				//LOG IN SUCCESS
+				$_SESSION['login_true']=1;
 				echo "Log in success";
 				echo '<div <div align="center"><br><br><br>-- CHOOSE FUNCTION --<br><br></div>';
 				//BUTTON				
 				//ROOM 			
-				echo '<div <div align="center"> <form action="manage_room_delete.php">
+				echo '<div <div align="center"> <form action="manage_room">
 				<input type="submit" value="MANAGE ROOM"/></button><br></form> </div>';
 				# UPDATE ROOM
-				echo '<div <div align="center"> <form action="updateroom.html">
+				echo '<div <div align="center"> <form action="updateroom">
 				<input type="submit" value="UPDATE ROOM"/></button><br></form> </div>';
-				/*
-				# INSERT ROOM
-				echo '<div <div align="center"> <form action="insertroom.html">
-				<input type="submit" value="INSERT ROOM"/></button><br></form> </div>';
-				
-				# DELETE ROOM
-				echo '<div <div align="center"> <form action="deleteroom.html">
-				<input type="submit" value="DELETE ROOM"/></button><br></form> </div>';
-				*/
 				//STAFF			
-				echo '<div <div align="center"> <form action="manage_staff.php">
+				echo '<div <div align="center"> <form action="manage_staff">
 				<input type="submit" value="MANAGE STAFF"/></button><br></form> </div>';
 				# UPDATE STAFF
-				echo '<div <div align="center"> <form action="updatestaff.html">
+				echo '<div <div align="center"> <form action="updatestaff">
 				<input type="submit" value="UPDATE STAFF"/></button><br></form> </div>';
-				/*
-				# INSERT STAFF
-				echo '<div <div align="center"> <form action="insertstaff.html">
-				<input type="submit" value="INSERT STAFF"/></button><br></form> </div>';
 				
-				# DELETE STAFF
-				echo '<div <div align="center"> <form action="deletestaff.html">
-				<input type="submit" value="DELETE STAFF"/></button><br></form> </div>';
-				*/
 				//HISTORY
-				echo '<div <div align="center"> <form action="history.php" method="post">
+				echo '<div <div align="center"> <form action="history" method="post">
 				<input type="submit" value="HISTORY"/><br></form> </div>';
 				//LOG OUT				
-				echo '<div <div align="center"> <form action="login.php">
+				echo '<div <div align="center"> <form action="logout">
 				<input type="submit" value="LOG OUT"/></button>
 				</form> </div>';
 				}				
-			else{
-				//LOG IN DENIED
-				echo "Incorrect username or password"; 	
-				echo '<div <div align="center"> <form action="authen_login.php" method="post">
-				Username: <input type="text" name="iusername"><br><br>
-				Password: <input type="text" name="ipassword"><br><br>
-				<input type="submit" value="LOG IN"/></button>
-				</form> </div>';
-				}
-	}
+	else{
+			//LOG IN DENIED
+			echo "Incorrect username or password"; 			
+			echo '<div <div align="center"> <form action="authen_login" method="post">
+			Username: <input type="text" name="iusername"><br><br>
+			Password: <input type="text" name="ipassword"><br><br>
+			<input type="submit" value="LOG IN"/></button>
+			</form> </div>';
+			$_SESSION['isLogIn']=0;
+		}
 ;	
 ?>

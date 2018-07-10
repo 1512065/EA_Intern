@@ -1,0 +1,16 @@
+<html>
+<body>
+<form action="update_room" method="post">
+  ID:<br>
+  <input type="int" name="uID"><br>
+  Name:<br>
+  <input type="text" name="uName"><br>
+  Room Number:<br>
+  <input type="int" name="uRoom"><br>
+  Branch:<br>
+  <input type="text" name="uBranch"><br><br>
+  <button type="submit">UPDATE</button>
+</form>
+
+</body>
+</html>
