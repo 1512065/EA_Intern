@@ -23,6 +23,7 @@ $rootPath = strtok($request,'?');
 $rootPath = str_replace('?','',$rootPath);
 $rootPath = str_replace('/','',$rootPath);
 
+$flag = 0;
 //init Route
 foreach ($ROUTE_ARR as $aaa)
 {
@@ -31,13 +32,18 @@ foreach ($ROUTE_ARR as $aaa)
 			if ($_SESSION['isLogIn']==1 OR $rootPath=='authen_login') //loged in or checking log in
 			{
 				require_once($aaa['file']);
+				$flag = 1;
 			}
 			else //not loged in
 			{
 				echo 'Please Log in first';
 				require_once('./Staff_Management/login.php');
+				$flag = 1;
 			}		
 			break;
 	}
 }
-echo 'Incorrect URL';
+if ($flag == 0)
+{
+	echo 'Incorrect URL';
+}
