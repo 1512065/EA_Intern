@@ -19,7 +19,7 @@
 	// SHOW MENU
 	if ($_SESSION['isLogIn'] == 1){
 				//LOG IN SUCCESS
-				$_SESSION['login_true']=1;
+				//$_SESSION['login_true']=1;
 				echo "Log in success";
 				echo '<div <div align="center"><br><br><br>-- CHOOSE FUNCTION --<br><br></div>';
 				//BUTTON				
@@ -49,7 +49,7 @@
 			echo "Incorrect username or password"; 			
 			echo '<div <div align="center"> <form action="authen_login" method="post">
 			Username: <input type="text" name="iusername"><br><br>
-			Password: <input type="text" name="ipassword"><br><br>
+			Password: <input type="password" name="ipassword"><br><br>
 			<input type="submit" value="LOG IN"/></button>
 			</form> </div>';
 			$_SESSION['isLogIn']=0;

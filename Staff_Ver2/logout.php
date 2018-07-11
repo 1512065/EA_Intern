@@ -1,5 +1,9 @@
+<?php
+$_SESSION['isLogIn']=0;
+echo 'User loged out successful!';
+?>
 <div <div align="center"> 
-	<form action="authen_login" method="post">
+	<form action="main" method="post">
 		Username: <input type="text" name="iusername"><br><br>
 		Password: <input type="password" name="ipassword"><br><br>
 		<button type="submit">LOG IN</button>
