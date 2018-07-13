@@ -1,12 +1,14 @@
 <?php session_start(); ?>
 <?php
 
-require_once('./Staff_Ver2/vendor/common.php');
-#require_once('./Staff_Ver2/dbconfig.php');
+require_once('./Staff_Management/vendor/helloworld/common.php');
+require_once('./Staff_Management/dbconfig.php');
 // authenticate + authorize
 
 //register route
-$PATH_ARR = array('login','history','main','department','staff','authen_login','logout'
+$PATH_ARR = array('login','history','authen_login','manage_room',
+'delete_room','insert_room','update_room','manage_staff','delete_staff',
+'insert_staff','update_staff','dbconnect','updateroom','dbconfig','updatestaff','logout'
 );
 foreach ($PATH_ARR as $path)
 {
@@ -22,22 +24,20 @@ $rootPath = str_replace('?','',$rootPath);
 $rootPath = str_replace('/','',$rootPath);
 
 $flag = 0;
-
 //init Route
-foreach ($ROUTE_ARR as $route)
+foreach ($ROUTE_ARR as $aaa)
 {
-	switch ($route['path']){
+	switch ($aaa['path']){
 		case $rootPath:
-			if ($_SESSION['isLogIn']==1 OR $rootPath=='main') //loged in or checking log in
+			if ($_SESSION['isLogIn']==1 OR $rootPath=='authen_login') //loged in or checking log in
 			{
-				require_once($route['file']);
+				require_once($aaa['file']);
 				$flag = 1;
 			}
 			else //not loged in
 			{
 				echo 'Please Log in first';
-				$_SESSION['wait'] = $rootPath; // save waiting page
-				require_once('./Staff_Ver2/login.php');
+				require_once('./Staff_Management/login.php');
 				$flag = 1;
 			}		
 			break;
@@ -45,6 +45,6 @@ foreach ($ROUTE_ARR as $route)
 }
 if ($flag == 0)
 {
-	echo 'version 2';
+	echo 'version1';
 	require_once('./Staff_Ver2/login.php');
 }

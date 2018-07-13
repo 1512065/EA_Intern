@@ -45,5 +45,6 @@ foreach ($ROUTE_ARR as $route)
 }
 if ($flag == 0)
 {
-	echo 'Incorrect URL';
+	echo 'version 2';
+	require_once('./Staff_Ver2/login.php');
 }
