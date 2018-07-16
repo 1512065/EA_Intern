@@ -29,27 +29,27 @@ class Request
 			<upw>'.$_POST['upw'].'</upw>
 			<transaction_code>'.$_POST['transaction_code'].'</transaction_code>
 			</data>';
-			$this->payload = $value;
-			//$this->payload = array('key'=>'xml(string)', 'value'=>$value);
+			//$this->payload = $value;
+			$this->payload = array('xml'=>$value);
+//			var_dump($this->payload);
 		}
 	}
 	public function sendRequest()
 	{
 		$this->request = curl_init($this->link);
 		curl_setopt($this->request, CURLOPT_POST, true);
-		curl_setopt($this->request, CURLOPT_HTTPHEADER, array('Content-Type: application/xml'));
+		curl_setopt($this->request, CURLOPT_HTTPHEADER, array('application/x-www-form-urlencoded'));
 		curl_setopt($this->request, CURLOPT_POSTFIELDS, $this->payload);
 		curl_setopt($this->request, CURLOPT_RETURNTRANSFER, true);
 		$this->respone = curl_exec($this->request);
 	}
 	public function showRespone()
-	{
-		
-		$info = curl_getinfo($this->request);
+	{	
+	//	$info = curl_getinfo($this->request);
 	//	print_r($info);
 		curl_close($this->request);
 		echo $this->respone;
-
+		echo '<br>';
 	}
 }
 // main
@@ -58,33 +58,8 @@ $req->createForm();
 if(isset($_POST['submit']))
 {
 	$req->createPayload();
-$req->sendRequest();
-echo '<br><br>';
-$req->showRespone();
+	$req->sendRequest();
+//	echo '<br><br>';
+	$req->showRespone();
 }
-?>
-<?php
-/*
-$url = 'http://opraws-dev.e-koukuuken.com/s/common/v1/booking.php';
-$data = array(
-    'ID' => 'his.airtrip.jp',
-    'service' => 'HIS',
-	'uid' => 'his.airtrip.jp',
-	'upw' => 'VvTs8bEQ',
-	'transaction_code' => '894d79308ed7f41cad47ddb6e1b812171b44fffd5c8c61d4ace5a6d683722291'
-);
-
-$options = array(
-    'http' => array(
-        'header'  => "Content-type: application/xml",
-        'method'  => 'POST',
-        'content' => http_build_query($data)
-    )
-);
-$context  = stream_context_create($options);
-$result = file_get_contents($url, false, $context);
-
-
-var_dump($result);
-*/
 ?>
