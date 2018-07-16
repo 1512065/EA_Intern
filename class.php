@@ -29,8 +29,8 @@ class Request
 			<upw>'.$_POST['upw'].'</upw>
 			<transaction_code>'.$_POST['transaction_code'].'</transaction_code>
 			</data>';
-			//$this->payload = $value;
-			$this->payload = array('key'=>'xml(string)', 'value'=>$value);
+			$this->payload = $value;
+			//$this->payload = array('key'=>'xml(string)', 'value'=>$value);
 		}
 	}
 	public function sendRequest()
