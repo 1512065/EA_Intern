@@ -1,5 +1,8 @@
 <?php
 class Base {
+	protected $ID;
+	protected $Created_datetime;
+	protected $Status;
 	public function  __isset($property)
 	{
 		return isset($this->$property);
@@ -13,6 +16,10 @@ class Base {
 		$this->$property = $value;
 	}
 	public function __call($name, $arguments) {
+		if (method_exists($this,$name))
+		{
+			return call_user_func_array(array($this, $name), $arguments);	
+		}
 		//set
         if (strpos($name, 'set') !== false) {
             $attribute = substr($name, 3);
@@ -32,17 +39,26 @@ class Base {
 }
 class Staff extends Base 
 {
-	protected $ID;
-	protected $Name;
+	private $First_name;
+	private $Last_name;
+	private $Dept_ID;
+	private $Avatar;
+	
+	protected function getID() {
+		return 'get<br>';
+	}
+
+	protected function setID($id) {
+		echo 'set<br>';
+	}
 }
+
+$staff = new Staff();
+$staff->setID(5);
+
+echo $staff->getID();
+$staff->setStatus('my status');
+echo $staff->getStatus();
 	
-	$staff = new Staff();
-	$staff->setID(10);
-//	echo $staff->ID;
-	$a = $staff->getID();
-	echo $a;
-	
-	echo '<br>';
-	$staff->setName('staff name');
-	echo $staff->getName();
+phpinfo();
 ?>

@@ -22,7 +22,7 @@
 	}			
 	}
 	if ($_SESSION['isLogIn'] == 1){
-		echo $_SESSION['wait'];
+	//	echo $_SESSION['wait'];
 		//check waiting page
 		if (isset($_SESSION['wait']))
 		{
