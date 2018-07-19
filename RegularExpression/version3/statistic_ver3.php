@@ -64,36 +64,7 @@
 		echo '<option value='.$day.'>'.$day.'</option>';
 	}
 	echo '</select><br><br>';
-	//type
-/*	echo 'Choose type:'.'<br>';
-	echo '<select name ="type2">';
-	GLOBAL $type_arr;
-	echo '<option value="all" >all</option>';
-	foreach ($type_arr as $type)
-	{
-		echo '<option value='.$type.'>'.$type.'</option>';
-	}
-	echo '</select><br><br>';
-	// site_id
-	echo 'Choose site_id:'.'<br>';
-	echo '<select name ="site_id2">';
-	GLOBAL $site_id_arr;
-	echo '<option value="all" >all</option>';
-	foreach ($site_id_arr as $site_id)
-	{
-		echo '<option value='.$site_id.'>'.$site_id.'</option>';
-	}
-	echo '</select><br><br>';
-	// result
-	echo 'Choose result:'.'<br>';
-	echo '<select name ="result2">';
-	GLOBAL $site_id_arr;
-	echo '<option value="all" >all</option>';
-	echo '<option value="success" >success</option>';
-	echo '<option value="unsuccess" >unsuccess</option>';
-	echo '</select><br><br>';	
-	echo '<input type ="submit" name="submit2" value ="View Statistics"/></form>';
-*/	
+
 	echo '
 	<form method="post">';
 	GLOBAL $type_arr;
@@ -117,9 +88,31 @@
 	if (isset($_POST['submit2']))
 	{
 		$day = $_POST['day2'];
-		$type = $_POST['type2'];
-		$site_id = $_POST['site_id2'];
-		$result_arr = $_POST['result2'];
+		if (isset($_POST['type2']))
+		{
+			$type = $_POST['type2'];
+		}
+		else
+		{
+			$type = $type_arr;
+		}
+		if (isset($_POST['site_id2']))
+		{
+			$site_id = $_POST['site_id2'];
+		}
+		else
+		{
+			$site_id = $site_id_arr;
+		
+		}
+		if (isset($_POST['result2']))
+		{
+			$result_arr = $_POST['result2'];
+		}
+		else
+		{
+			$result_arr = array('success','unsuccess');
+		}
 		
 		// show result:
 		$res = Statistic_Opt($directory, $day, $type, $site_id, $result_arr);
