@@ -139,12 +139,19 @@
 	if (preg_match_all($pattern, $str, $matches))
 	{		
 		echo '<pre>';
-		print_r ($matches);
+//		print_r ($matches);
 		echo '</pre>';
 	}
 	
 	
-	
+	$str1 ='http://helloworld.php-projects.local/HelloWorld/RegularExpression/demo.php';
+	$pattern = '/(\w|\W)*(?:local)(\w|\W)*/';
+	if (preg_match_all($pattern, $str, $matches))
+	{		
+		echo '<pre>';
+		print_r ($matches);
+		echo '</pre>';
+	}
 	
 	
 ?>

@@ -66,44 +66,54 @@
 		}
 		return $logfile_arr;
 	}
+	
+	$type_arr = array('BC','BM','PC','TM');
+	$site_id_arr = array('1073','1075');
 	// show static
 	function Statistic($directory, $day, $catory)
 	{
+		$stat_arr = array(); // result
 		echo '<pre>';
-		$file_dir = $directory.'//'.$day.'.log';
+		$file_dir = $directory.'\\'.$day.'.log';
 		$data = getDayRecord($file_dir);
 		switch ($catory)
 		{
 			case 'all':
 				return $data;
-			case 'type':
-				$stat_arr = array('BC'=>0,'BM'=>0,'PC'=>0,'TM'=>0);
+			case 'type':		
 				foreach ($data as $record)
 				{
-					$type_arr = array('BC','BM','PC','TM');
+					GLOBAL $type_arr;
 					foreach ($type_arr as $type)
 					{
 						$text = "'".$type."'";
 						switch ($record['type'])
 						{
 							case ($text):
-								$stat_arr["$type"] = $stat_arr["$type"] +1;
+									if (isset($stat_arr["$type"])) {
+										$stat_arr["$type"] = $stat_arr["$type"] +1;			
+									} else {
+										$stat_arr["$type"]=1;
+									}
 						}
 					}				
 				}
 				return $stat_arr;			
 			case 'site_id':
-				$stat_arr = array('1073'=>0,'1075'=>0);
 				foreach ($data as $record)
 				{
-					$site_id_arr = array('1073','1075');
+					GLOBAL $site_id_arr;
 					foreach ($site_id_arr as $site_id)
 					{
 						$text = "'".$site_id."'";
 						switch ($record['site_id'])
 					{
 						case ($text):
-							$stat_arr["$site_id"] = $stat_arr["$site_id"] +1;
+							if (isset($stat_arr["$site_id"])) {
+								$stat_arr["$site_id"] = $stat_arr["$site_id"] +1;
+							} else {
+								$stat_arr["$site_id"] = 1;
+							}
 					}
 					}				
 				}
@@ -120,4 +130,67 @@
 			
 		}	
 	}
+	// optional statistic
+	function Statistic_Opt($directory, $day, $type, $site_id, $result_arr)
+	{
+		$stat_arr = array(); // result
+		$file_dir = $directory.'\\'.$day.'.log';
+		$data = getDayRecord($file_dir);
+	//	print_r ($data);
+	$count =0;
+		foreach ($data as $record)
+		{
+			$count ++;
+			//echo 'a';
+			$flag = 0; //flag = 1 => count++
+			//check type
+			foreach ($type as $sgl_type)
+			{
+				$text = "'".$sgl_type."'";
+				if ($record['type']==$text)
+				{
+					$flag = 1;
+					break;
+				}
+				$flag = 0;
+			}
+			//check site_id
+			if ($flag==1)
+			{
+			foreach ($site_id as $sgl_site_id)
+			{
+				$text = "'".$sgl_site_id."'";
+				if ($record['site_id']==$text)
+				{
+					$flag = 1;
+					break;
+				}
+				$flag = 0;
+			}
+			}
+			if ($flag==1)
+			{
+				if (count($result_arr)<2)
+				{
+					if ($result_arr[0]== 'unsuccess')
+					{
+						if ($record['result']!='\'null\'')
+						{	
+							$flag = 0;
+						}
+					} else
+					{
+						if ($record['result']=='\'null\'')
+						{	
+							$flag = 0;
+						}
+					}
+				}
+			}
+			if ($flag==1)
+				array_push($stat_arr, $record);
+		}	
+		return	$stat_arr;	
+	}
+
 ?>
