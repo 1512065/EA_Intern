@@ -84,7 +84,7 @@
 	echo '<br>-- RESULT -- <br><input type="checkbox" name ="result2[]" value="success"> SUCCESS <br>';
 	echo '<input type="checkbox" name ="result2[]" value="unsuccess"> UNSUCCESS <br><br>';
 	echo '<input type ="submit" name="submit2" value ="View Statistics"/></form>';
-	
+
 	if (isset($_POST['submit2']))
 	{
 		$day = $_POST['day2'];

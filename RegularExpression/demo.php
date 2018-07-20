@@ -82,7 +82,7 @@
 	*/
 	function getTag($subject, $tag)
 	{
-		$pattern ='/<'.$tag.'>(.|\n|\s)*?<\/'.$tag.'>/';
+		$pattern ='/<'.$tag.'(.|\n|\s)*?<\/'.$tag.'>/';
 		if (preg_match($pattern, $subject, $matches))
 		{		
 			echo ' correct form <br>';	
@@ -90,6 +90,12 @@
 		}	
 	}
 	
+	
+	ini_set("pcre.recursion_limit", "524");
+	$handle = fopen("filehtml.txt", 'r');
+	$htmlfile = fread($handle,filesize("filehtml.txt"));
+	$html = htmlspecialchars($htmlfile);
+	getTag($html,'table');
 	
 	$s = '<form> demo absc <aa> <bb> </aa>dfasf4a5 65
 	</form>';
