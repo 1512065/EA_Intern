@@ -74,7 +74,7 @@ function getDetail($flight_arr)
 	foreach ($flight_arr as $flight)
 	{
 		$sgl_flight = array(); //single flight
-		$prop_arr = array ('airlines','flight_seat_warning_round','flight_seat_warning_round sold_out','dep_date','arr_date','1_dep_time_filter','total_time');
+		$prop_arr = array ('airlines','flight_seat_warning_round','flight_seat_warning_round sold_out','dep_date','arr_date','1_dep_time_filter','total_time','fare_breakdown_total_amount');
 		//get props
 		foreach ($prop_arr as $prop)
 		{
@@ -83,10 +83,14 @@ function getDetail($flight_arr)
 			
 		}
 		//get price
-		$pattern ="/(?<=data-price=\')[^(\')]*/";
+		$pattern ="/(?<=data-price=\')[^(\<)]*/";
 		if(preg_match($pattern, $flight, $result))
 		{
-			$sgl_flight["price"] = $result[0];
+			$temp = $result[0];
+			if(preg_match('/(?<=\>).*/', $temp, $result2))
+			{
+				$sgl_flight["price"] = $result2[0];
+			}
 		}
 		//get route info
 		$pattern ='/(<table>)[\w\W]*(<\/table>)/';

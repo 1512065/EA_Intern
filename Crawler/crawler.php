@@ -1,6 +1,6 @@
 <?php
 
-	require_once ('function.php');
+	require_once ('.\function.php');
 	//list port
 	$place = array('Tokyo(TYO)','Tokyo(HND)','Tokyo(NRT)','Sapporo(SPK)',
 	'Seoul(SEL)','Busan(PUS)','Jeju(CJU)','Daegu(TAE)',
@@ -59,7 +59,7 @@
 		echo '_____________________________<br>';
 		echo '<br>Number of record: '.count($flight_arr).'<br><br>';
 		$details = array ('airlines', 'dep_date' ,'arr_date', 'arr_place','total_time','price', 
-		'flight_no', '1_dep_time_filter','flight_seat_warning_round','flight_seat_warning_round sold_out');
+		'flight_no', '1_dep_time_filter','flight_seat_warning_round','flight_seat_warning_round sold_out','fare_breakdown_total_amount');
 		if (count($flight_arr)==0)
 		{
 			echo 'No result found!';
