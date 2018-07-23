@@ -141,17 +141,11 @@
 */	
 	
 	
-	$pattern ='/(?<=img\s).*(?:png)/';
-	if (preg_match_all($pattern, $str, $matches))
-	{		
-		echo '<pre>';
-//		print_r ($matches);
-		echo '</pre>';
-	}
 	
 	
-	$str1 ='http://helloworld.php-projects.local/HelloWorld/RegularExpression/demo.php';
-	$pattern = '/(\w|\W)*(?:local)(\w|\W)*/';
+	$str='<ul><li ABC hello word></li><li>12345</li><li>67</li></ul><ul><li>22222</li></ul>';
+	$pattern ='/<ul>.*?<\/ul>/';
+//	$pattern ='/<li[^>]*>/';
 	if (preg_match_all($pattern, $str, $matches))
 	{		
 		echo '<pre>';

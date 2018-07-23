@@ -1,0 +1,60 @@
+
+[2018-06-28 00:00:27] array (  'type' => 'BC',
+  'app' => array (
+    'id' => 2681021,
+    'site_id' => '1075',
+    'email' => 'yucca._.zucca426@docomo.ne.jp',
+    'member_seq' => '673406',
+  ),
+  'member' => array (
+    'status' => 0,
+    'info' => NULL,
+  ),
+  'result' => 'null',
+)
+
+[2018-06-28 00:02:55] array (
+  'type' => 'PC',
+  'app' => array (
+    'id' => '2679655',
+    'site_id' => '1075',
+    'email' => 'saki_23_need_y0u_6_l0ve@yahoo.co.jp',
+    'member_seq' => NULL,
+  ),
+  'member' => array (
+    'status' => 0,
+    'info' => NULL,
+  ),
+  'result' => 'null',
+)
+
+[2018-06-28 00:02:58] array (
+  'type' => 'PC',
+  'app' => array (
+    'id' => '2680503',
+    'site_id' => '1075',
+    'email' => '0dw41x3k38w210h@ezweb.ne.jp',
+    'member_seq' => NULL,
+  ),
+  'member' => array (
+    'status' => 0,
+    'info' => NULL,
+  ),
+  'result' => 'null',
+)
+
+[2018-06-28 00:03:02] array (
+  'type' => 'PC',
+  'app' => array (
+    'id' => '2679033',
+    'site_id' => '1075',
+    'email' => 'cb151166@cis.fukuoka-u.ac.jp',
+    'member_seq' => NULL,
+  ),
+  'member' => array (
+    'status' => 0,
+    'info' => NULL,
+  ),
+  'result' => 'null',
+)
+
