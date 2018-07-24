@@ -53,6 +53,10 @@ if (isset($_POST['send']))
 
 		//headers
 		$header = "From: Duyen Nguyen<thduyen2397@gmail.com>".$eol;
+		if (isset($_POST['cc_to']))
+			$header .= "CC: $_POST['cc_to']".$eol;
+		if (isset($_POST['bcc_to']))
+			$header .= "BCC: $_POST['bcc_to']".$eol;
 		$header .= "MIME-Version: 1.0\r\n";
 		$header .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"";
 
@@ -72,6 +76,10 @@ if (isset($_POST['send']))
 	// no attach
 	{
 		$header = "From: Duyen Nguyen<thduyen2397@gmail.com>\r\n";
+		if (isset($_POST['cc_to']))
+			$header .= "CC: $_POST['cc_to']\r\n";
+		if (isset($_POST['bcc_to']))
+			$header .= "BCC: $_POST['bcc_to']\r\n";
 		$header .= "MIME-Vesion: 1.0\r\n";
 		$header .= "Content-Type: text/html\r\n";
 		$message=$body;
