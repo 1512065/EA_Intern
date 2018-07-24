@@ -1,5 +1,5 @@
 <?php
-	$str = "hello world 2018";
+	$str = "Khongco123";
 	echo base64_encode($str);
 	echo chunk_split(base64_encode($str));
 ?>
