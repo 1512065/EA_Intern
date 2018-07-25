@@ -56,16 +56,16 @@ if (isset($_POST['send']))
 		$file_path ='';
 	}
 	//cc
-	if (isset($_POST['cc']))
+	if (isset($_POST['cc_to']))
 	{
-		$cc = $_POST['cc'];
+		$cc = $_POST['cc_to'];
 	} else {
 		$cc ='';
 	}
 	//bcc
-	if (isset($_POST['bcc']))
+	if (isset($_POST['bcc_to']))
 	{
-		$bcc = $_POST['bcc'];
+		$bcc = $_POST['bcc_to'];
 	} else {
 		$bcc ='';
 	}
