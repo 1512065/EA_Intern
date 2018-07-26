@@ -5,7 +5,6 @@
 		public $file_id;
 		public $target_file;
 		public $target_dir;
-		public $file_info = array();
 		public function generate_id()
 		{
 			$char= '0123456789';
@@ -26,27 +25,44 @@
 			<input type="submit" name="Submit" value="Upload">
 			</form>';
 		}
-		public function rename($id)
+		public function rename_file($id)
 		{
 			$file_id = $id;
 			$this->target_dir ="..\\store\\";
-			$file_name = basename($_FILES["$file_id"]['name']);
+			$file_name = basename($_FILES["$file_id"]['name']);			
 			$target_file = $this->target_dir.$file_name;
+			$extension = pathinfo($_FILES["$file_id"]['name'], PATHINFO_EXTENSION);
+			$filename = pathinfo($_FILES["$file_id"]['name'], PATHINFO_FILENAME);
     		$count = 0;
 			while (file_exists($target_file))
 			{
-				//rename
+				//rename_file
 				$count++;
-				$new_name = $count.'_'.$file_name;
+				$new_name = $filename.'('.$count.')'.'.'.$extension;
 				$target_file = $this->target_dir.$new_name;				 
 			}
 			if ($count != 0)
 			{
-				$file_name = $new_name;
+				$filename = $new_name;
 			}
+			else
+			{
+				$filename = $file_name;
+			}	
+				
 			//echo 'File name in server: '.$file_name;
 			$_SESSION['file'] = $target_file;
-			$_SESSION['id'] = $this->getID();
+			$newid = '';
+			$length = strlen($filename);
+			for ($i=0; $i<$length; $i++) 
+			{
+				$c = $filename["$i"];
+				$newid .= sprintf("%03s", ord("$c"));
+			}
+			
+	
+			$_SESSION['id'] = $newid;
+			$this->file_id = $newid;
 			$this->target_file = $target_file;
 		}
 		public function store_in_server($id)
@@ -77,18 +93,13 @@
 					$file_id = $id;
 					
 				}			
-				$this->rename($file_id);
+				$this->rename_file($file_id);
 				$this->store_in_server($file_id);
 				
-				header('Location: http://helloworld.php-projects.local/');
+				header('Location: ./');
 				exit();
 			 }
-		}
-		
-		public function getTarget_dir()
-		{
-			return $this->target_dir;
-		}
+		}		
 	}
 
 	class File_Process
@@ -113,6 +124,14 @@
 			flush();
 			readfile($file);
 			exit;
+		}
+		public function decode($id)
+		{
+			$file_name = '';
+			foreach (str_split($id, 3) as $number) {
+				$file_name .= chr($number);
+			}
+			return $file_name;
 		}
 }
 
