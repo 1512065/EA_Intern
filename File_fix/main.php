@@ -36,7 +36,7 @@
 		$id = $_SESSION['id'];			
 		echo '<br><br>
 			<form method="get">
-			ID: <input type="text" name="file"><br>
+			ID: <input type="text" name="file" value='.$_SESSION['id'].'><br>
 			<br>Choose mode: <br>
 			<select name ="mode">
 			<option value="view">View</option>

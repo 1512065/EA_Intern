@@ -48,9 +48,7 @@
 			else
 			{
 				$filename = $file_name;
-			}	
-				
-			//echo 'File name in server: '.$file_name;
+			}
 			$_SESSION['file'] = $target_file;
 			$newid = '';
 			$length = strlen($filename);
