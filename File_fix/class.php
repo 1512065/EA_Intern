@@ -18,14 +18,14 @@
 		}
 		public function show_form()
 		{
-?>
-	<form method="post" enctype="multipart/form-data">
+			echo'
+			<form method="post" enctype="multipart/form-data">
 			Choose file:<br>
 			<input type="file" name="'.$this->file_id.'">
 			<br> <br>   
 			<input type="submit" name="Submit" value="Upload">
-			</form> 
-<?php		}
+			</form>';
+		}
 		public function rename($id)
 		{
 			$file_id = $id;
@@ -91,29 +91,29 @@
 		}
 	}
 
-class File_Process
-{
-	public function view($file)
+	class File_Process
 	{
-		header('Content-Type: '.mime_content_type($file));
-		header('Content-Length: ' . filesize($file));
-		echo file_get_contents("$file");  
-	}
-	public function download($file)
-	{
-		header('Content-Description: File Transfer');
-		header('Content-Type: application/octet-stream');
-		header('Content-Disposition: attachment; filename='.basename($file));
-		header('Content-Transfer-Encoding: binary');
-		header('Expires: 0');
-		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-		header('Pragma: public');
-		header('Content-Length: ' . filesize($file));
-		ob_clean();
-		flush();
-		readfile($file);
-		exit;
-	}
+		public function view($file)
+		{
+			header('Content-Type: '.mime_content_type($file));
+			header('Content-Length: ' . filesize($file));
+			echo file_get_contents("$file");  
+		}
+		public function download($file)
+		{
+			header('Content-Description: File Transfer');
+			header('Content-Type: application/octet-stream');
+			header('Content-Disposition: attachment; filename='.basename($file));
+			header('Content-Transfer-Encoding: binary');
+			header('Expires: 0');
+			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			header('Pragma: public');
+			header('Content-Length: ' . filesize($file));
+			ob_clean();
+			flush();
+			readfile($file);
+			exit;
+		}
 }
 
 ?>
