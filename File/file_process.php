@@ -2,7 +2,7 @@
 	// view or download file uploaded
 	
 	// check file id
-	if ($_GET['file']!= $_SESSION['file_id'])
+	if ($_GET['file']!= $_SESSION['id'])
 	{
 		echo 'Wrong file id';
 	}
@@ -11,6 +11,7 @@
 		$file = $_SESSION['target'];
 		if ($_GET['mode']=='view')
 		{	//view
+			echo mime_content_type($file);
 			header('Content-Type: '.mime_content_type($file));
 			header('Content-Length: ' . filesize($file));
 			echo file_get_contents("$file"); 
