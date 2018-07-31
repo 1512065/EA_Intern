@@ -90,9 +90,9 @@ class Passenger
     }
     public function show()
     {
-        if (isset($_POST['sub_num']) && $_POST['p_number'] > 0)
+        if (isset($_GET['p_number']) && $_GET['p_number'] > 0)
         {       
-            $this ->p_number = $_POST['p_number'];
+            $this ->p_number = $_GET['p_number'];
             //show form
             $this ->show_full_form();
         }

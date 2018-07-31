@@ -1,9 +1,9 @@
 
 <html>
-    <form method="post">
+    <form method="get">
       Number of passenger:
       <input type="number" name="p_number">
-      <input type="submit" name="sub_num">
+      <input type="submit">
     </form>
     </html>
 <?php
@@ -15,11 +15,11 @@
     {
         $passenger->info_to_array();
         $_SESSION['post_data'] = $_POST;
-        $passenger->quote();
+        $passenger->quote();    
     } 
     if (isset($_POST['sub_reg']))
     {  
-        $passenger->policy();
+        $passenger->policy();     
     }
     
 ?>

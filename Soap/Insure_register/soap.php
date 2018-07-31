@@ -81,7 +81,8 @@ class Soap_Request
                                           'InsuredPackageDesc' => 'Individual');
         $acegroup_Plan = array ('RqUID' => '531CC7DB-2D16-4A2B-A59A-5E357AD22797', 
                                 'PlanDesc' => 'CD1');
-        $acegroup_DataExtensions = array('DataItem key="Total_Insured" type="System.Integer"' => array('value' => $info_arr['number']));
+        $acegroup_DataExtensions = array('DataItem key="Total_Insured" type="System.Integer"' => array('value' => $info_arr['number']), 
+                                         'DataItem key="Purpose" type="System.String"' => array('value' => $info_arr['number']));
         if (is_array($pass_info)) //policy
         {
             $GeneralPartyInfo = array();
