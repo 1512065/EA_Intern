@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <title>Register Insurance</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" type="text/css" href="style2.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function()
+            {   
+                var i =1;
+                $("#btn_add").click(function()
+                {
+                    var x = $("#0").clone();
+                    x.attr("id", i);
+                    x.insertAfter($("#0"));
+                    //x.children('fieldset:eq(0)').children('legend').text('Passenger Information ' + i);
+                    x.find("input[type='radio']").attr("name", 'gender' + i);
+                    x.css('display','');
+                    i++;
+                    
+                });
+                $(document).on('click','#btn_del',function(){
+                    $(this).parent().remove();
+                }
+                );
+            });
+        </script>
+    </head> 
+    <body style="background-color:ivory">
+        <div align="center" style="width:900px; margin:auto;">
+            <form method="post">
+                <fieldset style="border-radius: 10px;background-color:ghostwhite">
+                    <legend> Insurance Register </legend>
+                    <img id="myimg" src="https://i0.wp.com/ultra106five.com/wp-content/uploads/2017/07/Travel-Insurance.png?resize=572%2C300&ssl=1" alt="Picture" size="80%">
+                    <br><br>
+                    Start from: <input type="date" name="start_day"  min="2018-08-02">
+                    to <input type="date" name="end_day">
+                    <br><br>
+                    <fieldset class="info_field">
+                        <legend>Policy Holder</legend>
+                        <table>
+                            <tr>
+                                <td>
+                                    <select name="prefix">
+                                        <option value="Miss">Miss</option>
+                                        <option value="Mr">Mrs</option>
+                                        <option value="Mrs">Miss</option>
+                                        <option value="Ms">Mrs</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" name="surname" placeholder="Surname" style="width:100px">
+                                
+                                    <input type="text" name="givenname" placeholder="Given name" style="width:200px">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>DOB:</td> 
+                                <td><input type="date" name="dob"></td>
+                            </tr>
+                                <td>Gender:</td>
+                                <td>
+                                    <input type="radio" name="gender" value="M" checked> Male
+                                    <input type="radio" name="gender" value="F"> Female
+                                    <input type="radio" name="gender" value="U"> Other
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>E-Mail:</td>
+                                <td><input type="email" name="email" ></td>
+                            </tr>
+                            <tr>
+                                <td>Phone number:</td>
+                                <td><input type="tel" name="phone"></td>
+                            </tr>
+                        </table>    
+                    </fieldset>
+                    <br>
+                    <input id="btn_add" type="button" class="mybutton" style="text-align: center" value="Add Passenger">
+                    <div class="pa_info" id="0" style="display:none">
+                    <fieldset class="info_field">
+                        <legend>Passenger infomation</legend>
+                        <table>
+                            <tr>
+                                <td>
+                                    <select name="prefix">
+                                        <option value="Miss">Miss</option>
+                                        <option value="Mr">Mrs</option>
+                                        <option value="Mrs">Miss</option>
+                                        <option value="Ms">Mrs</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" name="surname" placeholder="Surname" style="width:100px">    
+                                    <input type="text" name="givenname" placeholder="Given name" style="width:200px">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>DOB:</td> 
+                                <td><input type="date" name="dob"></td>
+                            </tr>
+                                <td>Gender:</td>
+                                <td>
+                                    <input type="radio" name="gender" value="M" checked> Male
+                                    <input type="radio" name="gender" value="F"> Female
+                                    <input type="radio" name="gender" value="U"> Other
+                                </td>
+                            </tr>
+                        </table>    
+                    </fieldset>
+                    <input id="btn_del" type="button" class="mybutton"  value="Delete">
+                    </div>   
+                    <br>
+                    <input type="button" class="mybutton" style="float: right" value="Submit">
+                </fieldset>
+            </form>
+        </div>      
+    </body>
+
+</html>
