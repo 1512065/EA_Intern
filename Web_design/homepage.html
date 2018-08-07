@@ -3,8 +3,32 @@
     <head>
         <title>Airtrip Homepage</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script>
+            function openTab(name, elmnt) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablink");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].style.backgroundColor = "";
+                }
+                document.getElementById(name).style.display = "block";
+                elmnt.style.backgroundColor = "teal";
+            }   
+            function roundtrip_mode(){
+                document.getElementById("backday").style.display = "inline-block";
+                document.getElementById("back_date").style.display = "inline-block";
+            };
+            function oneway_mode(){
+                document.getElementById("backday").style.display = "none";
+                document.getElementById("back_date").style.display = "none";
+            };
+        </script>    
     </head> 
     <body>
         <!--top bar-->
@@ -53,75 +77,190 @@
         <!--search banner-->
         <div class="banner">
             <div class="search_box">
-                <div class="search_form">
-                    <form method="post">
+                <table>
+                    <tr>
+                    <td>
                         <span class="btn_group">
-                            <button class="form_select_btn">One-way</button>
-                            <button class="form_select_btn">Round-trip</button>
+                            <button class="form_select_btn" onclick="oneway_mode();">One-way</button>
+                            <button class="form_select_btn" id="rt_mode" onclick="roundtrip_mode();">Round-trip</button>
                         </span><br><br>
-                        <span>
-                            <table>
-                                <tr>
-                                    <td>From:</td>
-                                    <td></td>
-                                    <td>To:</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <select name ="dep_port" class="form_select">
-                                        <option value="Tokyo(TYO)">Tokyo(TYO)</option>
-                                        <option value="Osaka(OSA)">'Osaka(OSA)</option>
-                                        <option value="Hiroshima(HIJ)">Hiroshima(HIJ)</option>
-                                        <option value="Sendai(SDJ)">Sendai(SDJ)</option>
-                                        <option value="Nagoya(NGO)">Nagoya(NGO)</option>
-                                        <option value="Fukoka(FUK)">Fukoka(FUK)</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <i class="fa fa-arrow-circle-right" style="color:green; padding:10px"></i>
-                                    </td>    
-                                    <td>
-                                        <select name ="arr_port" class="form_select">
-                                        <option value="Osaka(OSA)">'Osaka(OSA)</option>
-                                        <option value="Hiroshima(HIJ)">Hiroshima(HIJ)</option>
-                                        <option value="Sendai(SDJ)">Sendai(SDJ)</option>
-                                        <option value="Nagoya(NGO)">Nagoya(NGO)</option>
-                                        <option value="Fukoka(FUK)">Fukoka(FUK)</option>
-                                        <option value="Tokyo(TYO)">Tokyo(TYO)</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Departure day:</td>
-                                    <td></td>
-                                    <td style="display:none;">Comeback day</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="date" class="form_select" name="dep_date">
-                                    </td>
-                                    <td></td>
-                                    <td style="display:none;"> 
-                                        <input type="date" class="form_select" name="back_date">
-                                    </td>
-                                </tr>
-                            </table>
-                            Number of Passenegers:
-                            Adults: <input type ="text" name="adt_pax" class="form_input">
-                            --- Child: <input type ="text" name="chd_pax" class="form_input">
-                            --- Infant: <input type ="text" name="inf_pax" class="form_input">
-                           <br><br><input type ="submit" name="submit" value ="Search" class="form_select_btn"/>
-                        </span>
-                        <!--
-                             <iframe class="video" src="https://www.youtube.com/embed/LT5U7pVS6YE" style="opacity: 1;"></iframe>
-                        -->
-                    </form>
-                </div>
-                
-            </div>
+                        <form method="post">
+                            <span>
+                                <table>
+                                    <tr>
+                                        <td>From:</td>
+                                        <td></td>
+                                        <td>To:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name ="dep_port" class="form_select">
+                                            <option value="Tokyo(TYO)">Tokyo(TYO)</option>
+                                            <option value="Osaka(OSA)">Osaka(OSA)</option>
+                                            <option value="Hiroshima(HIJ)">Hiroshima(HIJ)</option>
+                                            <option value="Sendai(SDJ)">Sendai(SDJ)</option>
+                                            <option value="Nagoya(NGO)">Nagoya(NGO)</option>
+                                            <option value="Fukoka(FUK)">Fukoka(FUK)</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <i class="fa fa-arrow-circle-right" style="color:green; padding:15px"></i>
+                                        </td>    
+                                        <td>
+                                            <select name ="arr_port" class="form_select">
+                                            <option value="Osaka(OSA)">Osaka(OSA)</option>
+                                            <option value="Hiroshima(HIJ)">Hiroshima(HIJ)</option>
+                                            <option value="Sendai(SDJ)">Sendai(SDJ)</option>
+                                            <option value="Nagoya(NGO)">Nagoya(NGO)</option>
+                                            <option value="Fukoka(FUK)">Fukoka(FUK)</option>
+                                            <option value="Tokyo(TYO)">Tokyo(TYO)</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Departure day:</td>
+                                        <td></td>
+                                        <td><span id="backday" style="display: none">Comeback day:</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="date" class="form_select" name="dep_date">
+                                        </td>
+                                        <td></td>
+                                        <td> 
+                                            <input type="date" class="form_select" id="back_date" style="display:none">
+                                        </td>
+                                    </tr>
+                                </table>
+                            <hr>  
+                            </span>
+                            <span>Seat Class:</span><span style="margin-left: 25%">Number of Passenegers:</span><br>
+                            <span> 
+                                <select name ="seat_type" class="form_select_seat">
+                                <option value="Economy">Economy</option>
+                                <option value="Bussiness">Bussiness</option>
+                                <option value="First">First</option>
+                                </select>
+                            </span>
+                            <span style="margin-left:10%;">
+                                Adults: <input type ="number" name="adt_pax" class="form_input" min="1">
+                                -- Child: <input type ="number" name="chd_pax" class="form_input">
+                                -- Infant: <input type ="number" name="inf_pax" class="form_input">
+                            <br><br>
+                            <button type="submit" class="search_btn"><i class="fa fa-send" style="font-size: 180%; color: wheat"></i>
+                            SEARCH BEST FLIGHTS</button>
+                            </span>
+                        </form>
+                    </td>
+                    <td>
+                        <iframe src="https://www.youtube.com/embed/LT5U7pVS6YE" style="width: 550px; height: 300px; margin-left: 45%;"></iframe>
+                    </td>
+                    </tr>
+                </table>
+            </div>   
         </div>
+        <!--Main content-->
+        <div class="main_content">
+            <!--On sale -->
+            <h1 class="headline">BEST PRICE - ON SALE</h1>
+            <table class ="best_price" cellspac>
+                <tr>
+                    <td><a href="#"><div class="best_price_btn"><div class="route">Fukoka => Tokyo</div><span class="price"><br>&yen;8,890~</span></div></a></td>
+                    <td><a href="#"><div class="best_price_btn"><div class="route">Tokyo => Fukoka</div><span class="price"><br>&yen;7,890~</span></div></a></td>
+                    <td><a href="#"><div class="best_price_btn"><div class="route">Sapporo => Tokyo</div><span class="price"><br>&yen;7,090~</span></div></a> </td>
+                    <td><a href="#"><div class="best_price_btn"><div class="route">Nagasaki => Osaka</div><span class="price"><br>&yen;6,090~</span></div></a></td>
+                </tr>
+                <tr>
+                    <td><a href="#"><div class="best_price_btn"><div class="route">Naha => Tokyo</div><span class="price"><br>&yen;6,890~</span></div></a></td>
+                    <td><a href="#"><div class="best_price_btn"><div class="route">Kagoshima => Fukoka</div><span class="price"><br>&yen;8,150~</span></div></a></td>
+                    <td><a href="#"><div class="best_price_btn"><div class="route">Sapporo => Tokyo</div><span class="price"><br>&yen;4,990~</span></div></a></td>
+                    <td><a href="#"><div class="best_price_btn"><div class="route">Tokyo => Naha</div><span class="price"><br>&yen;5,990~</span></div></a></td>
+                </tr>
+                <tr>
+                    <td><a href="#"><div class="best_price_btn"><div class="route">Fukoka => Osaka</div><span class="price"><br>&yen;6,890~</span></div></a></td>
+                    <td><a href="#"><div class="best_price_btn"><div class="route">Naha => Kagoshima</div><span class="price"><br>&yen;8,890~</span></div></a></td>
+                    <td><a href="#"><div class="best_price_btn"><div class="route">Sapporo => Nagasaki</div><span class="price"><br>&yen;7,890~</span></div></a></td>
+                    <td><a href="#"><div class="best_price_btn"><div class="route">Kagoshima => Osaka</div><span class="price"><br>&yen;7,000~</span></div></a></td>
+                </tr>
+            </table>
+            <!--Popular-->
+            <h1 class="headline">HOT TICKETS</h1>
+            <ul class="list">
+                <li><a href="#">Narita ⇒ Incheon (round trip) ¥ 16,740</a></li>
+                <li><a href="#">Kansai ⇒ Incheon (round trip) ¥ 16,240 </a></li>
+                <li><a href="#">Kansai ⇒ Taipei (round trip) ¥ 18,000</a></li>
+                <li><a href="#">Narita ⇒ Shanghai (round trip) ¥ 16,740</a></li>
+                <li><a href="#">Haneda ⇒ Ho Chi Minh (round trip) ¥ 22,000</a></li>
+                <li><a href="#">Haneda ⇒ Honolulu (round trip) ¥ 75,000</a></li>
+            </ul>    
+            <!--Announcement-->
+            <h1 class="headline">ANNOUNCEMENT</h1>
+            <button class="tablink" onclick="openTab('All', this)" id="defaultOpen">All</button>
+            <button class="tablink" onclick="openTab('Airlines', this)">Airlines announcements</button>
+            <button class="tablink" onclick="openTab('Company', this)">Company announcements</button>
+            <div id="All" class="tabcontent">
+                <ul class="list">
+                    <li><a href="http://www.evolableasia.com/airline_news/795" target= "_blank">[8/2] Regarding domestic flight operation due to bad weather at 14 o'clock</a></li>
+                    <li><a href="http://www.evolableasia.com/airline_news/791" target= "_blank">[8/1] Notification of delay from 16 o'clock VNL (vanilla air)</a></li>
+                    <li><a href="http://www.evolableasia.com/airline_news/777" target= "_blank">[7/26] 15 o'clock Announcement of departure arrival time, flight name change, cancellation from ANA (All Nippon Airways) and ADO (Air Do)</a></li>
+                    <li><a href="http://www.evolableasia.com/airline_news/773" target= "_blank">[7/20] Typhoon No. 10 at 14 o · Regarding domestic flight operations due to bad weather</a></li>
+                    <li><a href="http://www.evolableasia.com/airline_news/771" target= "_blank">[7/20] Canceled from 14 o'clock ADO (Air Do), APJ (Peach Aviation) · Notice of landing to other airports</a></li>
+                    <li><a href="http://www.evolableasia.com/airline_news/753" target= "_blank">[7/11] Notice of cancellation from ADO (air do) at 16 o'clock</a></li>
+                    <li><a href="https://www.evolableasia.com/airline_news/295" target= "_blank">[10/26] Regarding domestic flight operation due to bad weather at 9 o'clock</a></li>
+                </ul> 
+            </div>
+            <div id="Airlines" class="tabcontent">
+                <ul class="list" style="list-style-type: square;">
+                    <li><a href="http://www.evolableasia.com/airline_news/791" target= "_blank">[8/1] Notification of delay from 16 o'clock VNL (vanilla air</a></li>
+                    <li><a href="http://www.evolableasia.com/airline_news/777" target= "_blank">[7/26] 15 o'clock Announcement of departure arrival time, flight name change, cancellation from ANA (All Nippon Airways) and ADO (Air Do)</a></li>
+                    <li><a href="http://www.evolableasia.com/airline_news/771" target= "_blank">[7/20] Canceled from 14 o'clock ADO (Air Do), APJ (Peach Aviation) · Notice of landing to other airports</a></li>
+                </ul>
+            </div>
+            <div id="Company" class="tabcontent">
+                <ul class="list" style="list-style-type: square;">
+                    <li><a href="http://www.evolableasia.com/news" target= "_blank";>Go to page</a></li>
+                </ul>         
+            </div>
+            <script>
+                document.getElementById("defaultOpen").click();
+            </script>    
+            <!--Airlines-->
+            <h1 class="headline">AIRLINES</h1>
+            <table class="airlines">
+                <tr>
+                    <td><a href="#" target= "_blank"><img src="./image/airline/air_new_zealand_logo2.gif" style="height:80px; width:250px"></a></td>
+                    <td><a href="#" target= "_blank"><img src="./image/airline/airberlin.gif" style="height:80px; width:250px"></a></td>
+                    <td><a href="#" target= "_blank"><img src="./image/airline/airindia2.gif" style="height:80px; width:250px"></a></td>
+                    <td><a href="#" target= "_blank"><img src="./image/airline/airmadagascar.gif" style="height:80px; width:250px"></a></td>
+                </tr>
+                <tr>
+                    <td><a href="#" target= "_blank"><img src="./image/airline/ba2.gif" style="height:80px; width:250px"></a></td>
+                    <td><a href="#" target= "_blank"><img src="./image/airline/avianca1.gif" style="height:80px; width:250px"></a></td>
+                    <td><a href="#" target= "_blank"><img src="./image/airline/cathaypacific21.gif" style="height:80px; width:250px"></a></td>
+                    <td><a href="#" target= "_blank"><img src="./image/airline/china_airlines.gif" style="height:80px; width:250px"></a></td>
+                </tr>
+                <tr>
+                    <td><a href="#" target= "_blank"><img src="./image/airline/swissair3.gif" style="height:80px; width:250px"></a></td>
+                    <td><a href="#" target= "_blank"><img src="./image/airline/singapore_airlines2.gif" style="height:80px; width:250px"></a></td>
+                    <td><a href="#" target= "_blank"><img src="./image/airline/vietnamairlines.gif" style="height:80px; width:250px"></a></td>
+                    <td><a href="#" target= "_blank"><img src="./image/airline/tarom.gif" style="height:80px; width:250px"></a></td>
+                </tr>
+            </table>
+            <!--Category-->
+            <h1 class = "headline">CATEGORY</h1>
+            <div>
+                <ul class = "category">
+                    <li>Airlines</li>
+                    <li>Hotel</li>
+                    <li>Trip</li>
+                    <li>Car</li>
+                    <li>Payment</li>     
+                </ul>
+            </div>
+            <!--FAQ-->
+        </div>    
     </body>
     <footer>
-
+      
     </footer>
 </html>

@@ -99,57 +99,190 @@ body, html {
     background-image: url("./image/search_banner.jpg");
     background-position: top;
     min-width: 100%;
-    min-height: 60%;
+    min-height: 52%;
 }
 .banner .search_box {
     margin-top: 3%;
     margin-left: 15%;
     margin-bottom: 20px;
     padding: 20px;
-    background-color: white;
-    opacity: 1;
-    height: 400px;
-    width: 700px;
+    background-color: whitesmoke;
+    opacity: 0.9;
+    height: 350px;
+    width: 650px;
     display: inline-block;
     border-radius: 2%;
 }
-.search_box .search_form
-{
-    background-color: transparent;
-}
-.search_box .video {
-    margin-left: 110%;
-    margin-top: 3%;
-    height: 300px;
-    width: 550px;
-}
 
 .form_select_btn {
-    background-color:lavenderblush;
+    background-color: darkslategray;
     border: none;
-    color: black;
+    color: blanchedalmond;
     cursor: pointer;
-    height: 25px;
+    height: 30px;
     border-radius: 5%;
 }
 
 .form_select_btn:hover {
-    background-color: bisque;
+    background-color: slategray;
 }
 
 .form_select {
-    background-color: lightcyan;
+    background-color: lavender;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 14px;
-    width: 250px;
+    font-size: 16px;
+    width: 270px;
+    height: 30px;
+}
+
+.form_select_seat {
+    background-color: lavender;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 16px;
+    width: 150px;
     height: 30px;
 }
 
 .form_input {
-    background-color: lightcyan;
+    background-color: lavender;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 14px;
+    font-size: 16px;
     width: 50px;
     height: 30px;
     border:none;
 }
+
+.search_btn {
+    background-color: maroon;
+    border: none;
+    color: wheat;
+    cursor: pointer;
+    height: 40px;
+    width: 230px;
+    border-radius: 5%;
+    text-align: center;
+    float: right;
+    font-size: 14px;
+    margin: 5px;
+}
+
+.search_btn:hover {
+    background-color: rgb(95, 11, 11);
+}
+
+.headline {
+    border-left: 8px solid seagreen;
+    font-size: 20px;
+    border-spacing: 15px;
+    border-bottom: 1px solid seagreen;
+    padding-left: 20px;
+    color: seagreen;
+    height: 30px;
+}
+
+.main_content {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30px;
+}
+
+.best_price {
+    text-align: center;
+    color: black;
+    margin: 0 auto;
+    width: 80%;
+    
+}
+
+.best_price td {
+    padding: 8px;
+    margin: 10px;
+    height: 90px;
+    width: 100px;
+}
+
+.best_price a {
+    text-decoration: none;
+    font-size: 18px;
+    width: 100%;
+}
+
+.price {
+    font-size: 20px;
+    color: red;
+}
+
+.route {
+    background-color: seagreen;
+    height: 25px;
+    color:wheat;
+    padding: 5px;
+}
+
+.best_price_btn {
+    border: 1px solid grey;
+    border-radius: 5%;
+    padding-bottom: 10px;
+    background-color: mintcream;
+    height: 90px;
+}
+
+.best_price_btn:hover {
+    background-color:moccasin;
+}
+
+.list {
+    list-style-type: square;
+}
+.list a {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px;
+    
+}
+.list li {
+    margin-top: 20px;
+}
+.list a:hover {
+    text-decoration: underline;
+}
+
+.tablink {
+    background-color:seagreen;
+    color:wheat;
+    cursor: pointer;
+    font-size: 18px;
+    width: 300px;
+    height: 30px;
+    padding-top: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: none;
+    text-align: center;
+}
+
+.tablink:hover {
+    background-color: lightseagreen;
+}
+
+.tabcontent {
+    color: black;
+    display: none;
+}
+
+.airlines {
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.airlines td {
+    padding: 10px;
+}
+
+.catergory li{
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    display: inline-block;
+}
+
