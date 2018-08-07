@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <title>Airtrip Homepage</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+    </head> 
+    <body>
+        <!--top bar-->
+        <div class="top_bar">
+            <span class="slogan">Cheap airline tickets domestic/international</span>
+            <span class="btn_group">
+                <a href="#"><button class="top_button"><i class="fa fa-calendar" style="color:green"></i>Confirm booking</button></a>
+                <a href="#"><button class="top_button"><i class="fa fa-ban" style="color:green"></i>Cancel booking</button></a>
+                <a href="#"><button class="top_button"><i class="fa fa-user" style="color:green"></i>Log in</button></a>
+            </span>
+            <span class="dropdown">
+                <button class="dropbtn">User guide - Details<i class="fa fa-caret-down" style="color: tomato"></i></button>
+                <span class="dropdown-content">
+                    <a href="#">Register Account</a>
+                    <a href="#">Boarding</a>
+                    <a href="#">Insurance</a>
+                    <a href="#">Policy</a>
+                    <a href="#">Payment Process</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">About</a>
+                </span>
+            </span>
+            <span class="dropdown">
+                <button class="dropbtn" style="background: darkseagreen">Language <i class="fa fa-caret-down" style="color: tomato"></i></button>
+                <span class="dropdown-content">
+                    <a href="#">Japanese</a>
+                    <a href="#">English</a>
+                    <a href="#">Vietnamese</a>
+                </span>
+            </span>
+        </div> 
+        <!--navigation menu-->
+        <div class="navbar">
+            <img src="./image/logo.PNG" style="height: 75px; float: left">
+            <a href="#"><i class="fa fa-fw fa-home" style="font-size: 200%; color:seagreen"></i><br> Home</a> 
+            <a href="#"><i class="fa fa-plane" style="font-size: 200%; color:seagreen"></i><br> Domestic</a> 
+            <a href="#"><i class="fa fa-globe" style="font-size: 200%; color:seagreen"></i><br> International</a> 
+            <a href="#"><i class="fa fa-car" style="font-size: 200%; color:seagreen"></i><br> Car/Taxi</a> 
+            <a href="#"><i class="fa fa-subway" style="font-size: 200%; color:seagreen"></i><br> Subway</a> 
+            <a href="#"><i class="fa fa-building" style="font-size: 200%; color:seagreen"></i><br> Hotel</a>
+            <a href="#"><i class="fa fa-briefcase" style="font-size: 200%; color:seagreen"></i><br> Package</a> 
+            <a href="#"><i class="fa fa-fw fa-user" style="font-size: 200%; color:seagreen"></i><br> Login</a>
+            <a href="#"><i class="fa fa-address-book" style="font-size: 200%; color:seagreen"></i><br> Contact</a>
+            <a href="#"><i class="fa fa-fw fa-search" style="font-size: 200%; color:seagreen"></i><br> Search</a> 
+        </div>
+        <!--search banner-->
+        <div class="banner">
+            <div class="search_box">
+                <div class="search_form">
+                    <form method="post">
+                        <span class="btn_group">
+                            <button class="form_select_btn">One-way</button>
+                            <button class="form_select_btn">Round-trip</button>
+                        </span><br><br>
+                        <span>
+                            <table>
+                                <tr>
+                                    <td>From:</td>
+                                    <td></td>
+                                    <td>To:</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select name ="dep_port" class="form_select">
+                                        <option value="Tokyo(TYO)">Tokyo(TYO)</option>
+                                        <option value="Osaka(OSA)">'Osaka(OSA)</option>
+                                        <option value="Hiroshima(HIJ)">Hiroshima(HIJ)</option>
+                                        <option value="Sendai(SDJ)">Sendai(SDJ)</option>
+                                        <option value="Nagoya(NGO)">Nagoya(NGO)</option>
+                                        <option value="Fukoka(FUK)">Fukoka(FUK)</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <i class="fa fa-arrow-circle-right" style="color:green; padding:10px"></i>
+                                    </td>    
+                                    <td>
+                                        <select name ="arr_port" class="form_select">
+                                        <option value="Osaka(OSA)">'Osaka(OSA)</option>
+                                        <option value="Hiroshima(HIJ)">Hiroshima(HIJ)</option>
+                                        <option value="Sendai(SDJ)">Sendai(SDJ)</option>
+                                        <option value="Nagoya(NGO)">Nagoya(NGO)</option>
+                                        <option value="Fukoka(FUK)">Fukoka(FUK)</option>
+                                        <option value="Tokyo(TYO)">Tokyo(TYO)</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Departure day:</td>
+                                    <td></td>
+                                    <td style="display:none;">Comeback day</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="date" class="form_select" name="dep_date">
+                                    </td>
+                                    <td></td>
+                                    <td style="display:none;"> 
+                                        <input type="date" class="form_select" name="back_date">
+                                    </td>
+                                </tr>
+                            </table>
+                            Number of Passenegers:
+                            Adults: <input type ="text" name="adt_pax" class="form_input">
+                            --- Child: <input type ="text" name="chd_pax" class="form_input">
+                            --- Infant: <input type ="text" name="inf_pax" class="form_input">
+                           <br><br><input type ="submit" name="submit" value ="Search" class="form_select_btn"/>
+                        </span>
+                        <!--
+                             <iframe class="video" src="https://www.youtube.com/embed/LT5U7pVS6YE" style="opacity: 1;"></iframe>
+                        -->
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </body>
+    <footer>
+
+    </footer>
+</html>
