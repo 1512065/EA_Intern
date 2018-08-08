@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="vi">
     <head>
-        <title>Airtrip Homepage</title>
+        <title>Homepage</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" type="image/ico" href="https://cdn.airtrip.jp/image/pc/16.ico" sizes="16x16">
         <script>
             function openTab(name, elmnt) {
                 var i, tabcontent, tablinks;
@@ -18,7 +19,7 @@
                     tablinks[i].style.backgroundColor = "";
                 }
                 document.getElementById(name).style.display = "block";
-                elmnt.style.backgroundColor = "teal";
+                elmnt.style.backgroundColor = "firebrick";
             }   
             function roundtrip_mode(){
                 document.getElementById("backday").style.display = "inline-block";
@@ -28,6 +29,16 @@
                 document.getElementById("backday").style.display = "none";
                 document.getElementById("back_date").style.display = "none";
             };
+            /*
+            function showAnswer(name, elmnt) {
+                var i, question;
+                question = document.getElementsByClassName("question");
+                for (i = 0; i < question.length; i++) {
+                    question[i].style.backgroundColor = "";
+                }
+                document.getElementById(name).style.display = "block";
+                elmnt.style.backgroundColor = "firebrick";
+            }*/
         </script>    
     </head> 
     <body>
@@ -153,7 +164,7 @@
                         </form>
                     </td>
                     <td>
-                        <iframe src="https://www.youtube.com/embed/LT5U7pVS6YE" style="width: 550px; height: 300px; margin-left: 45%;"></iframe>
+                        <iframe src="https://www.youtube.com/embed/LT5U7pVS6YE" style="width: 450px; height: 250px; margin-left: 25%;"></iframe>
                     </td>
                     </tr>
                 </table>
@@ -162,7 +173,7 @@
         <!--Main content-->
         <div class="main_content">
             <!--On sale -->
-            <h1 class="headline">BEST PRICE - ON SALE</h1>
+            <h1 class="headline">BEST PRICES</h1>
             <table class ="best_price" cellspac>
                 <tr>
                     <td><a href="#"><div class="best_price_btn"><div class="route">Fukoka => Tokyo</div><span class="price"><br>&yen;8,890~</span></div></a></td>
@@ -173,7 +184,7 @@
                 <tr>
                     <td><a href="#"><div class="best_price_btn"><div class="route">Naha => Tokyo</div><span class="price"><br>&yen;6,890~</span></div></a></td>
                     <td><a href="#"><div class="best_price_btn"><div class="route">Kagoshima => Fukoka</div><span class="price"><br>&yen;8,150~</span></div></a></td>
-                    <td><a href="#"><div class="best_price_btn"><div class="route">Sapporo => Tokyo</div><span class="price"><br>&yen;4,990~</span></div></a></td>
+                    <td><a href="#"><div class="best_price_btn"><div class="route">Nagasaki => Tokyo</div><span class="price"><br>&yen;4,990~</span></div></a></td>
                     <td><a href="#"><div class="best_price_btn"><div class="route">Tokyo => Naha</div><span class="price"><br>&yen;5,990~</span></div></a></td>
                 </tr>
                 <tr>
@@ -184,17 +195,17 @@
                 </tr>
             </table>
             <!--Popular-->
-            <h1 class="headline">HOT TICKETS</h1>
-            <ul class="list">
-                <li><a href="#">Narita ⇒ Incheon (round trip) ¥ 16,740</a></li>
-                <li><a href="#">Kansai ⇒ Incheon (round trip) ¥ 16,240 </a></li>
-                <li><a href="#">Kansai ⇒ Taipei (round trip) ¥ 18,000</a></li>
-                <li><a href="#">Narita ⇒ Shanghai (round trip) ¥ 16,740</a></li>
-                <li><a href="#">Haneda ⇒ Ho Chi Minh (round trip) ¥ 22,000</a></li>
-                <li><a href="#">Haneda ⇒ Honolulu (round trip) ¥ 75,000</a></li>
+            <h1 class="headline">HOT TICKETS OVERSEA</h1>
+            <ul class="list" style="list-style-type: none; margin-left: 10%; margin-right: 10%;">
+                <li style="background-color: beige;"><span style="border-right: 1px solid black"><i class="fa fa-users"></i>91&nbsp;</span><a href="#">Narita ⇒ Incheon (round trip) ¥ 16,740 </a></li>
+                <li style="background-color: beige;"><span style="border-right: 1px solid black"><i class="fa fa-users"></i>76&nbsp;</span><a href="#">Kansai ⇒ Incheon (round trip) ¥ 16,240 </a></li>
+                <li style="background-color: beige;"><span style="border-right: 1px solid black"><i class="fa fa-users"></i>63&nbsp;</span><a href="#">Kansai ⇒ Taipei (round trip) ¥ 18,000</a></li>
+                <li style="background-color: beige;"><span style="border-right: 1px solid black"><i class="fa fa-users"></i>61&nbsp;</span><a href="#">Narita ⇒ Shanghai (round trip) ¥ 16,740</a></li>
+                <li style="background-color: beige;"><span style="border-right: 1px solid black"><i class="fa fa-users"></i>52&nbsp;</span><a href="#">Haneda ⇒ Ho Chi Minh (round trip) ¥ 22,000</a></li>
+                <li style="background-color: beige;"><span style="border-right: 1px solid black"><i class="fa fa-users"></i>21&nbsp;</span><a href="#">Haneda ⇒ Honolulu (round trip) ¥ 75,000</a></li>
             </ul>    
             <!--Announcement-->
-            <h1 class="headline">ANNOUNCEMENT</h1>
+            <br>        
             <button class="tablink" onclick="openTab('All', this)" id="defaultOpen">All</button>
             <button class="tablink" onclick="openTab('Airlines', this)">Airlines announcements</button>
             <button class="tablink" onclick="openTab('Company', this)">Company announcements</button>
@@ -211,7 +222,7 @@
             </div>
             <div id="Airlines" class="tabcontent">
                 <ul class="list" style="list-style-type: square;">
-                    <li><a href="http://www.evolableasia.com/airline_news/791" target= "_blank">[8/1] Notification of delay from 16 o'clock VNL (vanilla air</a></li>
+                    <li><a href="http://www.evolableasia.com/airline_news/791" target= "_blank">[8/1] Notification of delay from 16 o'clock VNL (vanilla air)</a></li>
                     <li><a href="http://www.evolableasia.com/airline_news/777" target= "_blank">[7/26] 15 o'clock Announcement of departure arrival time, flight name change, cancellation from ANA (All Nippon Airways) and ADO (Air Do)</a></li>
                     <li><a href="http://www.evolableasia.com/airline_news/771" target= "_blank">[7/20] Canceled from 14 o'clock ADO (Air Do), APJ (Peach Aviation) · Notice of landing to other airports</a></li>
                 </ul>
@@ -223,44 +234,224 @@
             </div>
             <script>
                 document.getElementById("defaultOpen").click();
-            </script>    
+            </script> 
             <!--Airlines-->
-            <h1 class="headline">AIRLINES</h1>
-            <table class="airlines">
+            <h1 class="headline">POPULAR AIRLINES</h1>
+            <table class="airlines" >
                 <tr>
-                    <td><a href="#" target= "_blank"><img src="./image/airline/air_new_zealand_logo2.gif" style="height:80px; width:250px"></a></td>
-                    <td><a href="#" target= "_blank"><img src="./image/airline/airberlin.gif" style="height:80px; width:250px"></a></td>
-                    <td><a href="#" target= "_blank"><img src="./image/airline/airindia2.gif" style="height:80px; width:250px"></a></td>
-                    <td><a href="#" target= "_blank"><img src="./image/airline/airmadagascar.gif" style="height:80px; width:250px"></a></td>
+                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/air_new_zealand_logo2.gif" style="height:70px; width:250px">
+                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
+                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/airberlin.gif" style="height:70px; width:250px">
+                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
+                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/airindia2.gif" style="height:70px; width:250px">
+                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
+                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/airmadagascar.gif" style="height:70px; width:250px">
+                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
                 </tr>
                 <tr>
-                    <td><a href="#" target= "_blank"><img src="./image/airline/ba2.gif" style="height:80px; width:250px"></a></td>
-                    <td><a href="#" target= "_blank"><img src="./image/airline/avianca1.gif" style="height:80px; width:250px"></a></td>
-                    <td><a href="#" target= "_blank"><img src="./image/airline/cathaypacific21.gif" style="height:80px; width:250px"></a></td>
-                    <td><a href="#" target= "_blank"><img src="./image/airline/china_airlines.gif" style="height:80px; width:250px"></a></td>
+                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/ba2.gif" style="height:70px; width:250px">
+                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
+                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/avianca1.gif" style="height:70px; width:250px">
+                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
+                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/cathaypacific21.gif" style="height:70px; width:250px">
+                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
+                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/china_airlines.gif" style="height:70px; width:250px">
+                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
                 </tr>
                 <tr>
-                    <td><a href="#" target= "_blank"><img src="./image/airline/swissair3.gif" style="height:80px; width:250px"></a></td>
-                    <td><a href="#" target= "_blank"><img src="./image/airline/singapore_airlines2.gif" style="height:80px; width:250px"></a></td>
-                    <td><a href="#" target= "_blank"><img src="./image/airline/vietnamairlines.gif" style="height:80px; width:250px"></a></td>
-                    <td><a href="#" target= "_blank"><img src="./image/airline/tarom.gif" style="height:80px; width:250px"></a></td>
+                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/swissair3.gif" style="height:70px; width:250px">
+                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
+                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/singapore_airlines2.gif" style="height:70px; width:250px">
+                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
+                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/vietnamairlines.gif" style="height:70px; width:250px">
+                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
+                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/tarom.gif" style="height:70px; width:250px">
+                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
                 </tr>
             </table>
+            <div class="notice">
+                Use the services of each company wisely, more deals Airur reservation!<br>
+                Point ① <br>
+                If the schedule of the trip is decided, the early reservation is definitely profitable!<br>
+                If you use the ANA 's Journey Discount , JAL' s early departure service such as airline prearranged service, you will not be disappointed at the time of reservation getting crowded, such as summer vacation, winter vacation, golden week, graduation travel season and year - end and new year holiday I can find a ticket.
+            </div>
+            <div class="notice">
+                Point ②<br>
+                Thorough utilization of LCC (low cost carrier) !<br>
+                Peach · Aviation , Jetstar Japan , Vanilla Air etc. LCC fluctuates depending on availability of the flight to be booked.<br>
+                Even on the same route on the same day, let's thoroughly compare and consider flights with airlines and look for a great ticket.                            
+            </div>
+            <!--Airport-->
+            <h1 class="headline">DOMESTIC AIRPORTS</h1>
+            <div class="airport_content">
+                <div class="airport_blue">
+                    <div class="header">Hokkaido · Tohoku area </div>
+                    <div>
+                        <ul class="airport">
+                            <li><a href="#" target= "_blank">New Chitose Airport</a></li>
+                            <li><a href="#" target= "_blank">Kushiro Airport</a></li>
+                            <li><a href="#" target= "_blank">Hakodate Airport</a></li>
+                            <li><a href="#" target= "_blank">Sendai Airport</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <br>
+                <div class="airport_red">
+                    <div class="header">Kanto · Chubu area</div>
+                    <div>
+                        <ul class="airport">
+                            <li><a href="#" target= "_blank">Haneda Airport</a></li>
+                            <li><a href="#" target= "_blank">Narita Airport</a></li>
+                            <li><a href="#" target= "_blank">Chubu International Airport</a></li>
+                            <li><a href="#" target= "_blank">Komaki Airport</a></li>
+                            <li><a href="#" target= "_blank">Niigata Airport</a></li>
+                            <li><a href="#" target= "_blank">Komatsu Airport</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <br>
+                <div class="airport_green">
+                    <div class="header">Kinki · China · Shikoku area</div>
+                    <div>
+                        <ul class="airport">
+                            <li><a href="#" target= "_blank">Itami Airport</a></li>
+                            <li><a href="#" target= "_blank">Kansai International Airport</a></li>
+                            <li><a href="#" target= "_blank">Kobe Airport</a></li>
+                            <li><a href="#" target= "_blank">Okayama Airport</a></li>
+                            <li><a href="#" target= "_blank">Hiroshima Airport</a></li>
+                            <li><a href="#" target= "_blank">Kochi Ryoma Airport</a></li>
+                            <li><a href="#" target= "_blank">Matsuyama Airport</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <br>
+                <div class="airport_brown">
+                    <div class="header">Kyushu · Okinawa Area</div>
+                    <div>
+                        <ul class="airport">
+                            <li><a href="#" target= "_blank">Fukouka Airport</a></li>
+                            <li><a href="#" target= "_blank">Onita Airport</a></li>
+                            <li><a href="#" target= "_blank">Nagasaki Airport</a></li>
+                            <li><a href="#" target= "_blank">Kumamoto Airport</a></li>
+                            <li><a href="#" target= "_blank">Miyazaki Airport</a></li>
+                            <li><a href="#" target= "_blank">Kagoshima Airport</a></li>
+                            <li><a href="#" target= "_blank">Naha Airport</a></li>
+                            <li><a href="#" target= "_blank">Ishigaki Airport</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--FAQ-->
+            <h1 class="headline">Frequently Asked Questions</h1>
+            <div class="question">Question: I'd like to change my ticket.</div><br>
+            <div id="Q1" class="answer">
+                Answer:<br>
+                    We deal with changeable freight and unchangeable freight. <br>
+                    If you have a changeable freight, you can change it only for the same section and the same airline. <br>
+                    If you wish to change, please contact directly to the airline company you use. <br>
+                    In case of no changeable fare it is necessary to cancel once and apply again.<br>
+            </div>
+            <div class="question">Question: I want to cancel my ticket.</div><br>
+            <div id="Q2" class="answer">
+                Answer:<br>
+                    In case of cancellation before payment, there is no need to contact us.<br> 
+                    In case you wish to cancel after payment, we will accept cancellation from the special form or by phone.<br> 
+                    Please confirm <a href="#">here</a> for details.
+            </div>
+            <div class="question">Question: What if the airplane is delayed or canceled?</div><br>
+            <div id="Q3" class="answer">
+                Answer:<br>
+                    In the case of cancellation due to late cancellation, it is possible to withdraw the entire ticket price. <br>
+                    Regarding flight cancellation / delay, it will be judged on the previous day or the same day by the airline. <br>
+                    Please check the flight information from <a href="#">here</a>.
+            </div>
+            <div class="question">Question: I would like to specify a seat.</div><br>
+            <div id="Q4" class="answer">
+                Answer:<br>
+                    You can specify your seat at the counter at the airport or you can do it on the airline of each airline in advance. If you specify in advance, we will send you confirmation number. <br>
+                    As soon as we receive your booking number, you can specify your seat if you make a reservation confirmation on each airline HP.<br>
+            </div>
+            <div class="question">Question: How much is the child fare?</div><br>
+            <div id="Q5" class="answer">
+                Answer:<br>
+                    The child fare is basically half of the adult normal fare. If the fare for adults is a discount fare, cheap fare amount is applied by comparing the fare amount of the selected fare and the pediatric freight amount.<br> 
+                    Regarding the specific amount, please confirm by the breakdown which will be displayed at the time of application.<br>
+            </div>                        
+            <div class="question" >Question: When has become a pediatric fare?</div><br>
+            <div id="Q6" class="answer">
+                Answer:<br>
+                    If you are using an airline other than LCC, children aged 3 and over need an infant fare. <br>
+                    For children under 3 years of age, if you do not need a seat (when sitting on the adult's knee accompanying you), one person accompanying you can board one person free of charge.<br>
+                    If you use LCC, children aged 2 and over may have guidance with adults same amount fare. <br>
+                    Children under 2 years old can sit on the lap of one accompanied person for each person, but please be aware that there is a possibility that the fee will be 1,500 yen + handling fee will be charged
+            </div>
             <!--Category-->
             <h1 class = "headline">CATEGORY</h1>
             <div>
-                <ul class = "category">
-                    <li>Airlines</li>
-                    <li>Hotel</li>
-                    <li>Trip</li>
-                    <li>Car</li>
-                    <li>Payment</li>     
+                <ul id = "category">
+                    <li><a href="#" target= "_blank"><img src="./image/train.jpg" style="height:150px; width:200px"><br>Trains</a></li>
+                    <li><a href="#" target= "_blank"><img src="./image/car.jpg" style="height:150px; width:200px"><br>Cars</a></li>
+                    <li><a href="#" target= "_blank"><img src="./image/travel.jpg" style="height:150px; width:200px"><br>Travelling</a></li>
+                    <li><a href="#" target= "_blank"><img src="./image/insurance.jpg" style="height:150px; width:200px"><br>Travel insurance</a></li>
+                    <li><a href="#" target= "_blank"><img src="./image/airplane.png" style="height:150px; width:200px"><br>Airways</a></li>
+                    <li><a href="#" target= "_blank"><img src="./image/hotel.jpg" style="height:150px; width:200px"><br>Hotel</a></li>
                 </ul>
             </div>
-            <!--FAQ-->
-        </div>    
+            <!--More info-->
+            <div class="info">
+                <div class="info_col">
+                    <h1 class = "headline">Contact us</h1>
+                    <img src="./image/contact.png" style="margin-left: 10px;"><br>
+                    <h1 class = "headline">Payment method</h1>
+                    <span>When using credit card</span><br>
+                    <img src="./image/creditcards.png" style="margin-left: 10px;"><hr>
+                    <span>Convenience store settlement </span><br>
+                    <img src="./image/payments.png" style="margin-left: 10px;"><hr>
+                    <span>Paidy next month payment (convenience store / bank)  </span><br>
+                    <img src="./image/paidy.png" style="margin-left: 10px; height: 40px; width:90px;">
+                </div>
+                <div class="info_col">
+                    <h1 class = "headline">Handling Airline</h1>
+                    <img src="./image/airline/air_new_zealand_logo2.gif" style="margin-left: 10px;height:40px; width:100px; border: 1px solid gray; padding: 1px;">
+                    <img src="./image/airline/airberlin.gif" style="margin-left: 10px;height:40px; width:100px; border: 1px solid gray; padding: 1px;">
+                    <img src="./image/airline/airindia2.gif" style="margin-left: 10px;height:40px; width:100px; border: 1px solid gray; padding: 1px;">
+                    <img src="./image/airline/airmadagascar.gif" style="margin-left: 10px;height:40px; width:100px; border: 1px solid gray; padding: 1px;">
+                    <img src="./image/airline/avianca1.gif" style="margin-left: 10px;height:40px; width:100px; border: 1px solid gray; padding: 1px;">
+                    <img src="./image/airline/ba2.gif" style="margin-left: 10px;height:40px; width:100px; border: 1px solid gray; padding: 1px;">
+                    <img src="./image/airline/cathaypacific21.gif" style="margin-left: 10px;height:40px; width:100px; border: 1px solid gray; padding: 1px;">
+                    <img src="./image/airline/china_airlines.gif" style="margin-left: 10px;height:40px; width:100px; border: 1px solid gray; padding: 1px;">
+                    <img src="./image/airline/singapore_airlines2.gif" style="margin-left: 10px;height:40px; width:100px; border: 1px solid gray; padding: 1px;">
+                    <img src="./image/airline/swissair3.gif" style="margin-left: 10px;height:40px; width:100px; border: 1px solid gray; padding: 1px;">
+                    <img src="./image/airline/vietnamairlines.gif" style="margin-left: 10px;height:40px; width:100px; border: 1px solid gray; padding: 1px;">
+                    <img src="./image/airline/tarom.gif" style="margin-left: 10px;height:40px; width:100px; border: 1px solid gray; padding: 1px;">
+                    <h1 class = "headline">Camper car rental</h1>
+                    <a href="#" style="margin-left: 10px;">Camper and rental</a>
+                </div>               
+            </div>
+        </div>
+        <!--App info-->
+        <div class="app_info">
+            <div class="app_col" style="margin-left: 15%; border-left:none;">
+                <span class="head">Information on Airri member service</span><br>
+                <span>For members, points of 2% of the ticket purchase price are accumulated, and it is possible to exchange to various other points.</span>                 
+            </div>
+            <div class="app_col">
+                <span class="head">Ari Torri friend invitation project</span><br>
+                <span>If you download Air Triads application, get an invitation code and share it to your friends, you give 500 points to your friend, friends are 500 yen off when purchasing tickets.</span>       
+            </div>
+            <div class="app_col">
+                <span class="head">Air Tori application download</span><br>
+                <img src="./image/app_store.png" style="height:30px; width:100px; margin-left: 20px;"><br>
+                <span>Download from "App Store (iTunes Store)"</span> <br>
+                <img src="./image/google_store.png" style="height:30px; width:100px; margin-left: 20px;"><br>
+                <span>Download from "Google Play".</span>     
+            </div>
+        </div> 
     </body>
+    <!--Footer-->
     <footer>
-      
+         
     </footer>
 </html>

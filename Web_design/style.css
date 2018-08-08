@@ -3,6 +3,10 @@ body, html {
     height: 100%;
     margin: 0;   
 }
+
+body a {
+    color: black;
+}
 .top_bar {
     background-color: seagreen;
     height: 35px;
@@ -74,12 +78,14 @@ body, html {
 }
 
 .navbar {
-   
+    overflow: hidden;
     background-color: rgb(240, 240, 247);
-    overflow: auto;
     text-align: center;
-    margin: 10px 200px 10px 150px;
-
+    margin: auto;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 80%;
+    height: 75px;
 }
   
 .navbar a {
@@ -129,7 +135,7 @@ body, html {
 
 .form_select {
     background-color: lavender;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: inherit;
     font-size: 16px;
     width: 270px;
     height: 30px;
@@ -137,7 +143,7 @@ body, html {
 
 .form_select_seat {
     background-color: lavender;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: inherit;
     font-size: 16px;
     width: 150px;
     height: 30px;
@@ -145,7 +151,7 @@ body, html {
 
 .form_input {
     background-color: lavender;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: inherit;
     font-size: 16px;
     width: 50px;
     height: 30px;
@@ -244,7 +250,7 @@ body, html {
     margin-top: 20px;
 }
 .list a:hover {
-    text-decoration: underline;
+    color: royalblue;
 }
 
 .tablink {
@@ -261,7 +267,7 @@ body, html {
 }
 
 .tablink:hover {
-    background-color: lightseagreen;
+    background-color: teal;
 }
 
 .tabcontent {
@@ -272,17 +278,173 @@ body, html {
 .airlines {
     text-align: center;
     margin: 0 auto;
-    width: 80%;
+    margin-bottom: 20px;
 }
 
-.airlines td {
-    padding: 10px;
+#category {
+    list-style-type: none;
+    overflow: hidden;
+    height: 200px;
 }
 
-.catergory li{
-    text-align: center;
-    margin: 0 auto;
-    width: 80%;
+#category li {
+    float: left;
+    overflow: hidden;
+}
+
+#category li a {
     display: inline-block;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    overflow: hidden;
 }
 
+#category li:hover {
+    background-color: antiquewhite;
+}
+
+.question {
+    background-color:lightcyan;
+    color:firebrick;
+    font-size: 18px;
+    width: 80%;
+    height: 25px;
+    padding: 5px;
+    font-family: inherit;
+    border: none;
+    text-align: center;
+    margin-left: 10%;
+    overflow: hidden;
+    margin-top: 20px;
+    font-weight: bold;
+}
+/*
+.question:hover {
+    background-color: firebrick;
+}
+*/
+.answer {
+    color: black;
+    /*display: none;*/
+    font-size: 16px;
+    width: 70%;
+    margin-left: 15%;
+    background-color: lightgoldenrodyellow;
+}
+
+.notice {
+    background-color: gainsboro;
+    padding: 10px;
+    border: 1px solid white;
+}
+
+.airport_content {
+    width: 1300px;
+    margin: auto;
+}
+
+.header {
+    height: 20px;
+    padding: 5px;
+    color: white;
+}
+
+.airport {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+.airport li {
+    float: left;
+    overflow: hidden;
+    width: 310px;
+}
+
+.airport li a {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    overflow: hidden;
+    width: 280px;
+    line-height: 70px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.airport li a:hover {
+    background-color: antiquewhite;
+}
+
+.airport_blue, .airport_blue .airport li a {
+    border: 1px solid royalblue;
+}
+.airport_blue .header {
+    background-color: royalblue;
+}
+
+.airport_red, .airport_red .airport li a {
+    border: 1px solid firebrick;
+}
+
+.airport_red .header {
+    background-color: firebrick;
+}
+
+.airport_green, .airport_green .airport li a {
+    border: 1px solid teal;
+}
+
+.airport_green .header {
+    background-color: teal;
+}
+
+.airport_brown, .airport_brown .airport li a {
+    border: 1px solid darkgoldenrod;
+}
+
+.airport_brown .header {
+    background-color: darkgoldenrod;
+}
+
+.info_col {
+    float: left;
+    width: 40%;
+    padding: 10px;
+    height: 370px;
+    overflow :hidden;
+}
+
+.info {
+    margin-left: 15%;
+    display: block;
+}
+.info:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.app_info {
+    background-color: gainsboro;
+    margin-top: 20px;
+    height: 300px;
+}
+
+.app_col {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    height: 250px;
+    overflow :hidden;
+    border-left: 1px solid white
+}
+
+.app_col .head {
+    color: royalblue;
+}
