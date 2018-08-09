@@ -11,6 +11,7 @@ body a {
     background-color: seagreen;
     height: 35px;
     color:white;
+    overflow: hidden;
 }
 
 .top_bar .slogan {
@@ -21,6 +22,7 @@ body a {
 
 .top_bar .btn_group {
     margin-left: 25%;
+    overflow: hidden;
 }
 
 .btn_group .top_button {
@@ -30,6 +32,7 @@ body a {
     cursor: pointer;
     height: 25px;
     border-radius: 5%;
+    overflow: hidden;
 }
 
 .top_button:hover {
@@ -103,21 +106,9 @@ body a {
   
 .banner {
     background-image: url("./image/search_banner.jpg");
-    background-position: top;
+    background-position: yop;
     min-width: 100%;
-    min-height: 52%;
-}
-.banner .search_box {
-    margin-top: 3%;
-    margin-left: 15%;
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: whitesmoke;
-    opacity: 0.9;
-    height: 350px;
-    width: 650px;
-    display: inline-block;
-    border-radius: 2%;
+    height: 500px;
 }
 
 .form_select_btn {
@@ -165,11 +156,12 @@ body a {
     cursor: pointer;
     height: 40px;
     width: 230px;
-    border-radius: 5%;
+    border-radius: 5px;
     text-align: center;
     float: right;
     font-size: 14px;
-    margin: 5px;
+    padding: 5px;
+    margin-top: 20px;
 }
 
 .search_btn:hover {
@@ -487,4 +479,35 @@ body a {
     color: darkslategray;
     vertical-align: middle;
     line-height: 30px;
+}
+
+.search_form {
+    position: relative;
+    margin-left: 15%;
+    height: 330px;
+    width: 670px;
+    padding-top: 50px;
+    display: inline-block;
+}
+
+.form_background {
+    position: absolute;
+    background-color: whitesmoke;
+    opacity: 0.7;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+
+}
+
+.form_content {
+    position: relative;
+    padding: 15px;
+}
+
+#banner_video {
+    position: absolute;
+    display: inline-block;
+    margin-left: 50px;
+    margin-top: 100px;
 }

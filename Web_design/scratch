@@ -1,0 +1,82 @@
+<div class="search_box">
+                <table>
+                    <tr>
+                    <td>
+                        <span class="btn_group">
+                            <button class="form_select_btn" onclick="oneway_mode();">One-way</button>
+                            <button class="form_select_btn" id="rt_mode" onclick="roundtrip_mode();">Round-trip</button>
+                        </span><br><br>
+                        <form method="post">
+                            <span>
+                                <table>
+                                    <tr>
+                                        <td>From:</td>
+                                        <td></td>
+                                        <td>To:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name ="dep_port" class="form_select">
+                                            <option value="Tokyo(TYO)">Tokyo(TYO)</option>
+                                            <option value="Osaka(OSA)">Osaka(OSA)</option>
+                                            <option value="Hiroshima(HIJ)">Hiroshima(HIJ)</option>
+                                            <option value="Sendai(SDJ)">Sendai(SDJ)</option>
+                                            <option value="Nagoya(NGO)">Nagoya(NGO)</option>
+                                            <option value="Fukoka(FUK)">Fukoka(FUK)</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <i class="fa fa-arrow-circle-right" style="color:green; padding:15px"></i>
+                                        </td>    
+                                        <td>
+                                            <select name ="arr_port" class="form_select">
+                                            <option value="Osaka(OSA)">Osaka(OSA)</option>
+                                            <option value="Hiroshima(HIJ)">Hiroshima(HIJ)</option>
+                                            <option value="Sendai(SDJ)">Sendai(SDJ)</option>
+                                            <option value="Nagoya(NGO)">Nagoya(NGO)</option>
+                                            <option value="Fukoka(FUK)">Fukoka(FUK)</option>
+                                            <option value="Tokyo(TYO)">Tokyo(TYO)</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Departure day:</td>
+                                        <td></td>
+                                        <td><span id="backday" style="display: none">Comeback day:</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="date" class="form_select" name="dep_date">
+                                        </td>
+                                        <td></td>
+                                        <td> 
+                                            <input type="date" class="form_select" id="back_date" style="display:none">
+                                        </td>
+                                    </tr>
+                                </table>
+                            <hr>  
+                            </span>
+                            <span>Seat Class:</span><span style="margin-left: 25%">Number of Passenegers:</span><br>
+                            <span> 
+                                <select name ="seat_type" class="form_select_seat">
+                                <option value="Economy">Economy</option>
+                                <option value="Bussiness">Bussiness</option>
+                                <option value="First">First</option>
+                                </select>
+                            </span>
+                            <span style="margin-left:10%;">
+                                Adults: <input type ="number" name="adt_pax" class="form_input" min="1">
+                                -- Child: <input type ="number" name="chd_pax" class="form_input">
+                                -- Infant: <input type ="number" name="inf_pax" class="form_input">
+                            <br><br>
+                            <button type="submit" class="search_btn"><i class="fa fa-send" style="font-size: 180%; color: wheat"></i>
+                            SEARCH BEST FLIGHTS</button>
+                            </span>
+                        </form>
+                    </td>
+                    <td>
+                        <iframe src="https://www.youtube.com/embed/LT5U7pVS6YE" style="width: 450px; height: 250px; margin-left: 25%;"></iframe>
+                    </td>
+                    </tr>
+                </table>
+            </div>
