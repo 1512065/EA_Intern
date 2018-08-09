@@ -3,7 +3,9 @@ body, html {
     height: 100%;
     margin: 0;   
 }
-
+body {
+    margin: auto;
+}
 body a {
     color: black;
 }
@@ -11,38 +13,36 @@ body a {
     background-color: seagreen;
     height: 35px;
     color:white;
-    overflow: hidden;
+    width: 100%;
 }
 
 .top_bar .slogan {
-    margin-left: 10%; 
     display: inline-block;
-    margin-top: 10px;
+   
 }
 
-.top_bar .btn_group {
-    margin-left: 25%;
-    overflow: hidden;
+.btn_group {
+    margin-left: 5px;
 }
-
-.btn_group .top_button {
+.top_button {
     background-color:wheat;
     border: none;
     color: black;
     cursor: pointer;
     height: 25px;
     border-radius: 5%;
-    overflow: hidden;
+   
 }
 
 .top_button:hover {
     background-color: rgb(255, 245, 226);
 }
 
-.top_bar .dropdown {
+.dropdown {
     margin-top: 5px;
     display: inline-block;
     position: relative;
+    overflow: visible;
 }
 
 .dropdown .dropbtn {
@@ -50,6 +50,7 @@ body a {
     color: black;
     background-color: lavender;
     height: 25px;
+    
 }
 
 .top_bar a:hover, .dropdown:hover .dropbtn {
@@ -60,8 +61,9 @@ body a {
     display: none;
     position: absolute;
     background-color: gainsboro;
-    min-width: 150px;
-    z-index: 1;
+    z-index: 2;
+    overflow: visible;
+    
 }
 
 .dropdown-content a {
@@ -70,6 +72,8 @@ body a {
     display: block;
     background-color: darkseagreen;
     padding: 5px;
+    overflow: visible;
+    min-width: 150px;
 }
 
 .dropdown-content a:hover {
@@ -80,6 +84,14 @@ body a {
     display: block;
 }
 
+.new {
+    display: none;
+    position: absolute;
+    background-color: gainsboro;
+    min-width:200px;
+    overflow: visible;
+}
+
 .navbar {
     overflow: hidden;
     background-color: rgb(240, 240, 247);
@@ -87,7 +99,7 @@ body a {
     margin: auto;
     margin-top: 8px;
     margin-bottom: 8px;
-    width: 80%;
+    width: 1200px;
     height: 75px;
 }
   
@@ -106,9 +118,10 @@ body a {
   
 .banner {
     background-image: url("./image/search_banner.jpg");
-    background-position: yop;
+    background-position: center;
     min-width: 100%;
     height: 500px;
+    margin: auto;
 }
 
 .form_select_btn {
@@ -118,32 +131,30 @@ body a {
     cursor: pointer;
     height: 30px;
     border-radius: 5%;
+    margin-left: 10px;
 }
 
 .form_select_btn:hover {
     background-color: slategray;
 }
 
-.form_select {
-    background-color: lavender;
+.form_select, .form_select_seat, .form_input {
+    background-color: lightgoldenrodyellow;
     font-family: inherit;
     font-size: 16px;
+}
+
+.form_select {
     width: 270px;
     height: 30px;
 }
 
 .form_select_seat {
-    background-color: lavender;
-    font-family: inherit;
-    font-size: 16px;
     width: 150px;
     height: 30px;
 }
 
 .form_input {
-    background-color: lavender;
-    font-family: inherit;
-    font-size: 16px;
     width: 50px;
     height: 30px;
     border:none;
@@ -176,27 +187,27 @@ body a {
     padding-left: 20px;
     color: seagreen;
     height: 30px;
+    width: 1000px;
 }
 
 .main_content {
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 30px;
-}
-
-.best_price {
-    text-align: center;
-    color: black;
+    width: 960px; 
     margin: 0 auto;
-    width: 80%;
-    
 }
 
-.best_price td {
-    padding: 8px;
+.best_price, .airlines {
+    text-align: center;
+    margin: 0 auto;
+    display: inline-block;
+    list-style-type: none; 
+}
+
+.best_price li, .airlines li {
+    float: left;
+    padding: 5px;
     margin: 10px;
     height: 90px;
-    width: 100px;
+    width: 200px;
 }
 
 .best_price a {
@@ -267,16 +278,11 @@ body a {
     display: none;
 }
 
-.airlines {
-    text-align: center;
-    margin: 0 auto;
-    margin-bottom: 20px;
-}
-
 #category {
     list-style-type: none;
     overflow: hidden;
-    height: 200px;
+    height: 140px;
+    padding: 0;
 }
 
 #category li {
@@ -287,10 +293,10 @@ body a {
 #category li a {
     display: inline-block;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
     text-decoration: none;
-    font-size: 18px;
-    overflow: hidden;
+    font-size: 16px;
+  
 }
 
 #category li:hover {
@@ -327,13 +333,14 @@ body a {
 }
 
 .notice {
+    width: 1000px;
     background-color: gainsboro;
     padding: 10px;
-    border: 1px solid white;
+    border: 2px solid white;
 }
 
 .airport_content {
-    width: 1300px;
+    width: 1030px;
     margin: auto;
 }
 
@@ -351,7 +358,7 @@ body a {
 .airport li {
     float: left;
     overflow: hidden;
-    width: 310px;
+    width: 240px;
 }
 
 .airport li a {
@@ -361,7 +368,7 @@ body a {
     text-decoration: none;
     font-size: 18px;
     overflow: hidden;
-    width: 280px;
+    width: 220px;
     line-height: 70px;
     text-align: center;
     vertical-align: middle;
@@ -407,14 +414,14 @@ body a {
 
 .info_col {
     float: left;
-    width: 40%;
+    width: 430px;
     padding: 10px;
     height: 370px;
     overflow :hidden;
 }
 
 .info {
-    margin-left: 15%;
+    margin-left: 30px;
     display: block;
 }
 .info:after {
@@ -424,9 +431,9 @@ body a {
 }
 .app_info {
     background-color: gainsboro;
-    margin: auto;
     height: 200px;
     overflow: hidden;
+    width: 100%;
 }
 
 .app_col {
@@ -483,7 +490,6 @@ body a {
 
 .search_form {
     position: relative;
-    margin-left: 15%;
     height: 330px;
     width: 670px;
     padding-top: 50px;
@@ -510,4 +516,81 @@ body a {
     display: inline-block;
     margin-left: 50px;
     margin-top: 100px;
+    overflow: hidden;
+}
+
+#top_menu
+{
+    margin-left: 20px; 
+}
+
+#top_menu ul
+{
+	list-style:none;
+	display: inline-block;
+	margin:0;
+    padding: 0;
+}
+
+#top_menu ul a
+{
+	display:block;
+	color:#333;
+	text-decoration:none;
+	font-size:16px;
+    margin-top: 4px;
+
+}
+
+#top_menu ul li
+{
+	position:relative;
+	float:left;
+	margin:0;
+	padding:0;
+}
+
+
+#top_menu ul li:hover
+{
+	background:#f6f6f6
+}
+
+#top_menu ul ul
+{
+	display:none;
+	position:absolute;
+
+	left:0;
+	background:#fff;
+	padding:0
+}
+
+#top_menu ul ul li
+{
+	float:none;
+	width:200px
+}
+
+#top_menu ul ul a
+{
+	line-height: 100%;
+	padding: 10px 15px
+}
+
+#top_menu ul ul ul
+{
+	top:0;
+	left:100%
+}
+
+#top_menu ul li:hover > ul
+{
+	display:block;
+}
+
+#top_menu .on_menu {
+    margin-top: 5px;
+    background-color: goldenrod;
+    padding-bottom: 5px;
 }

@@ -44,16 +44,19 @@
     <body>
         <!--top bar-->
         <div class="top_bar">
+            <div style="width: 1300px; margin: 0 auto;">
             <span class="slogan">Cheap airline tickets domestic/international</span>
-            <span class="btn_group">
+            <span class="btn_group" style="margin-left: 200px;">
                 <a href="#"><button class="top_button"><i class="fa fa-calendar" style="color:green"></i>Confirm booking</button></a>
                 <a href="#"><button class="top_button"><i class="fa fa-ban" style="color:green"></i>Cancel booking</button></a>
                 <a href="#"><button class="top_button"><i class="fa fa-user" style="color:green"></i>Log in</button></a>
             </span>
+            <!--
             <span class="dropdown">
                 <button class="dropbtn">User guide - Details<i class="fa fa-caret-down" style="color: tomato"></i></button>
                 <span class="dropdown-content">
-                    <a href="#">Register Account</a>
+                    <div class="register"><a href="#">Register Account</a>
+                    </div>
                     <a href="#">Boarding</a>
                     <a href="#">Insurance</a>
                     <a href="#">Policy</a>
@@ -70,6 +73,27 @@
                     <a href="#">Vietnamese</a>
                 </span>
             </span>
+            -->
+            <span id="top_menu">
+                <ul>
+                    <li><a href="#" class="on_menu">User-guide</a>
+                        <ul>
+                            <li><a href="#">Boarding</a>
+                                <ul>
+                                    <li><a href="#">Domestic</a></li>
+                                    <li><a href="#">International</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Insurance</a></li>
+                            <li><a href="#">Policy</a></li>
+                            <li><a href="#">Payment Process</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">About</a></li>
+                        </ul>
+                    </li>
+                 </ul>   
+                </span>
+            </div>
         </div> 
         <!--navigation menu-->
         <div class="navbar">
@@ -87,6 +111,7 @@
         </div>
         <!--search banner-->
         <div class="banner">
+            <div style="width:1200px;  margin: 0 auto;">
             <!--form-->
             <div class="search_form">
                 <div class="form_background"></div>
@@ -152,33 +177,28 @@
             </div>
             <!--video-->
             <div id="banner_video">
-                <iframe src="https://www.youtube.com/embed/LT5U7pVS6YE" style="width: 450px; height: 250px;"></iframe>
+                <iframe src="https://www.youtube.com/embed/LT5U7pVS6YE" style="width: 450px; height: 250px; overflow: hidden;"></iframe>
             </div>
+        </div>
         </div>
         <!--Main content-->
         <div class="main_content">
             <!--On sale -->
             <h1 class="headline">BEST PRICES</h1>
-            <table class ="best_price" cellspac>
-                <tr>
-                    <td><a href="#"><div class="best_price_btn"><div class="route">Fukoka => Tokyo</div><span class="price"><br>&yen;8,890~</span></div></a></td>
-                    <td><a href="#"><div class="best_price_btn"><div class="route">Tokyo => Fukoka</div><span class="price"><br>&yen;7,890~</span></div></a></td>
-                    <td><a href="#"><div class="best_price_btn"><div class="route">Sapporo => Tokyo</div><span class="price"><br>&yen;7,090~</span></div></a> </td>
-                    <td><a href="#"><div class="best_price_btn"><div class="route">Nagasaki => Osaka</div><span class="price"><br>&yen;6,090~</span></div></a></td>
-                </tr>
-                <tr>
-                    <td><a href="#"><div class="best_price_btn"><div class="route">Naha => Tokyo</div><span class="price"><br>&yen;6,890~</span></div></a></td>
-                    <td><a href="#"><div class="best_price_btn"><div class="route">Kagoshima => Fukoka</div><span class="price"><br>&yen;8,150~</span></div></a></td>
-                    <td><a href="#"><div class="best_price_btn"><div class="route">Nagasaki => Tokyo</div><span class="price"><br>&yen;4,990~</span></div></a></td>
-                    <td><a href="#"><div class="best_price_btn"><div class="route">Tokyo => Naha</div><span class="price"><br>&yen;5,990~</span></div></a></td>
-                </tr>
-                <tr>
-                    <td><a href="#"><div class="best_price_btn"><div class="route">Fukoka => Osaka</div><span class="price"><br>&yen;6,890~</span></div></a></td>
-                    <td><a href="#"><div class="best_price_btn"><div class="route">Naha => Kagoshima</div><span class="price"><br>&yen;8,890~</span></div></a></td>
-                    <td><a href="#"><div class="best_price_btn"><div class="route">Sapporo => Nagasaki</div><span class="price"><br>&yen;7,890~</span></div></a></td>
-                    <td><a href="#"><div class="best_price_btn"><div class="route">Kagoshima => Osaka</div><span class="price"><br>&yen;7,000~</span></div></a></td>
-                </tr>
-            </table>
+            <ul class ="best_price">
+                    <li><a href="#"><div class="best_price_btn"><div class="route">Fukoka => Tokyo</div><span class="price"><br>&yen;8,890~</span></div></a></li>
+                    <li><a href="#"><div class="best_price_btn"><div class="route">Tokyo => Fukoka</div><span class="price"><br>&yen;7,890~</span></div></a></li>
+                    <li><a href="#"><div class="best_price_btn"><div class="route">Sapporo => Tokyo</div><span class="price"><br>&yen;7,090~</span></div></a> </li>
+                    <li><a href="#"><div class="best_price_btn"><div class="route">Nagasaki => Osaka</div><span class="price"><br>&yen;6,090~</span></div></a></li>
+                    <li><a href="#"><div class="best_price_btn"><div class="route">Naha => Tokyo</div><span class="price"><br>&yen;6,890~</span></div></a></li>
+                    <li><a href="#"><div class="best_price_btn"><div class="route">Kagoshima => Fukoka</div><span class="price"><br>&yen;8,150~</span></div></a></li>
+                    <li><a href="#"><div class="best_price_btn"><div class="route">Nagasaki => Tokyo</div><span class="price"><br>&yen;4,990~</span></div></a></li>
+                    <li><a href="#"><div class="best_price_btn"><div class="route">Tokyo => Naha</div><span class="price"><br>&yen;5,990~</span></div></a></li>
+                    <li><a href="#"><div class="best_price_btn"><div class="route">Fukoka => Osaka</div><span class="price"><br>&yen;6,890~</span></div></a></li>
+                    <li><a href="#"><div class="best_price_btn"><div class="route">Naha => Kagoshima</div><span class="price"><br>&yen;8,890~</span></div></a></li>
+                    <li><a href="#"><div class="best_price_btn"><div class="route">Sapporo => Nagasaki</div><span class="price"><br>&yen;7,890~</span></div></a></li>
+                    <li><a href="#"><div class="best_price_btn"><div class="route">Kagoshima => Osaka</div><span class="price"><br>&yen;7,000~</span></div></a></li>
+            </ul>
             <!--Popular-->
             <h1 class="headline">HOT TICKETS OVERSEA</h1>
             <ul class="list" style="list-style-type: none; margin-left: 10%; margin-right: 10%;">
@@ -222,38 +242,34 @@
             </script> 
             <!--Airlines-->
             <h1 class="headline">POPULAR AIRLINES</h1>
-            <table class="airlines" >
-                <tr>
-                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/air_new_zealand_logo2.gif" style="height:70px; width:250px">
-                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
-                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/airberlin.gif" style="height:70px; width:250px">
-                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
-                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/airindia2.gif" style="height:70px; width:250px">
-                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
-                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/airmadagascar.gif" style="height:70px; width:250px">
-                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
-                </tr>
-                <tr>
-                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/ba2.gif" style="height:70px; width:250px">
-                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
-                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/avianca1.gif" style="height:70px; width:250px">
-                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
-                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/cathaypacific21.gif" style="height:70px; width:250px">
-                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
-                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/china_airlines.gif" style="height:70px; width:250px">
-                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
-                </tr>
-                <tr>
-                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/swissair3.gif" style="height:70px; width:250px">
-                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
-                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/singapore_airlines2.gif" style="height:70px; width:250px">
-                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
-                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/vietnamairlines.gif" style="height:70px; width:250px">
-                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
-                    <td><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/tarom.gif" style="height:70px; width:250px">
-                        <div style="background-color: gainsboro; width: 270px;">Description</div></a></td>
-                </tr>
-            </table>
+            <ul class="airlines">
+                <li><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/air_new_zealand_logo2.gif" style="height:50px; width:200px;">
+                    <div style="background-color: gainsboro; width: 200px;">Description</div></a></li>
+                <li><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/airberlin.gif" style="height:50px; width:200px">
+                    <div style="background-color: gainsboro; width: 200px;">Description</div></a></li>
+                <li><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/airindia2.gif" style="height:50px; width:200px">
+                    <div style="background-color: gainsboro; width: 200px;">Description</div></a></li>
+                <li><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/airmadagascar.gif" style="height:50px; width:200px">
+                    <div style="background-color: gainsboro; width: 200px;">Description</div></a></li>
+            
+                <li><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/ba2.gif" style="height:50px; width:200px">
+                    <div style="background-color: gainsboro; width: 200px;">Description</div></a></li>
+                <li><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/avianca1.gif" style="height:50px; width:200px">
+                    <div style="background-color: gainsboro; width: 200px;">Description</div></a></li>
+                <li><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/cathaypacific21.gif" style="height:50px; width:200px">
+                    <div style="background-color: gainsboro; width: 200px;">Description</div></a></li>
+                <li><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/china_airlines.gif" style="height:50px; width:200px">
+                    <div style="background-color: gainsboro; width: 200px;">Description</div></a></li>
+            
+                <li><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/swissair3.gif" style="height:50px; width:200px">
+                    <div style="background-color: gainsboro; width: 200px;">Description</div></a></li>
+                <li><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/singapore_airlines2.gif" style="height:50px; width:200px">
+                    <div style="background-color: gainsboro; width: 200px;">Description</div></a></li>
+                <li><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/vietnamairlines.gif" style="height:50px; width:200px">
+                    <div style="background-color: gainsboro; width: 200px;">Description</div></a></li>
+                <li><a href="#" target= "_blank" style ="text-decoration: none;"><img src="./image/airline/tarom.gif" style="height:50px; width:200px">
+                    <div style="background-color: gainsboro; width: 200px;">Description</div></a></li>
+            </ul>
             <div class="notice">
                 Use the services of each company wisely, more deals Airur reservation!<br>
                 Point ① <br>
@@ -376,12 +392,12 @@
             <h1 class = "headline">CATEGORY</h1>
             <div>
                 <ul id = "category">
-                    <li><a href="#" target= "_blank"><img src="./image/train.jpg" style="height:150px; width:200px"><br>Trains</a></li>
-                    <li><a href="#" target= "_blank"><img src="./image/car.jpg" style="height:150px; width:200px"><br>Cars</a></li>
-                    <li><a href="#" target= "_blank"><img src="./image/travel.jpg" style="height:150px; width:200px"><br>Travelling</a></li>
-                    <li><a href="#" target= "_blank"><img src="./image/insurance.jpg" style="height:150px; width:200px"><br>Travel insurance</a></li>
-                    <li><a href="#" target= "_blank"><img src="./image/airplane.png" style="height:150px; width:200px"><br>Airways</a></li>
-                    <li><a href="#" target= "_blank"><img src="./image/hotel.jpg" style="height:150px; width:200px"><br>Hotel</a></li>
+                    <li><a href="#" target= "_blank"><img src="./image/train.jpg" style="height:110px; width:150px"><br>Trains</a></li>
+                    <li><a href="#" target= "_blank"><img src="./image/car.jpg" style="height:110px; width:150px"><br>Cars</a></li>
+                    <li><a href="#" target= "_blank"><img src="./image/travel.jpg" style="height:110px; width:150px"><br>Travelling</a></li>
+                    <li><a href="#" target= "_blank"><img src="./image/insurance.jpg" style="height:110px; width:150px"><br>Travel insurance</a></li>
+                    <li><a href="#" target= "_blank"><img src="./image/airplane.png" style="height:110px; width:150px"><br>Airways</a></li>
+                    <li><a href="#" target= "_blank"><img src="./image/hotel.jpg" style="height:110px; width:150px"><br>Hotel</a></li>
                 </ul>
             </div>
             <!--More info-->
@@ -417,24 +433,25 @@
             </div>
         </div>
         <!--App info-->
-        <div class="app_info">
-            <div style="margin-left: 20%; display: block">
-            <div class="app_col" style="border-left:none;">
-                <span class="head">Information on Airri member service</span><br>
-                <span>For members, points of 2% of the ticket purchase price are accumulated, and it is possible to exchange to various other points.</span>                 
+        <div class="app_info" style="margin: 0 auto;">
+            <div style="width: 1000px; margin:auto;">
+                <div class="app_col" style="border-left:none;">
+                    <span class="head">Information on Airri member service</span><br>
+                    <span>For members, points of 2% of the ticket purchase price are accumulated, and it is possible to exchange to various other points.</span>                 
+                </div>
+                <div class="app_col">
+                    <span class="head">Ari Torri friend invitation project</span><br>
+                    <span>If you download Air Triads application, get an invitation code and share it to your friends, you give 500 points to your friend, friends are 500 yen off when purchasing tickets.</span>       
+                </div>
+                <div class="app_col">
+                    <span class="head">Air Tori application download</span><br>
+                    <img src="./image/app_store.png" style="height:30px; width:100px; margin-left: 20px;"><br>
+                    <span>Download from "App Store (iTunes Store)"</span> <br>
+                    <img src="./image/google_store.png" style="height:30px; width:100px; margin-left: 20px;"><br>
+                    <span>Download from "Google Play".</span>     
+                </div>
             </div>
-            <div class="app_col">
-                <span class="head">Ari Torri friend invitation project</span><br>
-                <span>If you download Air Triads application, get an invitation code and share it to your friends, you give 500 points to your friend, friends are 500 yen off when purchasing tickets.</span>       
-            </div>
-            <div class="app_col">
-                <span class="head">Air Tori application download</span><br>
-                <img src="./image/app_store.png" style="height:30px; width:100px; margin-left: 20px;"><br>
-                <span>Download from "App Store (iTunes Store)"</span> <br>
-                <img src="./image/google_store.png" style="height:30px; width:100px; margin-left: 20px;"><br>
-                <span>Download from "Google Play".</span>     
-            </div>
-            </div>
+            <div style="margin-top: 170px;"><a href="#">Go to TOP</a></div>
         </div> 
     </body>
     <!--Footer-->
