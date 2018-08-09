@@ -432,19 +432,59 @@ body a {
 }
 .app_info {
     background-color: gainsboro;
-    margin-top: 20px;
-    height: 300px;
+    margin: auto;
+    height: 200px;
+    overflow: hidden;
 }
 
 .app_col {
     float: left;
-    width: 20%;
+    width: 300px;
     padding: 10px;
-    height: 250px;
+    height: 200px;
     overflow :hidden;
     border-left: 1px solid white
 }
 
 .app_col .head {
     color: royalblue;
+    font-size: 20px;
+}
+
+.footer {
+    background-color: darkslategray;
+    height: 250px;
+    overflow: hidden;
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+
+.link_option {
+    overflow: hidden;
+    margin: auto;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 700px;;
+    height: 75px;
+}
+  
+.link_option a {
+    float: left;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-left: 1px solid white;
+}
+
+.copyright {
+    background-color: honeydew;
+    height: 30px;
+    overflow: hidden;
+    margin: auto;
+    text-align: center;
+    color: darkslategray;
+    vertical-align: middle;
+    line-height: 30px;
 }

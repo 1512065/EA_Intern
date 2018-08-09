@@ -1,0 +1,24 @@
+.nav_bar {
+    overflow: hidden;
+    background-color: darkcyan;
+    padding: 15px;
+}
+.nav_bar a, .nav_bar button {
+    color:orange;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    background-color: darkcyan;
+    border: none;
+}
+.nav_bar a:hover, .nav_bar button:hover {
+    background-color: rgb(91, 98, 196);
+}
+.dropdown_btn {
+    background-color: grey;
+    color: rebeccapurple
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
