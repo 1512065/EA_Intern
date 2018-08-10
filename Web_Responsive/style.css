@@ -1,0 +1,737 @@
+body, html {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    height: 100%;
+    margin: 0;   
+}
+body {
+    margin: auto;
+}
+body a {
+    color: black;
+}
+.top_bar {
+    background-color: seagreen;
+    color:white;
+    width: 100%;
+    vertical-align: middle;
+}
+
+.top_bar .slogan {
+    display: inline-block;
+   
+}
+
+.btn_group {
+    margin-left: 5px;
+}
+
+#top_group {
+    margin-left: 200px;
+}
+.top_button {
+    background-color:wheat;
+    border: none;
+    color: black;
+    cursor: pointer;
+    height: 25px;
+    border-radius: 5%; 
+}
+
+.top_button:hover {
+    background-color: rgb(255, 245, 226);
+}
+
+
+.navbar {
+    overflow: hidden;
+    background-color: rgb(240, 240, 247);
+    text-align: center;
+    margin: auto;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 1200px;
+    height: 75px;
+}
+  
+.navbar a {
+    float: left;
+    padding: 12px;
+    color: darkslategray;
+    text-decoration: none;
+    text-align: center;
+    width: 80px;
+}
+  
+.navbar a:hover {
+    background-color: lightyellow;
+}
+  
+.banner {
+    background-image: url("./image/search_banner.jpg");
+    background-position: center;
+    min-width: 100%;
+    height: 500px;
+    margin: auto;
+}
+
+.form_select_btn {
+    background-color: darkslategray;
+    border: none;
+    color: blanchedalmond;
+    cursor: pointer;
+    height: 30px;
+    border-radius: 5%;
+    margin-left: 10px;
+}
+
+.form_select_btn:hover {
+    background-color: slategray;
+}
+
+.form_select, .form_select_seat, .form_input {
+    background-color: lightgoldenrodyellow;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.form_select {
+    width: 270px;
+    height: 30px;
+}
+
+.form_select_seat {
+    width: 150px;
+    height: 30px;
+}
+
+.form_input {
+    width: 50px;
+    height: 30px;
+    border:none;
+}
+
+.search_btn {
+    background-color: maroon;
+    border: none;
+    color: wheat;
+    cursor: pointer;
+    height: 40px;
+    width: 230px;
+    border-radius: 5px;
+    text-align: center;
+    float: right;
+    font-size: 14px;
+    padding: 5px;
+    margin-top: 20px;
+}
+
+.search_btn:hover {
+    background-color: rgb(95, 11, 11);
+}
+
+.headline {
+    border-left: 8px solid seagreen;
+    font-size: 20px;
+    border-spacing: 15px;
+    border-bottom: 1px solid seagreen;
+    padding-left: 20px;
+    color: seagreen;
+    height: 30px;
+    width: 1000px;
+}
+
+.main_content {
+    width: 960px; 
+    margin: 0 auto;
+}
+
+.best_price, .airlines {
+    text-align: center;
+    margin: 0 auto;
+    display: inline-block;
+    list-style-type: none; 
+}
+
+.best_price li, .airlines li {
+    float: left;
+    padding: 5px;
+    margin: 10px;
+    height: 90px;
+    width: 200px;
+}
+
+.best_price a {
+    text-decoration: none;
+    font-size: 18px;
+    width: 100%;
+}
+
+.price {
+    font-size: 20px;
+    color: red;
+}
+
+.route {
+    background-color: seagreen;
+    height: 25px;
+    color:wheat;
+    padding: 5px;
+}
+
+.best_price_btn {
+    border: 1px solid grey;
+    border-radius: 5%;
+    padding-bottom: 10px;
+    background-color: mintcream;
+    height: 90px;
+}
+
+.best_price_btn:hover {
+    background-color:moccasin;
+}
+
+.list {
+    list-style-type: square;
+}
+.list a {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px;
+    
+}
+.list li {
+    margin-top: 20px;
+}
+.list a:hover {
+    color: royalblue;
+}
+
+.tablink {
+    background-color:seagreen;
+    color:wheat;
+    cursor: pointer;
+    font-size: 18px;
+    width: 300px;
+    height: 30px;
+    padding-top: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: none;
+    text-align: center;
+}
+
+.tablink:hover {
+    background-color: teal;
+}
+
+.tabcontent {
+    color: black;
+    display: none;
+}
+
+#category {
+    list-style-type: none;
+    overflow: hidden;
+    height: 140px;
+    padding: 0;
+}
+
+#category li {
+    float: left;
+    overflow: hidden;
+}
+
+#category li a {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 16px;
+  
+}
+
+#category li:hover {
+    background-color: antiquewhite;
+}
+
+.question {
+    background-color:lightcyan;
+    color:firebrick;
+    font-size: 18px;
+    width: 80%;
+    height: 25px;
+    padding: 5px;
+    font-family: inherit;
+    border: none;
+    text-align: center;
+    margin-left: 10%;
+    overflow: hidden;
+    margin-top: 20px;
+    font-weight: bold;
+}
+/*
+.question:hover {
+    background-color: firebrick;
+}
+*/
+.answer {
+    color: black;
+    /*display: none;*/
+    font-size: 16px;
+    width: 70%;
+    margin-left: 15%;
+    background-color: lightgoldenrodyellow;
+}
+
+.notice {
+    width: 1000px;
+    background-color: gainsboro;
+    padding: 10px;
+    border: 2px solid white;
+}
+
+.airport_content {
+    width: 1020px;
+    margin: auto;
+}
+
+.header {
+    height: 20px;
+    padding: 5px;
+    color: white;
+}
+
+.airport {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+.airport li {
+    float: left;
+    overflow: hidden;
+    width: 240px;
+}
+*::before, *:after {
+    box-sizing: border-box;
+}
+.headline {
+    box-sizing: border-box;
+}
+.airport li:before, .airport li:after, .airport li span:before, .airport li span:after {
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    border-style: solid;
+    border-color: transparent;
+}
+.airport li:before {
+    border-width: 10px 10px 0 0 ;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.airport li:after {
+    border-width: 10px 0 0 10px ;
+    margin-left: -15px;
+    margin-top: 10px;
+}
+
+.airport li span:before {
+    border-width: 0 10px 10px 0 ;
+    margin-left: 5px;
+    margin-top: 70px;
+}
+
+.airport li span:after {
+    border-width: 0 0 10px 10px ;
+    margin-left: -15px;
+    margin-top: 70px;
+}
+
+.airport li a {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    overflow: hidden;
+    width: 220px;
+    line-height: 70px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.airport li a:hover {
+    background-color: antiquewhite;
+}
+
+.airport_blue, .airport_blue .airport li a {
+    border: 1px solid royalblue;
+}
+.airport_blue .header {
+    background-color: royalblue;
+}
+
+.airport_blue .airport li:before, .airport_blue .airport li:after, .airport_blue .airport li span:before, .airport_blue .airport li span:after {
+    border-top-color: royalblue;
+    border-bottom-color: royalblue;
+}
+
+.airport_red, .airport_red .airport li a {
+    border: 1px solid firebrick;
+}
+
+.airport_red .header {
+    background-color: firebrick;
+}
+
+.airport_red .airport li:before, .airport_red .airport li:after, .airport_red .airport li span:before, .airport_red .airport li span:after {
+    border-top-color: firebrick;
+    border-bottom-color: firebrick;
+}
+
+.airport_green, .airport_green .airport li a {
+    border: 1px solid teal;
+}
+
+.airport_green .header {
+    background-color: teal;
+}
+
+.airport_green .airport li:before, .airport_green .airport li:after, .airport_green .airport li span:before, .airport_green .airport li span:after {
+    border-top-color: teal;
+    border-bottom-color: teal;
+}
+
+.airport_brown, .airport_brown .airport li a {
+    border: 1px solid darkgoldenrod;
+}
+
+.airport_brown .header {
+    background-color: darkgoldenrod;
+}
+
+.airport_brown .airport li:before, .airport_brown .airport li:after, .airport_brown .airport li span:before, .airport_brown .airport li span:after {
+    border-top-color: darkgoldenrod;
+    border-bottom-color: darkgoldenrod;
+}
+
+.info_col {
+    float: left;
+    width: 430px;
+    padding: 10px;
+    height: 370px;
+    overflow :hidden;
+}
+
+.info {
+    margin-left: 30px;
+    display: block;
+}
+.info:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.app_info {
+    background-color: gainsboro;
+    height: 200px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.app_col {
+    float: left;
+    width: 300px;
+    padding: 10px;
+    height: 200px;
+    overflow :hidden;
+    border-left: 1px solid white
+}
+
+.app_col .head {
+    color: royalblue;
+    font-size: 20px;
+}
+
+.footer {
+    background-color: darkslategray;
+    height: 250px;
+    overflow: hidden;
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+
+.link_option {
+    overflow: hidden;
+    margin: auto;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 700px;;
+    height: 75px;
+}
+  
+.link_option a {
+    float: left;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-left: 1px solid white;
+}
+
+.copyright {
+    background-color: honeydew;
+    height: 30px;
+    overflow: hidden;
+    margin: auto;
+    text-align: center;
+    color: darkslategray;
+    vertical-align: middle;
+    line-height: 30px;
+}
+
+.search_form {
+    position: relative;
+    height: 330px;
+    width: 670px;
+    padding-top: 50px;
+    display: inline-block;
+}
+
+.form_background {
+    position: absolute;
+    background-color: whitesmoke;
+    opacity: 0.7;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+
+}
+
+.form_content {
+    position: relative;
+    padding: 15px;
+}
+
+#banner_video {
+    position: absolute;
+    display: inline-block;
+    margin-left: 50px;
+    margin-top: 100px;
+    overflow: hidden;
+}
+
+#top_menu
+{
+    margin-left: 60px; 
+}
+
+#top_menu ul
+{
+	list-style:none;
+    display: inline-block;
+    padding: 0;
+}
+
+#top_menu ul a
+{
+	display:block;
+	color:#333;
+	text-decoration:none;
+	font-size:16px;
+    margin-top: 4px;
+
+}
+
+#top_menu ul li
+{
+	position:relative;
+    float:left;
+}
+
+#top_menu ul ul
+{
+	display:none;
+	position:absolute;
+	left:0;
+	background: whitesmoke;
+	padding:0
+}
+
+#top_menu ul ul li
+{
+	float:none;
+    min-width: 150px;
+   
+}
+
+#top_menu ul ul a
+{
+	line-height: 100%;
+	padding: 5px 10px
+}
+
+#top_menu ul ul ul
+{
+	top:0;
+	left:100%;
+}
+
+#top_menu ul li:hover > ul
+{
+	display:block;
+}
+#top_bar_fr {
+   width: 1100px; 
+   margin: 0 auto;
+}
+#inside_banner {
+    width: 1200px; 
+    margin: 0 auto;
+}
+
+/* small size */ 
+@media screen and (max-width: 1200px) {
+    #banner_video {
+        display: none;
+    }
+    .navbar img {
+        display: none;
+    }
+}
+/* small laptop screen */
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+    #top_bar_fr {
+        width: 1000px;
+    }
+    #top_group {
+        margin-left: 50px;
+    }
+    .navbar {
+        width: 1024px;
+    }
+    .navbar a {
+        padding: 10px;
+    }
+    #inside_banner {
+        width: 700px; 
+    }
+    .headline, .notice {
+        width: 900px;
+    }
+    .airport li {
+        width: 200px;
+    }
+
+    .airport li a {
+        width: 170px;
+        font-size: 14px;
+    }
+    .airport_content {
+        width: 100%;
+    }
+    #banner_fr {
+        width: 1000px;
+    }
+    .slogan {
+        margin-left: 15px;
+    }
+    .app_info {
+        height: 230px;
+    }
+}
+.navbar i {
+    font-size: 200%; 
+    color:seagreen;
+}
+.navbar a span {
+    position: relative;
+    display: block;
+}
+#app_cont {
+    width: 1000px; 
+    margin: 0 auto;
+}
+/* tablet size */
+@media screen and (max-width: 1023.9px) {
+    .navbar {
+        width: 100%;
+        height: 350px;
+    }
+    .navbar a {
+        width: 100%;
+        display: block;
+        border-bottom: 1px solid white;
+        padding: 5px;
+    }
+    #top_bar_fr {
+        width: 320px;
+        margin: 0 auto;
+    }
+    #top_group {
+        float:none;
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .navbar i {
+        font-size: 150%;
+        float: left;
+    }
+    .navbar a span {
+        position: absolute;
+        margin-left: 5%;
+    }
+    #inside_banner {
+        width: 670px; 
+    }
+    .headline, .notice {
+        width: 100%;
+    }
+    
+    .main_content {
+        width: 730px;
+    }
+
+    .airport_content {
+        width: 100%;
+    }
+    .airport li {
+        width: 200px;
+    }
+
+    .airport li a {
+        width: 170px;
+        font-size: 14px;
+    }
+
+    .tablink {
+        display: block;
+        width:  100%;
+    }
+    #category {
+        overflow: scroll;
+    }
+    .info_col {
+        float:none;
+        width: 70%;
+    }
+   .app_col {
+       float:none;
+       width: 100%;
+       height: 150px;
+       border: 1px solid white;
+       box-sizing: border-box;
+   }
+   .app_info {
+       height: 450px;
+   }
+   #app_cont {
+       width: 100%;
+   }
+}
