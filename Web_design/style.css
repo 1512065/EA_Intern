@@ -360,6 +360,40 @@ body a {
     overflow: hidden;
     width: 240px;
 }
+*::before, *:after {
+    box-sizing: border-box;
+}
+.airport li:before, .airport li:after, .airport li span:before, .airport li span:after {
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    border-style: solid;
+    border-color: transparent;
+}
+.airport li:before {
+    border-width: 10px 10px 0 0 ;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.airport li:after {
+    border-width: 10px 0 0 10px ;
+    margin-left: -15px;
+    margin-top: 10px;
+}
+
+.airport li span:before {
+    border-width: 0 10px 10px 0 ;
+    margin-left: 5px;
+    margin-top: 70px;
+}
+
+.airport li span:after {
+    border-width: 0 0 10px 10px ;
+    margin-left: -15px;
+    margin-top: 70px;
+}
 
 .airport li a {
     display: inline-block;
@@ -388,12 +422,22 @@ body a {
     background-color: royalblue;
 }
 
+.airport_blue .airport li:before, .airport_blue .airport li:after, .airport_blue .airport li span:before, .airport_blue .airport li span:after {
+    border-top-color: royalblue;
+    border-bottom-color: royalblue;
+}
+
 .airport_red, .airport_red .airport li a {
     border: 1px solid firebrick;
 }
 
 .airport_red .header {
     background-color: firebrick;
+}
+
+.airport_red .airport li:before, .airport_red .airport li:after, .airport_red .airport li span:before, .airport_red .airport li span:after {
+    border-top-color: firebrick;
+    border-bottom-color: firebrick;
 }
 
 .airport_green, .airport_green .airport li a {
@@ -404,12 +448,22 @@ body a {
     background-color: teal;
 }
 
+.airport_green .airport li:before, .airport_green .airport li:after, .airport_green .airport li span:before, .airport_green .airport li span:after {
+    border-top-color: teal;
+    border-bottom-color: teal;
+}
+
 .airport_brown, .airport_brown .airport li a {
     border: 1px solid darkgoldenrod;
 }
 
 .airport_brown .header {
     background-color: darkgoldenrod;
+}
+
+.airport_brown .airport li:before, .airport_brown .airport li:after, .airport_brown .airport li span:before, .airport_brown .airport li span:after {
+    border-top-color: darkgoldenrod;
+    border-bottom-color: darkgoldenrod;
 }
 
 .info_col {
