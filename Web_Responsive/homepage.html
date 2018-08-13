@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="print.css" media="print">
         <link rel="icon" type="image/ico" href="https://cdn.airtrip.jp/image/pc/16.ico" sizes="16x16">
         <script>
             function openTab(name, elmnt) {
@@ -156,6 +157,54 @@
             <div id="banner_video">
                 <iframe src="https://www.youtube.com/embed/LT5U7pVS6YE" style="width: 450px; height: 250px; overflow: hidden;"></iframe>
             </div>
+        </div>
+        <div class="small_search"> <!-- display only in mobile mode-->
+            <form method="post">
+                <div style="margin: 10px auto;"><br>
+                    <span class="in_form">From:</span><br>
+                        <select name ="dep_port" class="form_select">
+                            <option value="Tokyo(TYO)">Tokyo(TYO)</option>
+                            <option value="Osaka(OSA)">Osaka(OSA)</option>
+                            <option value="Hiroshima(HIJ)">Hiroshima(HIJ)</option>
+                            <option value="Sendai(SDJ)">Sendai(SDJ)</option>
+                            <option value="Nagoya(NGO)">Nagoya(NGO)</option>
+                            <option value="Fukoka(FUK)">Fukoka(FUK)</option>
+                        </select>   
+                    <br><br>
+                    <span class="in_form">To:</span><br>
+                        <select name ="arr_port" class="form_select">
+                            <option value="Osaka(OSA)">Osaka(OSA)</option>
+                            <option value="Hiroshima(HIJ)">Hiroshima(HIJ)</option>
+                            <option value="Sendai(SDJ)">Sendai(SDJ)</option>
+                            <option value="Nagoya(NGO)">Nagoya(NGO)</option>
+                            <option value="Fukoka(FUK)">Fukoka(FUK)</option>
+                            <option value="Tokyo(TYO)">Tokyo(TYO)</option>
+                        </select>
+                    <br><br> 
+                    <span class="in_form">Departure day:</span><br>
+                    <input type="date" class="form_select" name="dep_date"><br><br>
+                    <span class="in_form">Comback day:</span><br>
+                    <input type="date" class="form_select" id="back_date">  
+                </div>
+                <hr>
+                <div style="margin: 0 auto;">  
+                <span class="in_form" >Seat Class:</span>
+                    <select name ="seat_type" class="form_select_seat">
+                    <option value="Economy">Economy</option>
+                    <option value="Bussiness">Bussiness</option>
+                    <option value="First">First</option>
+                    </select>
+                    <br><br><span class="in_form">Number of Passenegers:</span><br><br>
+                <div style="background-color: white; margin-left: 70px; margin-right: 140px">
+                    - Adults: <input type ="number" name="adt_pax" class="new_ip" min="1"><br>
+                    - Child: <input type ="number" name="chd_pax" class="new_ip"><br>
+                    - Infant: <input type ="number" name="inf_pax" class="new_ip"><br>
+                </div>
+                </div>      
+                <br>
+                <button type="submit" class="search_btn"><i class="fa fa-send" style="font-size: 180%; color: wheat"></i>
+                SEARCH BEST FLIGHTS</button>
+            </form>
         </div>
         </div>
         <!--Main content-->
@@ -437,7 +486,7 @@
     <footer>
          <div class="footer">
             <p>Handling Airline</p>
-            <div name="airline_logo" style="width: 700px; margin:auto;">
+            <div class="airline_logo">
             <img src="./image/airline/air_new_zealand_logo2.gif" style="height:30px; width:80px; border: 1px solid gray; padding: 1px;">
             <img src="./image/airline/airberlin.gif" style="height:30px; width:80px; border: 1px solid gray; padding: 1px;">
             <img src="./image/airline/airindia2.gif" style="height:30px; width:80px; border: 1px solid gray; padding: 1px;">

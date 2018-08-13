@@ -258,7 +258,7 @@ body a {
     color:firebrick;
     font-size: 18px;
     width: 80%;
-    height: 25px;
+    height: 100%;
     padding: 5px;
     font-family: inherit;
     border: none;
@@ -423,7 +423,7 @@ body a {
     float: left;
     width: 430px;
     padding: 10px;
-    height: 370px;
+    height: 100%;
     overflow :hidden;
 }
 
@@ -459,24 +459,21 @@ body a {
 
 .footer {
     background-color: darkslategray;
-    height: 250px;
+    height: 100%;
     overflow: hidden;
-    margin: auto;
+    margin: 0 auto;
     text-align: center;
     color: white;
 }
 
 .link_option {
     overflow: hidden;
-    margin: auto;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    width: 700px;;
-    height: 75px;
+    margin: 0 auto;
+    width: 100%;;
+
 }
   
 .link_option a {
-    float: left;
     padding: 5px;
     color: white;
     text-decoration: none;
@@ -595,8 +592,31 @@ body a {
     margin: 0 auto;
 }
 
+.navbar i {
+    font-size: 200%; 
+    color:seagreen;
+}
+.navbar a span {
+    position: relative;
+    display: block;
+}
+#app_cont {
+    width: 1000px; 
+    margin: 0 auto;
+}
+
+.airline_logo {
+    width: 100%;
+    margin:auto
+}
+
+.small_search {
+    display: none;
+}
+
+
 /* small size */ 
-@media screen and (max-width: 1200px) {
+@media only screen and (max-width: 1200px) {
     #banner_video {
         display: none;
     }
@@ -605,7 +625,7 @@ body a {
     }
 }
 /* small laptop screen */
-@media screen and (min-width: 1024px) and (max-width: 1200px) {
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {
     #top_bar_fr {
         width: 1000px;
     }
@@ -645,20 +665,9 @@ body a {
         height: 230px;
     }
 }
-.navbar i {
-    font-size: 200%; 
-    color:seagreen;
-}
-.navbar a span {
-    position: relative;
-    display: block;
-}
-#app_cont {
-    width: 1000px; 
-    margin: 0 auto;
-}
-/* tablet size */
-@media screen and (max-width: 1023.9px) {
+
+/*mobile & tablet*/
+@media only screen and (max-width: 1023.9px) {
     .navbar {
         width: 100%;
         height: 350px;
@@ -685,19 +694,17 @@ body a {
     }
     .navbar a span {
         position: absolute;
-        margin-left: 5%;
-    }
-    #inside_banner {
-        width: 670px; 
+        margin-left: 40px;
     }
     .headline, .notice {
         width: 100%;
     }
-    
-    .main_content {
-        width: 730px;
+    .notice {
+        box-sizing: border-box;
     }
-
+    .main_content {
+        width: 100%
+    }
     .airport_content {
         width: 100%;
     }
@@ -734,4 +741,44 @@ body a {
    #app_cont {
        width: 100%;
    }
+   #inside_banner {
+       width: 700px;
+   }
 }
+
+/* mobile size */
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+    #inside_banner {
+        display: none;
+    }
+    .small_search {
+        display: block;
+    }
+    .form_select {
+        width: 250px;
+        margin-left: 30px;
+    }
+    .in_form {
+        margin-left:  30px;
+        background-color: tomato;
+        color: darkblue; 
+        padding: 5px;
+        margin-top: 20px;
+    }
+   .new_ip {
+       height: 20px;
+       width: 40px;
+       background-color: bisque;
+       margin-bottom: 5px;
+   }
+   .search_btn {
+       float: none;
+       margin-left: 70px;
+       margin-top: 0;
+   }
+   .banner {
+       height: 560px;
+   }
+}
+
