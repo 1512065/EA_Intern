@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+var myWindow;
+function openWin() {
+    myWindow = window.open("https://google.com","_blank", "width=800, height=400");
+}
+
+function closeWin() {
+    myWindow.close();
+}
+function blurWin() {
+    myWindow.blur();
+}
+function checkClose() {
+    stt= "closed";
+    if (!myWindow.closed) {
+        stt = "opening";
+    }
+    document.getElementById('status').innerHTML= stt;
+}
+</script>
+</head>
+<body>
+
+<script>
+var a= setTimeout(countTime, 5000);
+function countTime() {
+    alert('You are here 10s');
+}
+</script>
+<p>YOU WILL BE ANNOUNCED AFTER 5second</p>
+<button onclick="clearTimeout(a)">Stop!!</button>
+<br><br>
+<input type="button" value="Open Google" onclick="openWin()" />
+<input type="button" value="Blur window" onclick="blurWin()" />
+<input type="button" value="Close Google" onclick="closeWin()" />
+<input type="button" value="Check if open" onclick="checkClose()" />
+<p id="status"></p>
+
+<p id="screen_info"></p>
+<script>
+document.getElementById("screen_info").innerHTML = "Screen width:" + screen.width + "<br>Screen height: "+screen.height;
+</script>
+
+<p id="host"></p>
+<p id="url"></p>
+<p id="path"></p>
+<p id="Protocol"></p>
+<script>
+document.getElementById("host").innerHTML = "Page hostname is: " + window.location.hostname;
+document.getElementById("url").innerHTML = "URL: "+ window.location.href;
+document.getElementById("path").innerHTML = "Path: " + window.location.pathname;
+document.getElementById("Protocol").innerHTML = "Protocol: " + window.location.protocol;
+</script>
+
+<input type="button" value="Load new document" onclick="newDoc()">
+
+<script>
+function newDoc() {
+    window.location.assign("https://www.chatwork.com")
+}
+</script>
+
+<input type="button" value="Replace document" onclick="replace()">
+
+<script>
+function replace() {
+    window.location.assign("https://www.chatwork.com")
+}
+</script>
+
+<p id="cookie"></p>
+<p id="appName"></p>
+<p id="codeName"></p>
+<p id="engine"></p>
+<p id="version"></p>
+<p id="agent"></p>
+<p id="Platform"></p>
+<p id="Language"></p>
+
+
+<script>
+document.getElementById("cookie").innerHTML ="cookiesEnabled is " + navigator.cookieEnabled;
+
+document.getElementById("appName").innerHTML ="navigator app name is: " + navigator.appName;
+
+document.getElementById("codeName").innerHTML ="navigator app codeName is " + navigator.appCodeName;
+
+document.getElementById("engine").innerHTML ="navigator.product is " + navigator.product;
+
+document.getElementById("version").innerHTML ="Version: " + navigator.appVersion;
+
+document.getElementById("agent").innerHTML ="Agent: " + navigator.userAgent;
+
+document.getElementById("Platform").innerHTML ="Platform: " + navigator.platform;
+
+document.getElementById("Language").innerHTML ="Language: " + navigator.language;
+</script>
+
+<button onclick="getName()">Input name</button>
+
+<p id="name"></p>
+<script>
+function getName() {
+    var txt;
+    var person = prompt("Enter your name:", "Duyen");
+    if (person == null || person == "") {
+        txt = "User cancelled the prompt.";
+    } else {
+        txt = "Hello " + person;
+    }
+    document.getElementById("name").innerHTML = txt;
+}
+</script>
+
+
+
+</body>
+</html>
