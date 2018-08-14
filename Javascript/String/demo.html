@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <script>
+        var txt = "Hello world! This is JS! Bye world!";
+        console.log('Length: '+ txt.length);
+        console.log(txt.indexOf('world'));
+        console.log(txt.lastIndexOf('world'));
+        console.log(txt.indexOf('world',7)); //search from pos = 7
+        console.log(txt.search('world'));
+        // search => RegEx, no 2nd param
+        //indexOf => no RegEx search!
+        // get string inside
+        // slide
+        var slice = txt.slice(13,24);
+        console.log(slice);
+        console.log(txt.slice(25));
+        console.log(txt.slice(-10));
+        // substring
+        
+    </script>
+</body>
+</html>
