@@ -1,0 +1,48 @@
+* {
+    color: blueviolet;
+}
+
+a:link {
+    color: red;
+}
+
+a:visited {
+    color: darkgreen;
+}
+
+p#contact + span {
+    background-color: darkcyan;
+}
+
+div + p {
+    background-color: yellow;
+}
+
+p {
+    color: saddlebrown;
+    background-color: lavender;
+}
+div > span {
+    color:tomato;
+}
+
+div ~ p {
+    text-align: center;
+}
+
+[name~="number"] {
+    border: 1px solid black;
+}
+
+[name^="uni"] {
+    border: 2px solid darkorange;
+}
+
+[title|=car] {
+    border: 2px solid green;
+}
+
+*:not(p) {
+    padding-top: 20px;
+}
+

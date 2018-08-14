@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+div {
+    width: 50px;
+    height: 50px;
+    background: blue;
+    position: relative;
+    animation-name: demo;
+    animation-duration: 5s;    
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+p {
+    color: green;
+    position: relative;
+    font-size: 18px;
+} 
+
+@keyframes demo {
+    /*from {top: 0px; left: 0px}
+    to {top: 200px; left:100px; background-color: green;}*/
+    0%   {background-color:red; left:0px; top:0px;}
+    25%  {background-color:yellow; left:600px; top:0px;}
+    50%  {background-color:blue; left:600px; top:200px;}
+    75%  {background-color:green; left:0px; top:200px;}
+    100% {background-color:red; left:0px; top:0px;}
+}
+
+
+@keyframes flash {
+  from,50%, to {
+    opacity: 1;
+  }
+
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+.flash {
+  animation-name: flash;
+  animation-duration: 4s;     
+  animation-iteration-count: infinite; 
+}
+
+@keyframes zoomIn {
+    from {
+        font-size: 0%;
+    }
+    to {
+        font-size: 200%;
+    }
+}
+
+.zoomIn {
+    animation-name: zoomIn;
+    animation-duration: 2s;     
+    animation-iteration-count: infinite; 
+}
+
+@keyframes slideToRight {
+    0% {
+        left: 0px; top: 20px;
+    }
+    100% {
+        left: 300px; top: 20px;
+    }
+}
+.slideToRight {
+    animation-name: slideToRight;
+    animation-duration: 2s; 
+    animation-iteration-count: infinite; 
+}
+
+.tran {
+    width: 50px;
+    height: 50px;
+    transition: width 2s, height 4s, background-color 1s;
+    background-color: red;
+    animation:none;
+}
+
+.tran:hover {
+    width: 300px;
+    height: 300px;
+    background-color: blue;
+}
+</style>
+</head>
+<body>
+
+<div>go around</div>
+
+<p class="flash">Flash text</p>
+
+<p class="slideToRight">Slide to Right</p>
+<p class="zoomIn">Zoom In</p>
+<br><br>
+<div class="tran">Hover</div>
+</body>
+</html>
