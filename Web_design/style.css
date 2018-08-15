@@ -31,7 +31,6 @@ body a {
     cursor: pointer;
     height: 25px;
     border-radius: 5%;
-   
 }
 
 .top_button:hover {
@@ -633,4 +632,3 @@ body a {
 {
 	display:block;
 }
-

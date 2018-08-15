@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function arrsort(){
+            num.sort(function(a,b) {return a-b});
+        }
+        function doub(value, index, array) {
+            return value *2;
+        }
+        
+        function multi() {
+            num2 = num.map(doub);
+        }
+    </script>
+</head>
+<body>
+    <script>
+        var arr1 = ['One','Two',3,'Four'];
+        var arr2 = ['A','B','C'];
+        console.log(arr1);
+        str1 = arr1.toString();
+        console.log(str1);
+        console.log(str1.length);
+        console.log(arr1.concat(arr2));
+        console.log('sort arr1');
+        console.log(arr1.sort());
+        var num = [70, 926, 143 , 500 ,312 ,20, 208];
+        console.log(num);
+        var txt = "";
+        var numbers = [4, 9, 16, 25];
+        numbers.forEach(myFunction);
+        function myFunction(value, index, array) {
+            array[index] = value +1;
+        }
+        console.log(txt);
+    </script>
+    <button onclick=arrsort();>Sort</button>
+
+    <button onclick=multi()>Map x2</button>
+
+    <button onclick=arrsort();>click</button>
+</body>
+</html>

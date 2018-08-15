@@ -19,7 +19,17 @@
         console.log(txt.slice(25));
         console.log(txt.slice(-10));
         // substring
-        
+        var res = txt.substr(2,8);
+        console.log(res);
+        console.log(txt.substring(2,8));
+        console.log(txt.substring(5)); // from txt[5]
+        console.log(txt.substring(-5)); //not accept negative >> txt
+        console.log(txt.substr(5));
+        console.log(txt.substr(-5));
+        // char
+        console.log(txt[0]);
+        console.log(txt.charAt(0));
+        console.log(txt.charCodeAt(0));
     </script>
 </body>
 </html>
