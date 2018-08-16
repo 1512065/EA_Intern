@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <title>JS - function</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </head> 
+    <script>
+        // reverse number
+        var res;
+        function reverse_num() {
+            let t = document.getElementById('input').value;
+            res = 0;
+            if (t < 10) {
+                res = t;
+            } else {
+                while (t > 9) {
+                    res += t % 10;
+                    t = Math.floor(t/10);
+                    res *= 10;
+                }
+                res += t;
+            }
+            document.getElementById('result').innerHTML = res;
+        }
+        // find all substring
+        var substr = "";
+        function find_substr() {
+            let str = document.getElementById('inputstr').value;
+            let n = str.length;
+            let sub;
+            for (i = 0; i < n-1; i++) {
+                sub = str[i];
+                substr = substr + sub +',';
+                for (j = i +1 ; j < n; j++) {
+                    sub += str[j];
+                    substr = substr + sub +',';
+                }
+            }
+            substr += str[n-1];
+            document.getElementById('substr').innerHTML = substr;
+        }
+        // sort string
+        var sorted = "";
+        function sort_str() {
+            let str = document.getElementById('inputstr').value;
+            let arr = str.split('');
+            arr.sort();
+            sorted = arr.join('');
+            document.getElementById('substr').innerHTML = sorted;
+        }
+        
+        // capital first
+        var res_str = "";
+        function cap_word() {
+            let str = document.getElementById('inputstr').value;
+            let arr = str.split(' ');
+            let n = arr.length;
+            i=0;
+            while (i < n) {
+                arr[i][0].toUpperCase();
+                i++;
+            }
+
+            document.getElementById('substr').innerHTML = res_str;
+        }
+    </script>
+    <body>
+        Enter number: <input type="number" id='input'>
+        <button onclick="reverse_num();">Reverse</button>
+        <p id='result'><i>result will be displayed here</i></p>
+        <br>
+        Enter string: <input type="text" id='inputstr'><br><br>
+        <button onclick="find_substr();">Find all substring</button><br><br>
+        <button onclick="sort_str();">Sort in alphabet order</button><br><br>
+        <button onclick="cap_word();">Capital first letter</button><br><br>
+        <p id='substr'><i>result will be displayed here</i></p>
+
+        
+    </body>
+</html>
