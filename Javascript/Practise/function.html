@@ -51,18 +51,62 @@
         }
         
         // capital first
-        var res_str = "";
         function cap_word() {
+            let res_str = [];
             let str = document.getElementById('inputstr').value;
             let arr = str.split(' ');
             let n = arr.length;
             i=0;
             while (i < n) {
-                arr[i][0].toUpperCase();
+                var word = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+                res_str.push(word);
                 i++;
             }
-
+            res_str = res_str.join(' ');
             document.getElementById('substr').innerHTML = res_str;
+        }
+        
+        // binary search
+        //var arr  = [51, 12, 5, 463, 68, -144, 215, 99, 0, -15];
+        var arr = [5,1,9,2, 3, 8, 4];
+        arr.sort();
+        function binary_search(arr, val, left, right) {
+          while (left <= right) {
+              let mid = Math.round((left + right)/2);
+              if (arr[mid] === val) {
+                  return mid;
+              } else if (arr[mid] < val) {
+                  left = mid +1;
+              } else {
+                  right = mid -1;
+              }
+          }
+          return -1;
+        }
+        arr.sort();
+        var res = binary_search(arr, 9, 0, 8);
+
+        // binary search - recursion
+        function bin_search_rec(arr, val, left, right) {
+            
+            if (left > right) {
+                return -1;
+            }
+            let mid = Math.round(left + right)/2;
+            if (arr[mid] === val) {
+                return mid;
+            }
+            if (arr[mid] < val) {
+                return bin_search_rec(arr, val, mid +1, right);
+            } else {
+                return bin_search_rec(arr, val, left, mid-1);
+            }
+        }
+        var x = bin_search_rec(arr, 3, 0, 6);
+        // show function name
+        function demo_func() {}
+        function find_name(funct) {
+            console.log(funct.name);
         }
     </script>
     <body>
@@ -74,6 +118,8 @@
         <button onclick="find_substr();">Find all substring</button><br><br>
         <button onclick="sort_str();">Sort in alphabet order</button><br><br>
         <button onclick="cap_word();">Capital first letter</button><br><br>
+
+
         <p id='substr'><i>result will be displayed here</i></p>
 
         
