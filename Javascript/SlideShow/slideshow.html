@@ -144,7 +144,7 @@
         </div>
         <div id="slide_button">
             <button class="img_btn" onclick="preImg()">&lt;</button>
-            <button class="img_btn" onclick="nextImg()" style="float: right;">&gt;</button>
+            <button class="img_btn" id="next" onclick="nextImg()" style="float: right;">&gt;</button>
         </div>    
     </div>    
     <div id="list"> 
@@ -153,6 +153,11 @@
     <script>
         loadImg();
         createBtn();
+        function auto_change() {
+            setTimeout(auto_change, 3000);
+            document.getElementById("next").click();
+        }
+        setTimeout(auto_change, 3000);
     </script>
 </body>
 </html>
