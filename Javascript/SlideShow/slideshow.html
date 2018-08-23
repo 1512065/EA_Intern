@@ -135,6 +135,7 @@
         function stop_auto() {
             document.getElementById("stop").style.backgroundColor = "black";
             document.getElementById("play").style.backgroundColor = null;
+            document.getElementById("play").disabled = false;
             clearTimeout(auto);
         }
     </script>
