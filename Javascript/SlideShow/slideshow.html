@@ -10,7 +10,7 @@
         }
         #slide {
             width: 900px;
-            height: 600px;
+            height: 680px;
             margin: 0 auto;
             position: relative;
         }
@@ -44,10 +44,6 @@
             font-size: 20px;
         }
 
-        #slide_button button:hover {
-            background-color: black;
-        }
-
         #list {
             width: 900px;
             margin: 0 auto;
@@ -55,7 +51,7 @@
             justify-content: center;
         }
 
-        #list > button, #slide_button button {
+        #list > button, #slide_button button, .show_btn {
             cursor: pointer;
             color: white;
             background-color: gray;
@@ -69,9 +65,14 @@
             line-height: 30px;
             font-size: 15px;
         }
-        #list button:hover {
+        #list button:hover, #slide_button button:hover, .show_btn:hover {
             background-color: teal;
         }
+       .show_btn {
+            width: 60px;
+            height: 40px;
+            margin: 10px 10px;
+       }
     </style>
     <script>
         var slide_img = document.getElementsByClassName("slide_img");
@@ -121,10 +122,26 @@
             document.getElementById(curr).style.backgroundColor = "black";
             slide_img[curr].style.display = "";
         }
+        var auto;
+        function auto_change() {
+            auto = setTimeout(auto_change, 5000);
+            document.getElementById("next").click();
+        }
+        function change_color() {
+            document.getElementById("play").style.backgroundColor = "black";
+            document.getElementById("stop").style.backgroundColor = null;
+        }
+        function stop_auto() {
+            document.getElementById("stop").style.backgroundColor = "black";
+            document.getElementById("play").style.backgroundColor = null;
+            clearTimeout(auto);
+        }
     </script>
 </head>
 <body>
     <div id="slide">
+        <button class="show_btn" onclick="auto_change(); change_color()" id="play">PLAY</button> 
+        <button class="show_btn" onclick="stop_auto();" id="stop">PAUSE</button>
         <div id="frame">
             <div class="slide_img">
                 <img src="https://cdn.wallpaper.com/main/styles/responsive_920w_scale/s3/3._ace_hotel_new_orleans.jpg">
@@ -143,21 +160,17 @@
             </div>
         </div>
         <div id="slide_button">
-            <button class="img_btn" onclick="preImg()">&lt;</button>
-            <button class="img_btn" id="next" onclick="nextImg()" style="float: right;">&gt;</button>
+            <button onclick="preImg()">&lt;</button>
+            <button id="next" onclick="nextImg()" style="float: right;">&gt;</button>
         </div>    
     </div>    
     <div id="list"> 
-        <button id="0" onclick="showImg(this)">1</button>
-    </div>    
+        <button id="0" onclick="showImg(this)">1</button>       
+    </div>       
     <script>
         loadImg();
         createBtn();
-        function auto_change() {
-            setTimeout(auto_change, 5000);
-            document.getElementById("next").click();
-        }
-        setTimeout(auto_change, 5000);
+        document.getElementById("stop").click();     
     </script>
 </body>
 </html>
