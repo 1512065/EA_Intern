@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Slide show</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #slide {
+            width: 900px;
+            height: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        #frame {
+            position: absolute;
+        }
+
+        @keyframes appear {
+            from { opacity: 0.5;}
+            to { opacity: 1;}
+        }
+        .slide_img img {
+            height: 600px; 
+            width: 100%; 
+            animation-name: appear;
+            animation-duration: 0.5s;
+        }
+
+        #slide_button {
+            width: 100%;
+            position: absolute;
+            margin-top: 30%;
+
+        }
+        #slide_button button {
+            height: 40px;
+            width: 60px;
+            margin-left: 5px;
+            margin-right: 5px;
+            font-size: 20px;
+        }
+
+        #slide_button button:hover {
+            background-color: black;
+        }
+
+        #list {
+            width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        #list > button, #slide_button button {
+            cursor: pointer;
+            color: white;
+            background-color: gray;
+            border:none;
+            border-radius: 5px;
+        }
+        #list > button {
+            width: 30px;
+            margin: 2px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 15px;
+        }
+    </style>
+    <script>
+        var slide_img = document.getElementsByClassName("slide_img");
+        var curr, n;
+        //default display
+        function loadImg() {
+            n = slide_img.length;
+            for (let i = 1; i < n; i++) {
+                slide_img[i].style.display = "none";
+            }
+            curr = 0;
+        }      
+        function createBtn(){
+            var btn = document.getElementById("0");
+            var list = document.getElementById("list");
+            for (let i = 1; i < n; i++) {
+                var clone = list.firstElementChild.cloneNode(true);
+                clone.id = i;
+                clone.innerHTML = i + 1;
+                list.appendChild(clone);
+            }
+            document.getElementById('0').style.background = "black";
+        }
+        // click event  
+        function nextImg() {
+            document.getElementById(curr).style.background = "gray";
+            slide_img[curr].style.display = "none";
+            curr++;
+            if (curr == n) {
+                curr = 0;
+            } 
+        }
+        function preImg() {
+            document.getElementById(curr).style.background = "gray";
+            slide_img[curr].style.display = "none";
+            curr--;
+            if (curr <0) {
+                curr = n-1;
+            }          
+        }  
+        function showImg(elm) {
+            slide_img[curr].style.display = "none";
+            document.getElementById(curr).style.background = "gray";
+            elm.style.background = "black";
+            curr = elm.id;
+        }
+        document.onclick = function(){
+            document.getElementById(curr).style.background = "black";
+            slide_img[curr].style.display = "";
+        }
+    </script>
+</head>
+<body>
+    <div id="slide">
+        <div id="frame">
+            <div class="slide_img">
+                <img src="https://cdn.wallpaper.com/main/styles/responsive_920w_scale/s3/3._ace_hotel_new_orleans.jpg">
+            </div>
+            <div class="slide_img">
+                <img src="https://cdn.wallpaper.com/main/styles/responsive_920w_scale/s3/1._four_seasons_surf_club_miami.jpg">
+            </div>
+            <div class="slide_img">
+                <img src="https://cdn.wallpaper.com/main/styles/responsive_920w_scale/s3/4._21_c_oklahoma.jpg">
+            </div>
+            <div class="slide_img">
+                <img src="https://cdn.wallpaper.com/main/styles/responsive_920w_scale/s3/2._11_howard.jpg">
+            </div>           
+            <div class="slide_img">
+                <img src="https://cdn.wallpaper.com/main/styles/responsive_920w_scale/s3/6._the_line_dc.jpg">
+            </div>
+        </div>
+        <div id="slide_button">
+            <button class="img_btn" onclick="preImg()">&lt;</button>
+            <button class="img_btn" onclick="nextImg()" style="float: right;">&gt;</button>
+        </div>    
+    </div>    
+    <div id="list"> 
+        <button id="0" onclick="showImg(this)">1</button>
+    </div>    
+    <script>
+        loadImg();
+        createBtn();
+    </script>
+</body>
+</html>
+
+
