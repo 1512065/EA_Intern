@@ -129,6 +129,7 @@
         }
         function change_color() {
             document.getElementById("play").style.backgroundColor = "black";
+            document.getElementById("play").disabled = true;
             document.getElementById("stop").style.backgroundColor = null;
         }
         function stop_auto() {
@@ -140,7 +141,7 @@
 </head>
 <body>
     <div id="slide">
-        <button class="show_btn" onclick="auto_change(); change_color()" id="play">PLAY</button> 
+        <button class="show_btn" onclick="auto_change(); change_color();" id="play">PLAY</button> 
         <button class="show_btn" onclick="stop_auto();" id="stop">PAUSE</button>
         <div id="frame">
             <div class="slide_img">
