@@ -62,12 +62,15 @@
             border:none;
             border-radius: 5px;
         }
-        #list > button {
+        #list button {
             width: 30px;
             margin: 2px;
             text-align: center;
             line-height: 30px;
             font-size: 15px;
+        }
+        #list button:hover {
+            background-color: teal;
         }
     </style>
     <script>
@@ -90,11 +93,11 @@
                 clone.innerHTML = i + 1;
                 list.appendChild(clone);
             }
-            document.getElementById('0').style.background = "black";
+            document.getElementById('0').style.backgroundColor = "black";
         }
         // click event  
         function nextImg() {
-            document.getElementById(curr).style.background = "gray";
+            document.getElementById(curr).style.backgroundColor = "gray";
             slide_img[curr].style.display = "none";
             curr++;
             if (curr == n) {
@@ -102,7 +105,7 @@
             } 
         }
         function preImg() {
-            document.getElementById(curr).style.background = "gray";
+            document.getElementById(curr).style.backgroundColor = "gray";
             slide_img[curr].style.display = "none";
             curr--;
             if (curr <0) {
@@ -111,11 +114,11 @@
         }  
         function showImg(elm) {
             slide_img[curr].style.display = "none";
-            document.getElementById(curr).style.background = "gray";
+            document.getElementById(curr).style.backgroundColor = "gray";
             curr = elm.id;
         }
         document.onclick = function(){
-            document.getElementById(curr).style.background = "black";
+            document.getElementById(curr).style.backgroundColor = "black";
             slide_img[curr].style.display = "";
         }
     </script>
