@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Slide show</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #slide {
+            width: 900px;
+            height: 680px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        #frame {
+            position: absolute;
+        }
+
+        @keyframes appear {
+            from { opacity: 0.5;}
+            to { opacity: 1;}
+        }
+        .slide_img img {
+            height: 600px; 
+            width: 100%; 
+            animation-name: appear;
+            animation-duration: 0.5s;
+            
+        }
+
+        #slide_button {
+            width: 100%;
+            position: absolute;
+            margin-top: 30%;
+
+        }
+        #slide_button button {
+            height: 40px;
+            width: 60px;
+            margin-left: 5px;
+            margin-right: 5px;
+            font-size: 20px;
+        }
+
+        #list {
+            width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        #list > button, #slide_button button, .show_btn {
+            cursor: pointer;
+            color: white;
+            background-color: gray;
+            border:none;
+            border-radius: 5px;
+        }
+        #list button {
+            width: 30px;
+            margin: 2px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 15px;
+        }
+        #list button:hover, #slide_button button:hover, .show_btn:hover {
+            background-color: teal;
+        }
+       .show_btn {
+            width: 60px;
+            height: 40px;
+            margin: 10px 10px;
+       }
+       .slide_img {
+           display:none;
+       }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            //default display
+            var img_arr = $(".slide_img");
+            var n = img_arr.length;
+            var curr = 0;
+            //clone list number
+            function createNum(){
+                for (let i = 1; i < n; i++) {
+                    var clone = $("#0").clone();
+                    clone.attr("id", i);
+                    clone.html(i + 1);
+                    clone.insertAfter($("#" + (i-1)));
+                }
+            }
+            createNum();
+            (function(){
+                $(".slide_img:first").css("display","block");
+                $("#0").css("background-color", "black");
+            })();
+            //pre-next click
+            $("#prev").click(
+                function() {
+                    clearOld();
+                    curr--;
+                    if (curr < 0) {
+                        curr = n-1;
+                    }
+                    showNew();
+                }
+            );
+            $("#next").click(
+                function() {
+                    clearOld();
+                    curr++;
+                    if (curr == n) {
+                        curr = 0;
+                    }
+                    showNew();
+                }
+            )
+            //number click
+            $("#list button").click(
+                function() {
+                    clearOld();
+                    curr = $(this).attr("id");
+                    showNew();
+                }
+            )
+            function clearOld() {
+                $("#" + curr).css("background-color","");
+                img_arr[curr].style.display = "none";
+            }
+            function showNew() {
+                $("#" + curr).css("background-color","black");
+                img_arr[curr].style.display = "block";
+            }
+            //autoplay 
+            var auto;
+            
+            $("#play").click(
+                function auto_change() {
+                    auto = setTimeout(auto_change, 5000);
+                    $("#next").click();
+                    $(this).css("background-color","black");
+                    $(this).attr("disabled",true);
+                    $("#stop").css("background-color","");
+                }
+            );
+            $("#stop").click(
+                function () {
+                    clearTimeout(auto);
+                    $("#play").css("background-color","");
+                    $(this).css("background-color","black");
+                    $("#play").removeAttr("disabled")
+                }
+            );
+        });
+    </script>
+</head>
+<body>
+    <div id="slide">
+        <button class="show_btn" id="play">PLAY</button> 
+        <button class="show_btn" id="stop">PAUSE</button>
+        <div id="frame">
+            <div class="slide_img">
+                <img src="https://cdn.wallpaper.com/main/styles/responsive_920w_scale/s3/3._ace_hotel_new_orleans.jpg">
+            </div>
+            <div class="slide_img">
+                <img src="https://cdn.wallpaper.com/main/styles/responsive_920w_scale/s3/1._four_seasons_surf_club_miami.jpg">
+            </div>
+            <div class="slide_img">
+                <img src="https://cdn.wallpaper.com/main/styles/responsive_920w_scale/s3/4._21_c_oklahoma.jpg">
+            </div>
+            <div class="slide_img">
+                <img src="https://cdn.wallpaper.com/main/styles/responsive_920w_scale/s3/2._11_howard.jpg">
+            </div>           
+            <div class="slide_img">
+                <img src="https://cdn.wallpaper.com/main/styles/responsive_920w_scale/s3/6._the_line_dc.jpg">
+            </div>
+        </div>
+        <div id="slide_button">
+            <button id="prev">&lt;</button>
+            <button id="next" style="float: right;">&gt;</button>
+        </div>    
+    </div>    
+    <div id="list"> 
+        <button id="0">1</button>       
+    </div>
+</body>
+</html>
+
+
