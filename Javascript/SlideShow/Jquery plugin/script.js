@@ -108,7 +108,6 @@
             slider.init();		
                 
 			frame.hover(function(){ 
-				slider.captions.stop(true, true).fadeToggle();
 				slider.Next.stop(true, true).fadeToggle();
 				slider.Prev.stop(true, true).fadeToggle();
 			});
@@ -123,7 +122,7 @@
 				slider.prev();
 			});
 			slider.bullets.click(function(){  
-                slider.captions.hide();
+                
                 slider.switchImg($(this).index());
                 slider.changeIndex($(this).index());
             });
@@ -140,6 +139,7 @@
                     $(this).css("background-color","gray");
                     $(this).attr("disabled",true);
                     $(".stop").css("background-color","");
+                  
                 }
             );
             $(".stop").click(
@@ -147,7 +147,7 @@
                     clearInterval(auto);
                     $(".play").css("background-color","");
                     $(this).css("background-color","gray");
-                    $(".play").removeAttr("disabled")
+                    $(".play").removeAttr("disabled");
                 }
             );
             $(".stop").click();

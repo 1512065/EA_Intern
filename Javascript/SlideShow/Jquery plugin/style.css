@@ -34,8 +34,7 @@
     opacity: 0.7;
     width: 100%;
     text-align: center;
-    display:none;
-
+    font-size: 18px;
 }
 
 .slideShow .frame p:hover {
