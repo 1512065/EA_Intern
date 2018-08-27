@@ -13,13 +13,16 @@
             }
             // add class
             $(this).children().wrapAll('<div class="slideShow" />');
+           
             var contain = $(this).find('.slideShow');
+            
             contain.find('li').wrapAll('<div class="frame" />');
             var frame = contain.find('.frame');
 
             // add button next, prev
             frame.append('<a href="#" class="prev">&lt;</a> <a href="#" class="next">&gt;</a>');
-
+            $('<div style="margin: 0 auto; width:'+ setting.width + 'px"><button class="play">PLAY</button> <button class="stop">STOP</button></div>')
+            .insertBefore(frame);
             // add list number
             contain.append('<div class="num_list" />');
             var num_list = contain.find('.num_list');
@@ -31,14 +34,15 @@
                     num_list.append('<a href="#">'+ i +'</a>'); 
 				}
 
-				// Captions
+				// Caption
 				var title = $(this).attr('title');
 				$(this).wrapAll('<div class="image" />');
 				if (title !== undefined) {
 						$(this).attr('title', '');
-						$(this).after('<p>'+ title +'</p>');
+						$(this).after('<p>' + title + '</p>');
 				}
 			});			
+            
             
             //slide show
             var Slider = function(){
@@ -49,6 +53,7 @@
                 this.bullets = contain.find('.num_list a');
                 this.captions = this.imgs.find('p');
                 var index=0;
+                var auto_flag =0;
                 this.switchImg = function(index){ // change image
                         this.imgs
                             .removeClass('curr')
@@ -60,7 +65,7 @@
                             .removeClass('curr')
                             .eq(index)
                             .addClass('curr');
-                            console.log(index);
+
                 };
                 this.changeIndex = function(newval){ // change index
                         index=newval;
@@ -99,18 +104,20 @@
                 };
             };
                
-                var slider = new Slider();
-                slider.init();		
+            var slider = new Slider();
+            slider.init();		
                 
-                /* Mouse Events
-			-----------------------------------------------*/
 			frame.hover(function(){ 
 				slider.captions.stop(true, true).fadeToggle();
 				slider.Next.stop(true, true).fadeToggle();
 				slider.Prev.stop(true, true).fadeToggle();
 			});
 			slider.Next.click(function(){ 
+                clearInterval(auto);
                 slider.next(); 
+                if (auto_flag == 1) {
+                    auto = setInterval(auto_change, 5000);
+                }
 			});
 			slider.Prev.click(function(){ 
 				slider.prev();
@@ -119,7 +126,31 @@
                 slider.captions.hide();
                 slider.switchImg($(this).index());
                 slider.changeIndex($(this).index());
-			});
+            });
+
+            //autoplay 
+            var auto;
+            function auto_change(){
+                slider.Next.click();
+            }
+            $(".play").click(
+                function() {
+                    auto_flag = 1;
+                    auto = setInterval(auto_change, 3000);
+                    $(this).css("background-color","gray");
+                    $(this).attr("disabled",true);
+                    $(".stop").css("background-color","");
+                }
+            );
+            $(".stop").click(
+                function () {
+                    clearInterval(auto);
+                    $(".play").css("background-color","");
+                    $(this).css("background-color","gray");
+                    $(".play").removeAttr("disabled")
+                }
+            );
+            $(".stop").click();
         })
 
     }
