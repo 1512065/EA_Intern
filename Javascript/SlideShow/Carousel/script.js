@@ -50,10 +50,10 @@
                 this.captions = this.imgs.find('p');
                 this.details = slideFrame.find('.details');
                
-                                 // Init
+                // Init
                 this.init = function(){ 
                     slideFrame
-                        //.width((setting.i_width +10) * (this.imgCount+1))
+                        //.width((setting.i_width + setting.padding) * (this.imgCount+1))
                         .width(setting.width)
                         .height(setting.height);
                     this.imgs
@@ -82,29 +82,30 @@
             
             $(document).ready(function(e) {
                 //next button
-                $('.next').bind("click", function enableNext(){
+                $('.next').bind("click", function nextImg(){
                     clearInterval(auto);
                     $(".next").unbind("click");
                     //clone
                     var clone= $('.itemFrame').eq(num).clone();
                     clone.insertBefore($('.itemFrame').eq(num));
                     clone.css("position","absolute");
-                  
+                    //animate
                     $('.itemFrame:first').animate({
                         marginLeft: '-='+ (setting.i_width+ setting.padding)
                       }, setting.tranSpeed, function() {
                             $('.itemFrame:first').css("marginLeft",setting.padding);
                             $('.itemFrame:first').insertAfter($('.itemFrame:last'));
-                            $(".next").bind("click",enableNext);
+                            $(".next").bind("click", nextImg);
                             clone.remove();
                     });
+                    //continue auto play
                     if (auto_flag == 1) {
                         auto = setInterval(auto_change, 5000);
                     }
                     
                 });
                 //prev button
-                $('.prev').bind("click", function enablePrev(){
+                $('.prev').bind("click", function prevImg(){
                     $(".prev").unbind("click");
                     //clone end slide
                     var clone_end= $('.itemFrame').eq(num-1).clone();
@@ -115,13 +116,13 @@
                     clone_start.css("margin-left", -(setting.i_width+ setting.padding));
                     clone_start.insertBefore($('.itemFrame:first'));
                     //debugger;
+                    //animate
                     $('.itemFrame:first').animate({
                         marginLeft: '+='+ (setting.i_width+ setting.padding*2)
                       }, setting.tranSpeed, function() {
-                         
                            // $('.itemFrame:first').css("marginLeft",setting.padding);
                             $('.itemFrame:last').insertBefore($('.itemFrame:first')); 
-                            $(".prev").bind("click",enablePrev);
+                            $(".prev").bind("click", prevImg);
                             clone_end.remove();
                             clone_start.remove();
                     });
