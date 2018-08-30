@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #keywords {
+            height: 30px;
+            width: 500px;
+        }
+        #list li {
+            height: 30px;
+            width: 500px;
+            background-color: antiquewhite;
+            border: 0.5px solid seagreen;
+            
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+        }
+        #list {
+            list-style-type: none;
+        }
+        #list li:hover {
+            opacity: 0.8;
+        }
+        body {
+            padding-left: 100px;
+        }
+    </style>
+    <script>
+        function filter() {
+            var input = document.getElementById("keywords").value;
+            var li = document.getElementById("list").querySelectorAll("li");
+            for (let i=0; i< li.length; i++) {
+                if (li[i].innerHTML.indexOf(input) > -1) {
+                    li[i].style.display ="";
+                } else {
+                    li[i].style.display ="none";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <br>
+    <p>Filter search:</p><br>
+    <input type="text" id="keywords" onkeyup="filter()" placeholder="Search...">
+    <ul id="list">
+        <li>cookies</li>
+        <li>windows</li>
+        <li>mail</li>
+        <li>database</li>
+        <li>machine learning</li>
+        <li>big data</li>
+        <li>adele</li>
+        <li>file</li>
+        <li>function</li>
+        <li>table</li>
+    </ul>
+</body>
+</html>

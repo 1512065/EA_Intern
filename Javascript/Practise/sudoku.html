@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <title>JS - condition</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </head> 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .sq_3x3 {
+            width: 150px;
+            height: 150px;
+            list-style-type: none;
+            display: inline-block;
+        }
+        .num {
+            width: 40px;
+            height: 40px;
+            margin: 2px;
+            float:left;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        //check input
+        function check_type(elm) {
+            let val = elm.value;
+            if (val.search(/[1-9]/) == -1) {
+                elm.value= "";
+            }
+        }
+        //check result
+        function check_rule(){
+            debugger;
+            let i = 1;
+            let arr = [];
+            while (i < 10) {
+                let n = document.getElementById(i).value;
+                if (arr[n] == null) {
+                    arr[n] = 1;
+                } else {
+                    return false;
+                }
+                i++;
+            }
+            return true;
+        }
+        function check(){
+            let res = check_rule();
+            if (res === true) {
+                console.log('ok');
+            } else {
+                console.log('wrong');
+            }
+        }
+
+      
+    </script>
+    <body>
+        <ul style="list-style-type: none">
+            <li>
+                <ul class="sq_3x3">
+                    <li><input type="text" id="1" class="num" onchange="check_type(this)" maxlength="1"></li>
+                    <li><input type="text" id="2" class="num" onchange="check_type(this)" value="2" readonly></li>
+                    <li><input type="text" id="3" class="num" onchange="check_type(this)" maxlength="1"></li>
+                    <li><input type="text" id="4" class="num" onchange="check_type(this)" value="4" readonly></li>
+                    <li><input type="text" id="5" class="num" onchange="check_type(this)" maxlength="1"></li>
+                    <li><input type="text" id="6" class="num" onchange="check_type(this)" maxlength="1"></li>
+                    <li><input type="text" id="7" class="num" onchange="check_type(this)" value="7" readonly></li>
+                    <li><input type="text" id="8" class="num" onchange="check_type(this)" maxlength="1"></li>
+                    <li><input type="text" id="9" class="num" onchange="check_type(this)" value ="9" readonly></li>
+                </ul>
+            </li>
+        </ul> 
+        <button onclick="check()">Check</button>
+        <script>
+            
+        </script>
+    </body>
+</html>

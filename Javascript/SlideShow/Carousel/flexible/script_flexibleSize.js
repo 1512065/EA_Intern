@@ -162,17 +162,7 @@
                     itemFrame = $(".itemFrame");
                     var clone_end_width = itemFrame.eq(slider.i_hidden+1).width();
                     var slide_width = clone_width+ setting.padding;
-                    //clone inside
-                    /*var next_size = slider.fullsize + slide_width;
-                    var not_ovf = setting.width - slide_width;
-                    var temp_size = 0;
-                    var i_clone =0;
-                    while (temp_size < not_ovf) {
-                        temp_size += itemFrame.eq(i_clone).width();
-                        i_clone++;
-                    }
-                    i_clone--;
-                    */
+               
                     //animate
                     $('.itemFrame:first').animate({
                         marginLeft: '+=' + (slide_width)
@@ -198,13 +188,9 @@
                             var clone_end = itemFrame.eq(slider.i_hidden).clone();
                             clone_end.insertBefore(itemFrame.eq(slider.i_hidden));
                             clone_end.css("position","absolute");
-                        } 
-                        
-                        
+                        }     
                         
                     });
-
-                    
                 });
                 //auto button
                 function auto_change(){

@@ -108,6 +108,33 @@
         function find_name(funct) {
             console.log(funct.name);
         }
+
+        // check palindrome
+        function check_palstr(str) {
+            let j = str.length -1;
+            let i = 0;
+            str = str.toLowerCase();
+            while (i <= j) {
+                while (str[i].search(/[a-z]/i) == -1) {
+                    i++;
+                }
+                while (str[j].search(/[a-z]/i) == -1) {
+                    j--;
+                }
+                if (str[i] != str[j]) {
+                    return false;
+                } else {
+                    i++;
+                    j--;
+                }
+            }
+            return true;
+        }
+        // opt2
+        function isPalindrome(str) {
+            str = str.replace(/\W/g, '').toLowerCase();
+            return (str == str.split('').reverse().join(''));
+        }
     </script>
     <body>
         Enter number: <input type="number" id='input'>

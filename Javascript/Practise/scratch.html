@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.container img {
+    width: 100%;
+    height: auto;
+}
+
+.container .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.container .btn:hover {
+    background-color: black;
+}
+</style>
+<script>
+    function test() {
+        var x = jQuery._data( elem, "events" );
+        console.log(x);
+    }
+    
+</script>
+</head>
+<body>
+
+<div class="container">
+  <img src="https://cdn.wallpaper.com/main/styles/responsive_920w_scale/s3/6._the_line_dc.jpg" alt="Snow" style="width:100%" onclick="alert('cd')">
+  <button class="btn" onclick="alert('ab')">Button</button>
+
+  <div onclick="alert('hello')">Click button <button onclick="test();">button</button> !!! </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <title>Register</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) { 
+                document.getElementById("user").onchange = function() {
+                    var user = document.getElementById("user").value;
+                    let patt = /^\w{8,}$/;
+                    if (patt.test(user) == false) {
+                        document.getElementById("user_ck").innerHTML = "Invalid username";
+                    } else {
+                        document.getElementById("user_ck").innerHTML = "";
+                    }
+                }
+                document.getElementById("psw").onchange = function() {
+                    var psw = document.getElementById("psw").value;
+                    let patt = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8,})$/;
+                    if (patt.test(psw) == false) {
+                        document.getElementById("psw_ck").innerHTML = "Invalid password";
+                    } else {
+                        document.getElementById("psw_ck").innerHTML = "";
+                    }
+                }
+                document.getElementById("email").onchange = function() {
+                    var email = document.getElementById("email").value;
+                    let patt = /[a-z0-9]+@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9]/;
+                    if (patt.test(email) == false) {
+                        document.getElementById("email_ck").innerHTML = "Invalid mail";
+                    } else {
+                        document.getElementById("email_ck").innerHTML = "";
+                    }
+                }
+                document.getElementById("phone").onchange = function() {
+                    var phone = document.getElementById("phone").value;
+                    let patt = /[0-9-]{8,}/;
+                    if (patt.test(phone) == false) {
+                        document.getElementById("phone_ck").innerHTML = "Invalid phone number";
+                    } else {
+                        document.getElementById("phone_ck").innerHTML = "";
+                    }
+                }
+            });
+        </script>
+    </head> 
+    <body>
+        <form action="#">
+            <div class="container">
+                <h1>ENGLISH FORUM</h1>
+                <p><i>Please fill in this form to register.</i></p>
+                <hr>
+                <div style="width: 450px">
+                    <p><b>Username</b><span class="check" id="user_ck"></span></p>
+                    <input type="text" placeholder="At least 8 characters" id="user" required>
+                    <p><b>Password</b><span class="check" id="psw_ck"></span></p>
+                    <input type="password" placeholder="At least 8 chars, contain number and uncapital and capital char" id="psw" required>
+                </div>
+                <div style="width: 450px; margin-left: 20px; border-left: 1px solid teal">
+                    <p><b>Birthday</b></p>
+                    <input type="date" id="birth" required max="2010-12-31">
+                    <p><b>Gender</b></p>
+                    <select id="gender">
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                        <option value="O">Other</option>
+                    </select>
+                </div>
+                <p><b>Email</b><span class="check" id="email_ck"></span></p>
+                <input type="text" placeholder="Enter Email" id="email" required>
+                <p><b>Phone number</b><span class="check" id="phone_ck"></span></p>
+                <input type="text" placeholder="Enter Phone" id="phone">
+                <input type="checkbox"><i> I agree with the <a href="#">Security Policy!</a></i>
+                <p id="check"></p>
+                <button type="submit" class="registerbtn">Register</button>
+                <p>&nbsp;</p>
+            </div>
+            
+        </form>
+    </body>
+
+</html>

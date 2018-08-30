@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("#b1").click(function(){
+            //alert('new');
+            $("#test").load("data.php");
+        });
+    });
+    </script>
+    <script>
+        function change(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("new").innerHTML = this.responseText;
+                }
+            };
+            //xhttp.open("GET","text.txt", true);
+            xhttp.open("GET","test.php?name=Duyen&class=123");
+            xhttp.send();
+        }
+    </script>
+</head>
+<body>
+    <p id="test">a</p>
+    <button id="b1">click</button>
+
+    <p id="new">b</p>
+    <button onclick="change()">click</button>
+</body>
+</html>

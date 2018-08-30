@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <title>Chess board</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </head> 
+    
+    <body>
+        <pre id="board"></pre>
+        <script>
+            function create_Chessboard(size) {
+                var str = "";
+                var o_line = "";
+                for (let j = 1; j<= size; j++) {
+                    if ( j%2 === 1) {
+                        o_line += " ";
+                    } else {
+                        o_line += "#";
+                    }
+                }
+                o_line += "<br>";
+                var e_line = o_line.slice(1, size);
+                e_line += " <br>";
+                for (let j = 1; j<= size; j++) {
+                    if ( j%2 === 1) {
+                        str += o_line;
+                    } else {
+                        str += e_line;
+                    }
+                }
+                str.replace(' ', '&nbsp;');
+                return str;  
+            }
+            var board = create_Chessboard(8);
+            document.getElementById('board').innerHTML = board;
+        </script>
+        
+    </body>
+</html>
