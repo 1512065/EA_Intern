@@ -3,7 +3,7 @@
         var setting = {
             'width': 1000,
             'height': 400,
-            'tranSpeed':1000,
+            'tranSpeed':500,
             //'i_width': 320,
             //'i_height': 200,
             'padding': 10
