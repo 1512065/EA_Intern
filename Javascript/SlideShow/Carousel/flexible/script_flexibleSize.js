@@ -101,7 +101,7 @@
                     
                     //animate
                     var slide_width =  $('.itemFrame:first').width() + setting.padding;
-                    debugger;
+                    
                     $('.itemFrame:first').animate({
                         marginLeft: '-=' + slide_width
                       }, setting.tranSpeed, function() {
@@ -149,64 +149,63 @@
                     
                 });
 
-                //prev button
+                //prev
                 $('.prev').bind("click", function prevImg(){
-                    $(".prev").unbind("click");
+                    //$(".prev").unbind("click");
+
                     //clone before
                     var clone_start = $('.itemFrame:last').clone();
                     var clone_width = $('.itemFrame:last').width();
                     clone_start.css("margin-left", -(clone_width));
                     clone_start.insertBefore($('.itemFrame:first'));
-                    debugger;
+                    //right clone
+                    itemFrame = $(".itemFrame");
+                    var clone_end_width = itemFrame.eq(slider.i_hidden+1).width();
+                    var slide_width = clone_width+ setting.padding;
+                    //clone inside
+                    /*var next_size = slider.fullsize + slide_width;
+                    var not_ovf = setting.width - slide_width;
+                    var temp_size = 0;
+                    var i_clone =0;
+                    while (temp_size < not_ovf) {
+                        temp_size += itemFrame.eq(i_clone).width();
+                        i_clone++;
+                    }
+                    i_clone--;
+                    */
                     //animate
                     $('.itemFrame:first').animate({
-                        marginLeft: '+=' + (clone_width+ setting.padding)
-                      }, setting.tranSpeed, function() {
-                           $('.itemFrame:last').remove();
-                           //new fullsize
-                           slider.fullsize = 0;
-                           itemFrame = $(".itemFrame");
-                           for(let i=0; i<itemFrame.length; i++){
-                               slider.fullsize += itemFrame[i].clientWidth + setting.padding;
-                               if (slider.fullsize >= setting.width)
-                               {
-                                   slider.i_hidden = i;
-                                   break;
-                               }
-                           }
-                           var overflowed = slider.fullsize - setting.width;
-                           debugger;
-                           var not_of = itemFrame[slider.i_hidden].clientWidth - overflowed;
-                           
-                           //var slide_width = clone_width+ setting.padding;  
-                           debugger;
-                           if (slide_width >= overflowed) {
-                               $('.itemFrame').eq(slider.i_hidden-1).remove();
-                               //clone new element
-                               //find hidden index
-                               slider.fullsize = 0;
-                               itemFrame = $(".itemFrame");
-                               for(let i=0; i<itemFrame.length; i++){
-                                   slider.fullsize += itemFrame[i].clientWidth + setting.padding;
-                                   if (slider.fullsize >= setting.width)
-                                   {
-                                       slider.i_hidden = i;
-                                       break;
-                                   }
-                           }
-                               //clone
-                               var clone= $('.itemFrame').eq(slider.i_hidden).clone();
-                               clone.insertBefore($('.itemFrame').eq(slider.i_hidden));
-                               clone.css("position","absolute");
-                               
-                           }
-
-                           $(".prev").bind("click", prevImg);
-
-
+                        marginLeft: '+=' + (slide_width)
+                    }, setting.tranSpeed, function() {
+                        $('.itemFrame:last').remove();
+                        itemFrame = $(".itemFrame");
+                        // new size calculate
+                        slider.fullsize =0;
+                        for(let i=0; i<itemFrame.length; i++){
+                            slider.fullsize += itemFrame[i].clientWidth + setting.padding;
+                            if (slider.fullsize >= setting.width)
+                            {
+                                slider.i_hidden = i;
+                                break;
+                            }
+                         }
+                        if(itemFrame.eq(slider.i_hidden).css("position")!=="absolute") {
+                            
+                            //delete old clone
+                            $(".itemFrame[style*='absolute']").remove();
+                            //clone new at end
+                         
+                            var clone_end = itemFrame.eq(slider.i_hidden).clone();
+                            clone_end.insertBefore(itemFrame.eq(slider.i_hidden));
+                            clone_end.css("position","absolute");
+                        } 
+                        
+                        
+                        
                     });
-                });
 
+                    
+                });
                 //auto button
                 function auto_change(){
                     $('.next').click();
