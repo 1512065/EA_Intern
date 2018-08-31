@@ -4,7 +4,6 @@
             'width': 1000,
             'height': 400,
             'tranSpeed':500,
-
             'padding': 10
         };
 
@@ -57,8 +56,10 @@
                 this.init = function(){ 
                     displayFrame
                     .width(setting.width)
-                    .height(setting.height);
+                    .height(setting.height)
+                    
                     displayFrame.css("overflow","hidden");
+                    displayFrame.css("margin","0 auto");
                     itemFrame.height(setting.height);
                     var max_length = 0;
                     // edit item
