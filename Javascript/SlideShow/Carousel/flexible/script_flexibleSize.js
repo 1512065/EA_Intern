@@ -125,7 +125,7 @@
 
                 //prev
                 $('.prev').bind("click", function prevImg(){
-                    //$(".prev").unbind("click");
+                    $(".prev").unbind("click");
 
                     //clone before
                     var clone_start = $('.itemFrame:last').clone();
