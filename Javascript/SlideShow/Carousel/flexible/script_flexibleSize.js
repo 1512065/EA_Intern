@@ -134,7 +134,7 @@
                     clone_start.insertBefore($('.itemFrame:first'));
                     //right clone
                     itemFrame = $(".itemFrame");
-                    //var clone_end_width = itemFrame.eq(slider.i_hidden+1).width();
+                    
                     var slide_width = clone_width+ setting.padding;
                
                     //animate
@@ -153,7 +153,7 @@
                                 break;
                             }
                          }
-                       
+                         $(".prev").bind("click", prevImg);
                     });
                 });
                 //auto button
