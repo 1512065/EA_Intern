@@ -31,10 +31,6 @@
             itemFrame.find('p').each(function() {
                 $(this).wrap('<div class="details" />');
             });
-            /*$(this).on('load', function(){
-                $(this).width($(this).prop("naturalWidth"));
-                $(this).height($(this).prop("naturalHeight"));
-            });*/
             itemFrame.find('img').each(function(){
 				// Caption
 				var title = $(this).attr('title');
@@ -107,7 +103,6 @@
                     $(".next").unbind("click");
                     //animate
                     var slide_width =  $('.itemFrame:first').width() + setting.padding;
-                    
                     $('.itemFrame:first').animate({
                         marginLeft: '-=' + slide_width
                       }, setting.tranSpeed, function() {
@@ -134,9 +129,7 @@
                     clone_start.insertBefore($('.itemFrame:first'));
                     //right clone
                     itemFrame = $(".itemFrame");
-                    
                     var slide_width = clone_width+ setting.padding;
-               
                     //animate
                     $('.itemFrame:first').animate({
                         marginLeft: '+=' + (slide_width)
