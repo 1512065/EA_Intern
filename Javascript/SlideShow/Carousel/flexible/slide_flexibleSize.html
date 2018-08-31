@@ -7,25 +7,31 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
     <script type="text/javascript" src="script_flexibleSize.js"></script>
     <script>
-       jQuery(window).load(function(){
+         var img = jQuery('img');
+        function trueSize(elm){
+            debugger;
+            $(elm).height($(elm).prop("naturalHeight"));
+            $(elm).width($(elm).prop("naturalWidth"));
+         };
+       //jQuery(window).load(function(){
             jQuery(function($){
                $('#slide').carousel({});
             });
-       });
+      // });
                 
     </script>
 </head>
 <body>
 	<ul id="slide">
-        <li><img src="./img/car.jpg" title="Car" />
+        <li><img src="./img/car.jpg" title="Car" onload="trueSize(this);" />
              <p>Car details/ Renting details</p></li>
-        <li><img src="./img/hotel.jpg" title="Hotel" />
+        <li><img src="./img/hotel.jpg" title="Hotel"  onload="trueSize(this);"  />
             <p>Top 10 hotel in 2017</p></li>
-        <li><img src="./img/train.jpg" title="Train" />
+        <li><img src="./img/train.jpg" title="Train" onload="trueSize(this);"  />
             <p>For more information about Train service visit this <a href="www.google.com">site</a></p></li>
-        <li><img src="./img/travel.jpg" title="Travel">
+        <li><img src="./img/travel.jpg" title="Travel" onload="trueSize(this);" />
             <p>Traveling tips for tourists</p></li>
-        <li><img src="./img/airplane.png" title="Plane">
+        <li><img src="./img/airplane.png" title="Plane" onload="trueSize(this);" />
             <p>Ticket booking and airline insurance</p></li>
             
     </ul>   

@@ -12,7 +12,9 @@
 }
 
 .carousel .slideFrame .itemFrame .image img {
-   width: 100%;
+   width: 250px;
+   height: 150px;
+
 }
 .carousel .slideFrame .itemFrame {
     float: left;

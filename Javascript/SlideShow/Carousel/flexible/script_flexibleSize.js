@@ -32,15 +32,21 @@
             itemFrame.find('p').each(function() {
                 $(this).wrap('<div class="details" />');
             });
+            /*$(this).on('load', function(){
+                $(this).width($(this).prop("naturalWidth"));
+                $(this).height($(this).prop("naturalHeight"));
+            });*/
             itemFrame.find('img').each(function(){
 				// Caption
 				var title = $(this).attr('title');
-				$(this).wrapAll('<div class="image" />');
+                $(this).wrapAll('<div class="image" />');
+                
 				if (title !== undefined) {
 						$(this).attr('title', '');
 						$(this).after('<p>' + title + '</p>');
 				}
-			});			
+            });			
+            
            var displayFrame = $('.displayFrame');
             //slide show
             var Slider = function(){
@@ -56,6 +62,7 @@
                     itemFrame.height(setting.height);
                     var max_length = 0;
                     // edit item
+                    
                     itemFrame.each(function(){
                         // captions
                         let i_height = $(this).find('img').prop("naturalHeight");
@@ -92,6 +99,7 @@
             var auto_flag=0;
             
             $(document).ready(function() {
+               
                 //next button
                 $('.next').bind("click", function nextImg(){
                     clearInterval(auto);
