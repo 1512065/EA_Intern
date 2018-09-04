@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+        <meta charset="utf-8">
     <style>
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
         #keywords {
             height: 30px;
-            width: 500px;
+            width: 180px;
         }
         #list li {
             height: 30px;
-            width: 500px;
-            background-color: antiquewhite;
-            border: 0.5px solid seagreen;
-            
+            width: 200px;
+            border: 0.2px solid grey;
+            padding: 5px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            
+            border-collapse: collapse;
+            border-top:none;
         }
         #list {
             list-style-type: none;
+            height: 300px;
+            width: 200px;
+            overflow-x: hidden;
+            overflow-y:auto;
+            display:none;
+            border-bottom: 0.1px solid gainsboro;
         }
         #list li:hover {
             opacity: 0.8;
@@ -28,36 +36,84 @@
         body {
             padding-left: 100px;
         }
+        #combobox {
+            height: 30px;
+            width: 200px;
+            font-size: 14px;
+        }
+        a {
+            text-decoration: none;
+        }
+        li:hover {
+            background-color:lavender;
+        }
     </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script>
-        function filter() {
-            var input = document.getElementById("keywords").value;
-            var li = document.getElementById("list").querySelectorAll("li");
-            for (let i=0; i< li.length; i++) {
-                if (li[i].innerHTML.indexOf(input) > -1) {
-                    li[i].style.display ="";
-                } else {
-                    li[i].style.display ="none";
+
+        $.ajax({
+                    type:"GET",
+                    url:"https://apidev.evolableasia.net/airtrip/member/v1/airport_list",
+                    success: function(data) {
+                        airport_list = data["airports"];
+                    },
+                    dataType: 'json',              
+            })
+            .done(function(data){
+                //generate options
+                var len = airport_list.length;
+                var opt_group = [];
+                for (let i = 0; i < len; i++){
+                    $('#combobox').append('<option>'+ airport_list[i].airport_name +'</option>');
+                    $('#list').append('<li><a>'+ airport_list[i].airport_name +'</a></li>');
+                }
+                $('#list li').on('click',function(){
+                    $('#keywords').val($(this).context.innerText);
+                    $('#list').css("display","none");
+
+                });
+            });
+            function filter() {
+                var input = document.getElementById("keywords").value;
+                var li = document.getElementById("list").querySelectorAll("li");
+                for (let i=0; i< li.length; i++) {
+                    if (li[i].innerHTML.indexOf(input) > -1) {
+                        $('#list').css("display","block");
+                        li[i].style.display ="";
+                    } else {
+                        li[i].style.display ="none";
+                    }
                 }
             }
-        }
+            
+        $(document).ready(function(){
+            $('#combobox').css("display","none");
+            $('#btn').click(function(e){
+                if ($('#list').css("display")==="none"){
+                    $('#list').css("display","block");
+                } else {
+                    $('#list').css("display","none");
+                }
+                e.stopPropagation();
+            });
+            $(window).click(function() {
+                if ($('#list').css("display")==="block")
+                    $('#list').css("display","none");
+            });
+        })
+        
     </script>
 </head>
 <body>
     <br>
     <p>Filter search:</p><br>
+    <div>
+    <select id="combobox">
+    </select>
     <input type="text" id="keywords" onkeyup="filter()" placeholder="Search...">
+    <button id="btn" style="width: 20px;height: 30px; position: absolute;">v</button>
     <ul id="list">
-        <li>cookies</li>
-        <li>windows</li>
-        <li>mail</li>
-        <li>database</li>
-        <li>machine learning</li>
-        <li>big data</li>
-        <li>adele</li>
-        <li>file</li>
-        <li>function</li>
-        <li>table</li>
     </ul>
-</body>
+    </div>
+	</body>
 </html>
