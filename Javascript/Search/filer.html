@@ -69,10 +69,10 @@
         $(document).ready(function(){
            // $('#ID_F1Departure').css("display","none");
            
-            var input_box = "<input class='slt_m jQselectable leaveBox' id='depart_ip' style='height:43px; padding 6px; font-size: 1.2em;margin-right: 14px;'>";
+            var input_box = "<input class='slt_m jQselectable leaveBox' id='depart_ip' style='height:43px; padding: 6px; font-size: 1.2em;margin-right: 14px;'>";
             var img = '<img src="https://cdn4.iconfinder.com/data/icons/geomicons/32/672341-triangle-down-512.png" style="width:10px; height:10px; margin-left: 25px;margin-top: 17px;">';
             var dep_btn = "<a id='dep_btn' style='border:none;margin-left: -55px;height: 42px;width: 40px;display:inline-block; position:absolute'>" + img +"</a>";
-            var list_frame = "<div id='list_frame' style='width: 230px; height: 250px; overflow-x: hidden; position:absolute;'>"
+            var list_frame = "<div id='list_frame' style='width: 230px; height: 350px; overflow-x: hidden; position:absolute;'>"
             $("<div id='auto_cpl' style='display:none'>" + input_box + dep_btn + list_frame+ "<ul id='list'></ul>" + "</div>")
             .insertBefore($('#ID_F1Departure'));
             $('#list').css({
@@ -123,7 +123,16 @@
                 $('#list li').on('click',function(){
                     $('#depart_ip').val($(this).context.innerText);
                     $('#list').css("display","none");
-
+                    //pass value
+                    var key = $(this).context.innerText;
+                    for (let i=0 ; i < len ; i++)
+                    {
+                        if (airport_list[i].airport_name == key) {
+                            $('#ID_F1Departure').val(airport_list[i].three_letter_code);
+                        }
+                    }
+                    $('#ID_F1Departure').css("display","block");
+                    $('#auto_cpl').css("display","none");
                 });
 
             });
@@ -141,7 +150,7 @@
                 $('#ID_F1Departure').css("display","none");
                 $('#auto_cpl').css("display","");
                 $('#depart_ip').focus();
-               
+                $('#depart_ip').val($('#ID_F1Departure option[value="' + $('#ID_F1Departure').val()+ '"]').text());
 
             });
             //key up
