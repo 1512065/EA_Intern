@@ -1,0 +1,97 @@
+<head>
+    <title>Homepage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/ico" href="https://cdn.airtrip.jp/image/pc/16.ico" sizes="16x16">
+    <script>
+        function roundtrip_mode(){
+            document.getElementById("backday").style.display = "inline-block";
+            document.getElementById("back_date").style.display = "inline-block";
+        };
+        function oneway_mode(){
+            document.getElementById("backday").style.display = "none";
+            document.getElementById("back_date").style.display = "none";
+        };
+    </script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript" src="autocomplete.js"></script>
+    <link rel="stylesheet" type="text/css" href="autocomplete_style.css">
+    <script>       
+        jQuery(function($){
+            $('#dep_port').autocomplete({
+                'url':'http://airdev.local/airport.php'
+            });
+        });
+    </script>
+</head>
+<body tcap-name="main">
+    <!--search banner-->
+    <div class="banner">
+        <div style="width:500px; margin: 0px 50px;">
+        <!--form-->
+        <div class="search_form">
+            <div class="form_background"></div>
+            <div class="form_content">
+                <span class="btn_group">
+                    <button class="form_select_btn" onclick="oneway_mode();">One-way</button>
+                    <button class="form_select_btn" id="rt_mode" onclick="roundtrip_mode();">Round-trip</button>
+                </span><br><br>
+                <form method="post">
+                    <div style="margin: 10px auto;">
+                        <span>
+                            <span>From:</span>
+                            <span style="margin-left: 290px;">To</span><br>
+                            <span>
+                                <input id="dep_port" class="form_select">
+                                    
+                            </span>
+                            <span style="padding: 7px;"><i class="fa fa-arrow-circle-right" style="color:green; padding:15px"></i></span>
+                            <span>
+                                <select id="arr_port" class="form_select">
+                                    
+                                </select>
+                            </span><br>  
+                            <span>Departure day:</span>
+                            <span id="backday" style="display: none; margin-left: 230px;">Comeback day:</span><br>
+                            <input type="date" class="form_select" name="dep_date">
+                            <input type="date" class="form_select" id="back_date" style="display: none; margin-left: 53px;">  
+                        </span>
+                    </div>
+                    <hr>
+                    <div style="margin-top: 20px;">  
+                    <span>Seat Class:</span><span style="margin-left: 25%">Number of Passenegers:</span><br>
+                    <span> 
+                        <select name="seat_type" class="form_select_seat">
+                        <option value="Economy">Economy</option>
+                        <option value="Bussiness">Bussiness</option>
+                        <option value="First">First</option>
+                        </select>
+                    </span>
+                    <span style="margin-left:10%;">
+                        Adults: <input type="number" name="adt_pax" class="form_input" min="1">
+                        -- Child: <input type="number" name="chd_pax" class="form_input">
+                        -- Infant: <input type="number" name="inf_pax" class="form_input">
+                    </span>
+                    </div>      
+                    <br>
+                    <button type="submit" class="search_btn"><i class="fa fa-send" style="font-size: 180%; color: wheat"></i>
+                    SEARCH BEST FLIGHTS</button>
+                    
+                </form>
+            </div>
+        </div>
+        
+        
+    </div>
+    </div>
+    
+    
+    
+     
+
+
+
+</body>
+</html>

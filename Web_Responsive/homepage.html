@@ -2,6 +2,7 @@
 <html lang="vi">
     <head>
         <title>Homepage</title>
+        <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -9,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="print.css" media="print">
         <link rel="stylesheet" type="text/css" href="other.css" media="screen and (max-width: 1200px)">
         <link rel="icon" type="image/ico" href="https://cdn.airtrip.jp/image/pc/16.ico" sizes="16x16">
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script>
             function openTab(name, elmnt) {
                 var i, tabcontent, tablinks;
@@ -32,6 +34,40 @@
                 document.getElementById("back_date").style.display = "none";
             };
         </script>    
+         <script>
+             $(document).ready(function(){
+                 document.getElementById("defaultOpen").click();
+             });
+        </script> 
+        <script> //search
+            $.ajax({
+                    type:"GET",
+                    url:"https://apidev.evolableasia.net/airtrip/member/v1/airport_list",
+                    success: function(data) {
+                        airport_list = data["airports"];
+                        debugger;
+                    },
+                    dataType: 'json',              
+            })
+            .done(function(data){
+                //generate options
+                debugger;
+                var len = airport_list.length;
+                var opt_group = [];
+                for (let i = 0; i < len; i++){
+                    //create opt group
+                    /*
+                    if (opt_group.indexOf(airport_list[i].prefecture_name)== -1) {
+                        console.log('ok');
+                        opt_group.push(airport_list[i].prefecture_name);
+                    }
+                    */
+                    $('#depart').append('<option>'+ airport_list[i].airport_name +'</option>');
+                }
+                
+            });
+            
+        </script>
     </head> 
     <body>
         <!--top bar-->
@@ -105,13 +141,8 @@
                                 <span>From:</span>
                                 <span style="margin-left: 290px;">To</span><br>
                                 <span>
-                                    <select name ="dep_port" class="form_select">
-                                        <option value="Tokyo(TYO)">Tokyo(TYO)</option>
-                                        <option value="Osaka(OSA)">Osaka(OSA)</option>
-                                        <option value="Hiroshima(HIJ)">Hiroshima(HIJ)</option>
-                                        <option value="Sendai(SDJ)">Sendai(SDJ)</option>
-                                        <option value="Nagoya(NGO)">Nagoya(NGO)</option>
-                                        <option value="Fukoka(FUK)">Fukoka(FUK)</option>
+                                    <select id="depart" name ="dep_port" class="form_select">
+                                        <!--options-->
                                     </select>   
                                 </span>
                                 <span style="padding: 7px;"><i class="fa fa-arrow-circle-right" style="color:green; padding:15px"></i></span>
@@ -266,9 +297,7 @@
                     <li><a href="http://www.evolableasia.com/news" target= "_blank";>Go to page</a></li>
                 </ul>       
             </div>
-            <script>
-                document.getElementById("defaultOpen").click();
-            </script> 
+           
             <!--Airlines-->
             <h1 class="headline">POPULAR AIRLINES</h1>
             <ul class="airlines">
