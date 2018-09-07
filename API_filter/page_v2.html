@@ -1,0 +1,26 @@
+<head>
+    <title>Homepage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript" src="autocomplete_v2.js"></script>
+    <link rel="stylesheet" type="text/css" href="autocomplete_style.css">
+    <script>       
+        jQuery(function($){
+            $('#depart_airport').autocomplete({
+                source : ["ABC","AVD","NDB","MSK","ABR"]
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>Departure Airport:
+        <select id="depart_airport">
+        </select>
+    </p>
+    <p>Arrival Airport:
+        <select id="depart_airport">
+        </select>
+    </p>
+
+</body>
+</html>
