@@ -5,22 +5,95 @@
     <script type="text/javascript" src="autocomplete_v2.js"></script>
     <link rel="stylesheet" type="text/css" href="autocomplete_style.css">
     <script>       
-        jQuery(function($){
-            $('#depart_airport').autocomplete({
-                source : ["ABC","AVD","NDB","MSK","ABR"]
+        var select_data;
+        $.ajax({
+            type:"GET",
+            url:"http://airdev.local/airport.php",
+            dataType: 'json',
+            //data: {sort: 'desc'}
+        })
+        .done(function(data){
+            //data-mapping
+            var n = data.length;
+            for (let i=0; i < n; i++) {
+                data[i]["val"] = data[i]["three_letter_code"];
+                data[i]["text"] = data[i]["airport_name"];
+                delete data[i]["three_letter_code"];
+                delete data[i]["airport_name"];
+            } 
+            //create auto complete
+            jQuery(function($){
+                $('#depart_airport').autocomplete({
+                    source : data
+                });
+                $('#arrival_airport').autocomplete({
+                    source : data,
+                    frame_height : '300px'
+                });
             });
         });
+        function refreshData(element, input) {
+            var newData;
+            switch(element.id) {
+                case 'depart_airport': 
+                {
+                    $.ajax({
+                        type:"GET",
+                        url:"http://airdev.local/airport.php",
+                        dataType: 'json',
+                        data: {term: input},
+                        success: function(data){
+                            //data-mapping
+                            var n = data.length;
+                            for (let i=0; i < n; i++) {
+                                data[i]["val"] = data[i]["three_letter_code"];
+                                data[i]["text"] = data[i]["airport_name"];
+                                delete data[i]["three_letter_code"];
+                                delete data[i]["airport_name"];
+                            }
+                            $('#depart_airport').refresh(data);
+                        }
+                    })
+                    break;
+                }
+                case 'arrival_airport':
+                {
+                    $.ajax({
+                        type:"GET",
+                        url:"http://airdev.local/airport.php",
+                        dataType: 'json',
+                        data: {term: input},
+                        success: function(data){
+                            //data-mapping
+                            var n = data.length;
+                            for (let i=0; i < n; i++) {
+                                data[i]["val"] = data[i]["three_letter_code"];
+                                data[i]["text"] = data[i]["airport_name"];
+                                delete data[i]["three_letter_code"];
+                                delete data[i]["airport_name"];
+                            }
+                            $('#arrival_airport').refresh(data);
+                        }
+                    })
+                    break;
+                }
+            }
+        }
     </script>
 </head>
 <body>
-    <p>Departure Airport:
+    <div style="display: inline-block">
+    Departure Airport:
         <select id="depart_airport">
         </select>
-    </p>
-    <p>Arrival Airport:
-        <select id="depart_airport">
+    </div>
+    <div style="display: inline-block; margin-left: 20px">
+    Arrival Airport:
+        <select id="arrival_airport">
         </select>
-    </p>
+    </div>
+    
+    
 
 </body>
 </html>
