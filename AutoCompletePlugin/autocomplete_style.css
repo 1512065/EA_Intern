@@ -32,7 +32,7 @@
     border: 0.1px solid gainsboro;
     height: 25px;
     border-collapse: collapse;
-    background-color: white;
+    background-color: lightgoldenrodyellow;
 }
 .list li:hover {
     background-color: lightblue;
@@ -41,6 +41,7 @@
     width: 250px;
     height: 25px;
     padding:0;
+    background-color: lightgoldenrodyellow;
 }
 
 #auto_cpl {
@@ -61,3 +62,4 @@ appearance: none;
 .auto_option:hover {
     background-color: blue;
 }
+

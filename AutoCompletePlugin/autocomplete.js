@@ -56,19 +56,25 @@
                 // keyup on input
                 input_key.bind("keyup", function(){
                     var input = $(this).context.value;
-                    if (setting.filter === true) {
-                        var li = $(this).next().next().find("li");
-                        var len = li.length;
-                        if (input.length == 0) { 
+                    var len = input.length;
+                    if (len == 0 || len >= setting.min_char) {
+                        if (setting.filter === false) {
+                            // require new data
+                            refreshData(this.parentElement.nextElementSibling, input);
+                        } else {
+                            // auto filter
+                            var li = $(this).next().next().find("li");
+                            var li_len = li.length;
+                            if (len == 0) {
                             //back to default
-                            for (let i = 0; i < len; i++) {
+                            for (let i = 0; i < li_len; i++) {
                                 li.parent().parent().css("display","block");
                                 li.parent().css("display","block");
                                 li[i].style.display = "";
                             }
-                        } else if (input.length >= setting.min_char) { 
+                            } else {
                             //filter
-                            for (let i = 0; i < len; i++) {
+                            for (let i = 0; i < li_len; i++) {
                                 if (li[i].innerText.indexOf(input) > -1) {
                                     li.parent().parent().css("display","block");
                                     li.parent().css("display","block");
@@ -76,16 +82,12 @@
                                     li[i].style.display = "none";
                                 }
                             }
-                        } else {
-                            this.nextElementSibling.nextElementSibling.style.display = "none";
-                        } 
-                    } else {
-                        if (input.length >= setting.min_char || input.length == 0) {
-                            refreshData(this.parentElement.nextElementSibling, input);
-                        } else {
-                            this.nextElementSibling.nextElementSibling.style.display = "none";
+                            }
                         }
+                    } else {
+                        this.nextElementSibling.nextElementSibling.style.display = "none";
                     }
+
                 });
                 //input button
                 auto_btn.bind("click", function(e){
