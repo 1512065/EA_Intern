@@ -1,0 +1,62 @@
+#auto_btn {
+    display : "inline-block";
+    position : absolute;
+    width : 20px;
+    height : 20px;
+    margin-left: -20px
+}
+
+#auto_img {
+    width:10px; 
+    height:10px; 
+    margin: 7px 5px;
+}
+
+#list_frame{
+    overflow-x:hidden;
+    position : absolute;
+    display :none;
+}
+
+.list {
+    list-style-type: none;
+    height: 0px;
+    overflow: visible;
+    display :none;
+    
+    padding :0;
+    margin: 0 auto;
+}
+
+.list li {
+    border: 0.1px solid gainsboro;
+    height: 25px;
+    border-collapse: collapse;
+}
+.list li:hover {
+    background-color: lightblue;
+}
+.ip_key {
+    width: 250px;
+    height: 25px;
+    padding:0;
+}
+
+#auto_cpl {
+    display: none;
+}
+select.auto_select {
+    -webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+}
+.auto_option {
+    border: 0.1px solid gainsboro;
+    height: 25px;
+    border-collapse: collapse;
+
+}
+
+.auto_option:hover {
+    background-color: blue;
+}
