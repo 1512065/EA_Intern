@@ -1,0 +1,11 @@
+SEVER:
+.htaccess file: add
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+-----
+init virtual host
+<VirtualHost *:80>
+DocumentRoot "/xampp/htdocs/HelloWorld/AutoCompletePlugin/"
+ServerName airdev.local
+</VirtualHost>
