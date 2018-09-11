@@ -32,7 +32,7 @@
     border: 0.1px solid gainsboro;
     height: 25px;
     border-collapse: collapse;
-    background-color: lightgoldenrodyellow;
+    background-color: lavender;
 }
 .list li:hover {
     background-color: lightblue;

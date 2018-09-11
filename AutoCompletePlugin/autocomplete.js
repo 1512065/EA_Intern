@@ -118,6 +118,7 @@
                         select.value = value;
                         this.parentElement.parentElement.previousSibling.previousSibling.value = split[1] ;
                         list.css("display","none");
+                        list.parent().css("display","none");
                    }); 
                 });
                 //close list
@@ -126,6 +127,7 @@
                     list.each(function(){
                         if ($(this).css("display")==="block") {
                             $(this).css("display","none");
+                            $(this).parent().css("display","none");
                         }
                     })
                 });
@@ -157,6 +159,7 @@
                 select.value = value;
                 this.parentElement.parentElement.previousSibling.previousSibling.value = split[1] ;
                 list.css("display","none");
+                list.parent().css("display","none");
            }); 
         });
             list.show();
