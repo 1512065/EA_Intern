@@ -12,7 +12,7 @@ function getCache(cache, term) {
 //get default data
 $.ajax({
     type:"GET",
-    url:"http://airdev.local/airport.php",
+    url:"http://airdev.local/airport_list",
     dataType: 'json',
     //data: {sort: 'desc'}
 })
@@ -52,7 +52,7 @@ function refreshData(element, input) {
                 //not in cache
                 $.ajax({
                 type:"GET",
-                url:"http://airdev.local/airport.php",
+                url:"http://airdev.local/airport_list",
                 dataType: 'json',
                 data: {term: input},
                 success: function(data){
@@ -80,7 +80,7 @@ function refreshData(element, input) {
                 //not in cache
                 $.ajax({
                 type:"GET",
-                url:"http://airdev.local/airport.php",
+                url:"http://airdev.local/airport_list",
                 dataType: 'json',
                 data: {term: input},
                 success: function(data){
