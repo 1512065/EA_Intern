@@ -37,6 +37,7 @@ $.ajax({
             source : data,
             frame_height : '300px',
             min_char : 2,
+            filter : true,
         });
     });
 });

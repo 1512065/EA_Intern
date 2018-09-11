@@ -1,7 +1,7 @@
 (function($){
     $.fn.autocomplete = function(options) {
         var setting = {
-            'cache' : true,
+            'filter' : false,
             'frame_height': '400px',
             'source' : null,
             'min_char' : 1,
@@ -55,12 +55,36 @@
                
                 // keyup on input
                 input_key.bind("keyup", function(){
-                    debugger;
                     var input = $(this).context.value;
-                    if (input.length >= setting.min_char || input.length===0)  {
-                        refreshData(this.parentElement.nextElementSibling, input);
+                    if (setting.filter === true) {
+                        var li = $(this).next().next().find("li");
+                        var len = li.length;
+                        if (input.length == 0) { 
+                            //back to default
+                            for (let i = 0; i < len; i++) {
+                                li.parent().parent().css("display","block");
+                                li.parent().css("display","block");
+                                li[i].style.display = "";
+                            }
+                        } else if (input.length >= setting.min_char) { 
+                            //filter
+                            for (let i = 0; i < len; i++) {
+                                if (li[i].innerText.indexOf(input) > -1) {
+                                    li.parent().parent().css("display","block");
+                                    li.parent().css("display","block");
+                                } else {
+                                    li[i].style.display = "none";
+                                }
+                            }
+                        } else {
+                            this.nextElementSibling.nextElementSibling.style.display = "none";
+                        } 
                     } else {
-                        this.nextElementSibling.nextElementSibling.style.display = "none";
+                        if (input.length >= setting.min_char || input.length == 0) {
+                            refreshData(this.parentElement.nextElementSibling, input);
+                        } else {
+                            this.nextElementSibling.nextElementSibling.style.display = "none";
+                        }
                     }
                 });
                 //input button
