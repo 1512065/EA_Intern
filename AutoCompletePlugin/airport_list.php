@@ -1,5 +1,7 @@
 <?php
     header('Access-Control-Allow-Origin: *');  
+    header("Cache-Control: private, max-age=600");
+    header("Expires: ".gmdate('r', time()+600));
     //load data
     $data_str = file_get_contents("./data/airport.json");
     $data = json_decode($data_str, true);

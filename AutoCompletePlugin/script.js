@@ -65,8 +65,10 @@ function refreshData(element, input) {
                         delete data[i]["three_letter_code"];
                         delete data[i]["airport_name"];
                     }
+                    
                     depart_cache[input] = data;
                     $('#depart_airport').refresh(data);
+                   
                 }
                 });
             }
