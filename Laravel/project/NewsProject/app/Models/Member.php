@@ -1,20 +1,18 @@
-<?php
-
-namespace App\Models;
-
-use Illuminate\Notifications\Notifiable;
+<?php  namespace App\Models;
+ 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
-class User extends Authenticatable
-{
-    use Notifiable;
-
-    protected $table = 'tbl_users';
+ 
+class Member extends Authenticatable{
+ 
+    protected $table = 'member';
     public $timestamps = false;
  
     protected $fillable = [
-        'username',
+        'fullname',
+        'email',
         'password',
+        'mobile',
+        'active'
     ];
  
     protected $guarded = [

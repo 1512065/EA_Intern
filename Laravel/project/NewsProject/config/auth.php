@@ -45,13 +45,6 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
-        //For Backend
-        'admin' => [
-            'driver' => 'session',
-            'provider' => 'admin',
-        ],
-    
-        //For Frontend
         'member' => [
             'driver' => 'session',
             'provider' => 'member',
@@ -85,14 +78,6 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
-
-        //For Backend
-        'admin' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\User::class,
-        ],
-    
-        //For Frontend
         'member' => [
             'driver' => 'eloquent',
             'model' => App\Models\Member::class,

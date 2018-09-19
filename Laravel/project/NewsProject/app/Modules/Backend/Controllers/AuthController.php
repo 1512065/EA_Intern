@@ -17,25 +17,24 @@ class AuthController extends Controller{
     const BASE_URL = '/';
 
     public function __construct(){
-
-        $this->guard = Auth::guard('admin');
+        $this->guard = Auth::guard('member');
     }
-
 
     public function getLogin(Request $request){
 
         return view(
-            'Backend::admin.login',
+            'Backend::member.login',
             []
         );
     }
+
     public function postLogin(Request $request){
 
         $credentials = [
-            'username' => $request->input('username'),
+            'email' => $request->input('email'),
             'password' => $request->input('password')
         ];
-        
+
         $remember_me = false;
         if($request->has('remember_me') && $request->input('remember_me') == 1)
             $remember_me = true;
@@ -51,7 +50,7 @@ class AuthController extends Controller{
         }
 
 
-        return redirect()->route('admin.login')->with('message-error', 'The credentials is not found.');
+        return redirect()->route('member.login')->with('message-error', 'The credentials is not found.');
 
     }
 

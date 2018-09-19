@@ -7,12 +7,14 @@ Route::group(
     ], function(){
 
         Route::get('/', function () {
-            echo "Hello Backend. <a href='" . url('/logout') . "'>Logout</a>";
-        });
+            return view(
+                'Backend::page.home',
+                []
+            );
+        })->middleware(['member_auth']);
 
-        Route::get('/login', ['as' => 'admin.login', 'uses' => 'AuthController@getLogin']);
+        Route::get('/login', ['as' => 'member.login', 'uses' => 'AuthController@getLogin']);
         Route::post('/login', [ 'uses' => 'AuthController@postLogin']);
- 
         Route::get('/logout', [ 'uses' => 'AuthController@getLogout']);
     }
 );
