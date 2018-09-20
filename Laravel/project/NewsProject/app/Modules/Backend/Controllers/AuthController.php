@@ -34,7 +34,7 @@ class AuthController extends Controller{
             'email' => $request->input('email'),
             'password' => $request->input('password')
         ];
-
+        
         $remember_me = false;
         if($request->has('remember_me') && $request->input('remember_me') == 1)
             $remember_me = true;
@@ -45,7 +45,7 @@ class AuthController extends Controller{
                 $this->guard->logout();
                 return redirect(self::BASE_URL . 'login')->with('message-error', 'Account is not actived.');
             }
-
+          
             return redirect(self::BASE_URL);
         }
 

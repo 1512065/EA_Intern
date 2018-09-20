@@ -55,14 +55,13 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Category</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-plus-square"></i><a href="forms-basic.html">Add</a></li>
-                            <li><i class="menu-icon fa fa-pencil-square-o"></i><a href="forms-advanced.html">Edit</a></li>
-                            <li><i class="menu-icon fa fa-trash-o"></i><a href="forms-advanced.html">Delete</a></li>
+                            <li><i class="menu-icon fa fa-plus-square"></i><a href="addcategory">Add</a></li>
+                            <li><i class="menu-icon fa fa-pencil-square-o"></i><a href="editcategory">Edit</a></li>
                         </ul>
                     </li>
                    
-                    <li class="menu-item-has-children dropdown show">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="menu-icon fa fa-table"></i>News</a>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-folder"></i>News</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-plus-square"></i><a href="forms-basic.html">Add</a></li>
                             <li><i class="menu-icon fa fa-pencil-square-o"></i><a href="forms-advanced.html">Edit</a></li>
@@ -81,8 +80,8 @@
                         </ul>
                     </li>
                    
-                    <li class="menu-item-has-children dropdown show">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="menu-icon fa fa-check-circle-o"></i>Permission</a>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-check-square"></i>Permission</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-check-square-o"></i><a href="forms-basic.html">Role</a></li>
                             <li><i class="menu-icon fa fa-gear"></i><a href="forms-advanced.html">Edit permission</a></li>
@@ -101,7 +100,33 @@
 
     <div id="right-panel" class="right-panel">
 
+
         <!-- Header-->
+        <header id="header" class="header">
+
+            <div class="header-menu">
+
+                <div class="col-sm-5" style="float: right">
+                    <div class="user-area dropdown float-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user"></i>
+                       
+                        </a>
+
+                        <div class="user-menu dropdown-menu">
+                                <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+
+                                <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications</a>
+
+                                <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
+
+                                <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </header>
         <!-- /header -->
         <!-- Header-->
 
