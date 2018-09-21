@@ -24,18 +24,31 @@ Route::group(
 
         Route::post('/addcategory', [ 'uses' => 'CategoryController@addCategory']);
 
-        Route::get('/editcategory', function(){
+        Route::get('/category', function(){
             return view(
-                'Backend::page.category.edit',[]
+                'Backend::page.category.index',[]
             );
         });
 
-        Route::get('category/delete/{id}', [ 'uses' => 'CategoryController@deleteCategory']
+        Route::get('/category/delete/{id}', [ 'uses' => 'CategoryController@deleteCategory']
         )->where('id','[0-9]+');
 
-        Route::get('category/edit/{id}', [ 'uses' => 'CategoryController@editCategory']
+        Route::get('category/edit/{id}', function($id){
+            return view(
+                'Backend::page.category.edit', ['id' => $id]
+            );
+
+        }
         )->where('id','[0-9]+');
 
+        Route::get('/addnews', function(){ 
+            return view(
+                'Backend::page.news.add',[]
+            );
+        });
+
+        Route::post('category/edit/{id}', ['uses' => 'CategoryController@editCategory']
+        )->where('id','[0-9]+');
 
     }
 );

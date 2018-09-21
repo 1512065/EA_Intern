@@ -2,52 +2,72 @@
 @extends('layout.layout')
 @section('title', 'Edit Category')
 @section('content')
-
+<?php
+    // get data to combo-box
+    use App\Models\Category;
+    use App\Models\Category_Group;
+    $cat = Category::find($id);
+    $parent = Category_Group::where('cat_id','=',$id)->get()->first();
+    //if not find
+    ////
+    $parent_id = $parent->parent_id;
+    $p_cat = Category::find($parent_id);
+?>
 @if(Session::has('message'))
     <div style="width: 250px; margin: 10px 20px; background-color: rgb(49, 106, 170); height:30px;">
     <p style="margin-left: 10px;color:rgb(255, 255, 255);">
     {{ Session::get('message') }}</p>
     </div>
  @endif
-
-<div class="card" style="width: 900px; margin: 0 auto" id="cat_table">
-    <div class="card-header">
-        <strong class="card-title">All category</strong>
-    </div>
-    <div class="card-body">
-        <table class="table">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Category name</th>
-                <th scope="col">Edit name</th>
-                <th scope="col">Delete</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php
-                // get data
-                use App\Models\Category;
+<div style="width: 700px; margin: 0 auto;">
+    <div class="card">
+        <div class="card-header">
+            <strong>Edit</strong> Category
+        </div>
+        <div class="card-body card-block" style="width: 650px; margin: 0 auto;">
+        <form class="form-horizontal" method="POST" action="{{ Request::url() }}">
+        {!! csrf_field() !!}
+         <div class="row form-group">
+            <input type="text" name="cat_id" style="display:none" value="{{ $cat->id }}">
+            Catory name: <br>
+            <input type="text" name="new_name" class="form-control" value="{{ $cat->name}}">
+            <br>Recent Group: <br>
+            <input type="text" name="disabled-input" placeholder="{{ $p_cat->name}}" disabled="" class="form-control">
+            <p style="color:rgb(0, 0, 0)">
+            <input type="checkbox" name="changebox" id="change" style="margin-top: 5px;"><span>Change parent group</span>
+            <br></p>
+            <select name="new_parent" id="new_parent" value="{{ $p_cat->id}}" class="form-control" style="display:none">
+                <option value="0">Not change</option>
+                <?php
+                // get data to combo-box
                 $allcat = Category::all();
                 foreach ($allcat as $cate) {
-                    echo '<tr>';
-                    echo '<th scope="row">'.$cate->id.'</th>';
-                    echo '<td>'.$cate->name.'</td>';
-                    echo '<td id="edit'.$cate->id.'"><a onclick="showEdit('.$cate->name.')"><i class="fa fa-pencil"></i></a></td>';
-                    echo '<td><a href="category/delete/'.$cate->id.'"><i class="fa fa-trash-o"></i></a></td>';
-                    echo '</tr>';
+                    echo '<option value="'.$cate->id.'">'.$cate->name.'</option>';
                 }
-            ?>            
-            </tbody>
-        </table>
-
+                ?>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success btn-sm" style="float:right">
+            <i class="fa fa-dot-circle-o"></i> Update
+        </button>
+        </form>
+        </div>
+       
     </div>
 </div>
-@endsection
-
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script>
-function showEdit(id) {
-   
-}
+    jQuery(document).ready(function()
+    {
+        jQuery('#change').bind("click", function(){
+            if(jQuery('#change').prop('checked')===true) {
+                jQuery('#new_parent').css("display","");
+                
+            } else {
+                jQuery('#new_parent').css("display","none");
+                jQuery('#new_parent').val(0);
+            }
+        }); 
+    });
 </script>
-
+@endsection

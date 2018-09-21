@@ -11,18 +11,15 @@
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="apple-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/themify-icons.css">
-    <link rel="stylesheet" href="assets/css/flag-icon.min.css">
-    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="/Laravel/project/admin/assets/css/normalize.css">
+    <link rel="stylesheet" href="/Laravel/project/admin/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Laravel/project/admin/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/Laravel/project/admin/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="/Laravel/project/admin/assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/Laravel/project/admin/assets/css/cs-skin-elastic.css">
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
-    <link rel="stylesheet" href="assets/scss/style.css">
-    <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Laravel/project/admin/assets/scss/style.css">
+    <link href="/Laravel/project/admin/assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -55,15 +52,15 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Category</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-plus-square"></i><a href="addcategory">Add</a></li>
-                            <li><i class="menu-icon fa fa-pencil-square-o"></i><a href="editcategory">Edit</a></li>
+                            <li><i class="menu-icon fa fa-plus-square"></i><a href="/Laravel/project/admin/addcategory">Add</a></li>
+                            <li><i class="menu-icon fa fa-pencil-square-o"></i><a href="/Laravel/project/admin/category">Edit</a></li>
                         </ul>
                     </li>
                    
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-folder"></i>News</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-plus-square"></i><a href="forms-basic.html">Add</a></li>
+                            <li><i class="menu-icon fa fa-plus-square"></i><a href="/Laravel/project/admin/addnews">Add</a></li>
                             <li><i class="menu-icon fa fa-pencil-square-o"></i><a href="forms-advanced.html">Edit</a></li>
                             <li><i class="menu-icon fa fa-comment-o"></i><a href="forms-basic.html">Comments</a></li>
                             <li><i class="menu-icon fa fa-trash-o"></i><a href="forms-advanced.html">Delete</a></li>
@@ -75,17 +72,17 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>User Info</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-info"></i><a href="forms-basic.html">Profile</a></li>
-                            <li><i class="menu-icon fa fa-book"></i><a href="forms-advanced.html">History</a></li>
+                            <li><i class="menu-icon fa fa-info"></i><a href="#">Profile</a></li>
+                            <li><i class="menu-icon fa fa-book"></i><a href="#">History</a></li>
                         </ul>
                     </li>
                    
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-check-square"></i>Permission</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-check-square-o"></i><a href="forms-basic.html">Role</a></li>
-                            <li><i class="menu-icon fa fa-gear"></i><a href="forms-advanced.html">Edit permission</a></li>
-                            <li><i class="menu-icon fa fa-ban"></i><a href="forms-basic.html">Block</a></li>
+                            <li><i class="menu-icon fa fa-check-square-o"></i><a href="#">Role</a></li>
+                            <li><i class="menu-icon fa fa-gear"></i><a href="#">Edit permission</a></li>
+                            <li><i class="menu-icon fa fa-ban"></i><a href="#">Block</a></li>
                         </ul>
                     </li>
                     
@@ -134,10 +131,10 @@
 
          <!-- .content -->
     </div>
-    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="/Laravel/project/admin/assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="/Laravel/project/admin/assets/js/plugins.js"></script>
+    <script src="/Laravel/project/admin/assets/js/main.js"></script>
     
 
 

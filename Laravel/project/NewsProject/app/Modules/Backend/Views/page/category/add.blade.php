@@ -42,31 +42,4 @@
     </div>
 </div>
 
-<div class="card" style="width: 900px; margin: 0 auto">
-    <div class="card-header">
-        <strong class="card-title">All category</strong>
-    </div>
-    <div class="card-body">
-        <table class="table">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Category name</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php
-                // get data
-                foreach ($allcat as $cate) {
-                    echo '<tr>';
-                    echo '<th scope="row">'.$cate->id.'</th>';
-                    echo '<td>'.$cate->name.'</td>';
-                    echo '</tr>';
-                }
-            ?>            
-            </tbody>
-        </table>
-
-    </div>
-</div>
 @endsection
