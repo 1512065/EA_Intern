@@ -1,23 +1,32 @@
 
 @extends('layout.layout')
-@section('title', 'Add News')
+@section('title', 'Edit News')
 @section('content')
 
 @if(Session::has('message'))
-    <div style="width: 250px; margin: 10px 20px; background-color: rgb(49, 106, 170); height:30px;">
+    <div style="margin: 10px 20px; background-color: rgb(49, 106, 170);">
     <p style="margin-left: 10px;color:rgb(255, 255, 255);">
     {{ Session::get('message') }}</p>
     </div>
  @endif
  <script src="https://cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
+<?php
+    // get data 
+    use App\Models\News;
+    use App\Models\News_Category;
+    $news = News::find($id);
+    $relation = News_Category::where('news_id','=', $id)->get()->toArray();
+   
+?>
  <div class="card">
     <div class="card-header">
-      <strong>Create </strong> News
+      <strong>Edit </strong> News
     </div>
 
     <div class="card-body card-block">
       <form action="{{ Request::url() }}" method="post" enctype="multipart/form-data" class="form-horizontal">
       {!! csrf_field() !!}
+      <input type="text" name="news_id" style="display:none" value="{{ $news->id }}">
         <div class="row form-group">
           <div class="col col-md-3"><label for="selectLg" class=" form-control-label">Category</label></div>
           <div class="col-12 col-md-9">
@@ -36,7 +45,7 @@
                   echo '<div style="width:200px; display:inline-block;">';
                 }
               }
-              echo '<input type="checkbox" name="category[]" value="'.$cate->id.'">&nbsp;'.$cate->name.'<br>';
+              echo '<input type="checkbox" id ="'.$cate->id.'" name="category[]" value="'.$cate->id.'">&nbsp;'.$cate->name.'<br>';
               $recent++;
             }
             echo '</div>';
@@ -45,27 +54,32 @@
         </div>
         <div class="row form-group">
           <div class="col col-md-3"><label for="text-input" class=" form-control-label">News's Title</label></div>
-          <div class="col-12 col-md-9"><input type="text" id="title" name="title" placeholder="Title" class="form-control"></div>
+          <div class="col-12 col-md-9"><input type="text" id="title" name="title" placeholder="Title" value="{{ $news->title }}" class="form-control"></div>
         </div>
         <div class="row form-group">
           <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">News's content</label></div>
-          <div class="col-12 col-md-9"> <textarea name="content"></textarea>
-		<script>
-			CKEDITOR.replace( 'content' );
-		</script></div>
+         
+          <div class="col-12 col-md-9"> 
+          <textarea name="content">{!! html_entity_decode($news->content) !!}</textarea>
+        <script>
+          CKEDITOR.replace( 'content' );
+        </script></div>
         </div>
-<!--BUTTON-->
-      
+        </div>
+      <div class="card-footer">
         <button type="submit" class="btn btn-primary btn-sm" style="float:right;">
-          <i class="fa fa-dot-circle-o"></i> Submit
+          <i class="fa fa-dot-circle-o"></i> Submit changes
         </button>
-        <button class="btn btn-danger btn-sm" type="reset" style="float:right; margin-right: 10px;">
-          <i class="fa fa-ban"></i> Reset
-        </button>
-      
-    </div>
+      </div>
+    
       </form>
-      
+      <!--BUTTON-->
       </div> 
-
+<script>
+    cate_arr = {!! json_encode($relation) !!};
+    for (let i=0; i< cate_arr.length; i++) {
+        document.getElementById(cate_arr[i].cat_id).checked =true;
+    }
+    
+</script>
 @endsection

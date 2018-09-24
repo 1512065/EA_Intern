@@ -8,17 +8,20 @@
     use App\Models\Category_Group;
     $cat = Category::find($id);
     $parent = Category_Group::where('cat_id','=',$id)->get()->first();
-    //if not find
+    
+    //if not find parent
+    if (isset($parent->parent_id)){
+        $parent_id = $parent->parent_id;
+        $p_cat = Category::find($parent_id);
+    }
+    else {
+        $p_cat = new Category_Group;
+        $p_cat->name = "None";
+        $p_cat->id = "-1";
+    }
     ////
-    $parent_id = $parent->parent_id;
-    $p_cat = Category::find($parent_id);
+    
 ?>
-@if(Session::has('message'))
-    <div style="width: 250px; margin: 10px 20px; background-color: rgb(49, 106, 170); height:30px;">
-    <p style="margin-left: 10px;color:rgb(255, 255, 255);">
-    {{ Session::get('message') }}</p>
-    </div>
- @endif
 <div style="width: 700px; margin: 0 auto;">
     <div class="card">
         <div class="card-header">
@@ -37,7 +40,8 @@
             <input type="checkbox" name="changebox" id="change" style="margin-top: 5px;"><span>Change parent group</span>
             <br></p>
             <select name="new_parent" id="new_parent" value="{{ $p_cat->id}}" class="form-control" style="display:none">
-                <option value="0">Not change</option>
+                <option value="-1">Not change</option>
+                <option value="0">No parent</option>
                 <?php
                 // get data to combo-box
                 $allcat = Category::all();
@@ -65,7 +69,7 @@
                 
             } else {
                 jQuery('#new_parent').css("display","none");
-                jQuery('#new_parent').val(0);
+                jQuery('#new_parent').val(-1);
             }
         }); 
     });

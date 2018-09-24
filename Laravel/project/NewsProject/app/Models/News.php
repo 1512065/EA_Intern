@@ -2,14 +2,13 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends AbstractModel {
- 
-    protected $table = 'category';
-    public $timestamps = false;
+class News extends Model {
+    protected $table = 'news';
+    public $timestamps = true;
     protected $fillable = [
-        'name'
+        'content',
+        'title'
     ];
- 
     protected $guarded = [
         'id'
     ];

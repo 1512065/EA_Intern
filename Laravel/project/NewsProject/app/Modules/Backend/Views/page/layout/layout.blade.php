@@ -53,7 +53,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Category</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-plus-square"></i><a href="/Laravel/project/admin/addcategory">Add</a></li>
-                            <li><i class="menu-icon fa fa-pencil-square-o"></i><a href="/Laravel/project/admin/category">Edit</a></li>
+                            <li><i class="menu-icon fa fa-pencil-square-o"></i><a href="/Laravel/project/admin/category">Edit/Delete</a></li>
                         </ul>
                     </li>
                    
@@ -61,9 +61,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-folder"></i>News</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-plus-square"></i><a href="/Laravel/project/admin/addnews">Add</a></li>
-                            <li><i class="menu-icon fa fa-pencil-square-o"></i><a href="forms-advanced.html">Edit</a></li>
-                            <li><i class="menu-icon fa fa-comment-o"></i><a href="forms-basic.html">Comments</a></li>
-                            <li><i class="menu-icon fa fa-trash-o"></i><a href="forms-advanced.html">Delete</a></li>
+                            <li><i class="menu-icon fa fa-pencil-square-o"></i><a href="/Laravel/project/admin/news">Edit/Delete</a></li>
                         </ul>
                     </li>
 
