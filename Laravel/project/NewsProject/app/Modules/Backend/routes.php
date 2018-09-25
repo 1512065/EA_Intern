@@ -19,12 +19,21 @@ Route::group(
         Route::get('/logout', [ 'uses' => 'AuthController@getLogout']);
         //////////////////
         // Category
-        Route::get('/category', function(){
+        Route::get('category', function(){
             return view(
                 'Backend::page.category.index',[]
             );
         });
-        // add
+        //relation
+        Route::get('/relation', function(){
+            return view(
+                'Backend::page.category.relation',[]
+            );
+        });
+        // search
+        Route::get('category/filter', [ 'uses' => 'CategoryController@filterCategory']
+        );
+        // ad
         Route::get('/addcategory', function(){ 
             return view(
                 'Backend::page.category.add',[]
@@ -76,5 +85,8 @@ Route::group(
             );
         }
         )->where('id','[0-9]+');
+        //filter
+        Route::get('news/filter', [ 'uses' => 'NewsController@filterNews']
+        );
     }
 );

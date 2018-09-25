@@ -52,6 +52,7 @@
           <div class="col-12 col-md-9"> <textarea name="content"></textarea>
 		<script>
 			CKEDITOR.replace( 'content' );
+
 		</script></div>
         </div>
 <!--BUTTON-->

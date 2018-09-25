@@ -14,7 +14,10 @@
     <div class="card-header">
         <strong class="card-title">All News</strong>
     </div>
+  
     <div class="card-body">
+    @include('layout.filter')
+    @include('layout.sort')
         <table class="table" id="news_tbl">
             <thead class="thead-dark">
             <tr>
@@ -32,9 +35,13 @@
                 use App\Models\News;
                 use App\Models\News_Category;
                 use App\Models\Category;
-                $allnews = News::all();
+               // $allnews = News::all();
+                if (!isset($rows)) {
+                    $allnews = News::all()->take(10);
+                    $rows= $allnews;
+                }
                 $relation = News_Category::all()->sortBy('news_id');
-                foreach ($allnews as $news) {
+                foreach ($rows as $news) {
                     echo '<tr>';
                     echo '<th scope="row">'.$news->id.'</th>';
                     echo '<td><a href="news/'.$news->id.'">'.$news->title.'</a></td>';

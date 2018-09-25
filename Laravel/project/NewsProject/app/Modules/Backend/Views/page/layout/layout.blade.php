@@ -54,6 +54,7 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-plus-square"></i><a href="/Laravel/project/admin/addcategory">Add</a></li>
                             <li><i class="menu-icon fa fa-pencil-square-o"></i><a href="/Laravel/project/admin/category">Edit/Delete</a></li>
+                            <li><i class="menu-icon fa fa-exchange"></i><a href="/Laravel/project/admin/relation">Relation</a></li>
                         </ul>
                     </li>
                    

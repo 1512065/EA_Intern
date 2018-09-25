@@ -100,4 +100,29 @@ class NewsController extends Controller{
         }
         return redirect('/news/edit/'.$news_id)->with('message', 'News was edited!!');
     }
+
+    public function filterNews() {
+
+         $param =[];
+         if(isset($_GET['key'])) {
+            $param['where'] = [ 'title' => $_GET['key']];
+         }
+         if(isset($_GET['sortby'])) {
+             $param['sort'] = array('sortby' => $_GET['sortby']);
+         }
+         if (isset($_GET['order'])) {
+             $param['sort']['order'] = $_GET['order'];
+         }
+         if (isset($_GET['limit'])) {
+             $param['limit'] = $_GET['limit'];
+         }
+         //print_r($_GET);
+         $rows = News::fetchAll($param);
+         /*
+         foreach ($rows as $row) {
+             echo $row->id;
+         }*/
+         return view('Backend::page.news.index')->with('rows', $rows);
+     }
+
 }

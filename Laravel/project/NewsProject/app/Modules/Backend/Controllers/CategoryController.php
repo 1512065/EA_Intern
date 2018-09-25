@@ -48,14 +48,16 @@ class CategoryController extends Controller{
 
     public function editCategory(Request $request){
         //change name
+        /*
         $rows = Category::fetchAll([
             'where' => [
                 'category_name' => 'abc'
-            ]
+            ],
+        
         ]);
         dd($rows);
 
-
+*/
         $name = $request->input('new_name');
         $cat_id = $request->input('cat_id');
         $item = Category::find($cat_id);
@@ -79,5 +81,30 @@ class CategoryController extends Controller{
             }
         }
         return redirect('category')->with('message', 'Edited successfully!!');
+    }
+    public function filterCategory() {
+       // var_dump($param);
+       // print_r ($_GET);
+       
+        $param =[];
+        if(isset($_GET['key'])) {
+           $param['where'] = [ 'name' => $_GET['key']];
+        }
+        if(isset($_GET['sortby'])) {
+            $param['sort'] = array('sortby' => $_GET['sortby']);
+        }
+        if (isset($_GET['order'])) {
+            $param['sort']['order'] = $_GET['order'];
+        }
+        if (isset($_GET['limit'])) {
+            $param['limit'] = $_GET['limit'];
+        }
+        //print_r($_GET);
+        $rows = Category::fetchAll($param);
+        /*
+        foreach ($rows as $row) {
+            echo $row->id;
+        }*/
+        return view('Backend::page.category.index')->with('rows', $rows);
     }
 }

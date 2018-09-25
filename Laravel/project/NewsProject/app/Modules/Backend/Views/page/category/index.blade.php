@@ -14,7 +14,10 @@
     <div class="card-header">
         <strong class="card-title">All category</strong>
     </div>
+    
     <div class="card-body">
+    @include('layout.filter')
+    @include('layout.sort')
         <table class="table">
             <thead class="thead-dark">
             <tr>
@@ -26,10 +29,13 @@
             </thead>
             <tbody>
             <?php
-                // get data
+                 //get data
                 use App\Models\Category;
-                $allcat = Category::all()->sortBy('id');
-                foreach ($allcat as $cate) {
+                if (!isset($rows)) {
+                    $allcat = Category::all()->take(10);
+                    $rows= $allcat;
+                }
+                foreach ($rows as $cate) {
                     echo '<tr>';
                     echo '<th scope="row">'.$cate->id.'</th>';
                     echo '<td>'.$cate->name.'</td>';
@@ -43,43 +49,7 @@
 
     </div>
 </div>
-<div class="card" id="cat_table" style="margin-top: 10px;">
-    <div class="card-header">
-        <strong class="card-title">Relation</strong>
-    </div>
-    <div class="card-body">
-        <table class="table">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col">Parent</th>
-                <th scope="col">Child</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php
-               use App\Models\Category_Group;
-               $all_rel = Category_Group::all()->sortBy('parent_id');
-               $old_parent= -1;
-               foreach ($all_rel as $relation) {
-                echo '<tr>';
-                $parent = Category::find($relation->parent_id);
-                if ($relation->parent_id != $old_parent) {
-                    echo '<td>'.$parent->name.'</td>';
-                } else {
-                    echo '<td></td>';
-                }
-                $child = Category::find($relation->cat_id);
-                echo '<td>'.$child->name.'</td>';
-                echo '</tr>';
-                $old_parent = $relation->parent_id;
-               }
 
-            ?>            
-            </tbody>
-        </table>
-
-    </div>
-</div>
 @endsection
 
 <script>
