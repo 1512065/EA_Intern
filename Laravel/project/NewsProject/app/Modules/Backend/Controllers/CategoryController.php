@@ -99,12 +99,12 @@ class CategoryController extends Controller{
         if (isset($_GET['limit'])) {
             $param['limit'] = $_GET['limit'];
         }
+        if (isset($_GET['page'])) {
+            $param['page'] = $_GET['page'];
+        }
         //print_r($_GET);
-        $rows = Category::fetchAll($param);
-        /*
-        foreach ($rows as $row) {
-            echo $row->id;
-        }*/
-        return view('Backend::page.category.index')->with('rows', $rows);
+        $result = Category::fetchAll($param);
+        
+       return view('Backend::page.category.index')->with(['rows'=> $result['rows'], 'count'=>$result['count']]);
     }
 }

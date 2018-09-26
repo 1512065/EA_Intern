@@ -116,13 +116,16 @@ class NewsController extends Controller{
          if (isset($_GET['limit'])) {
              $param['limit'] = $_GET['limit'];
          }
+         if (isset($_GET['page'])) {
+            $param['page'] = $_GET['page'];
+        }
          //print_r($_GET);
-         $rows = News::fetchAll($param);
+         $result = News::fetchAll($param);
          /*
          foreach ($rows as $row) {
              echo $row->id;
          }*/
-         return view('Backend::page.news.index')->with('rows', $rows);
+         return view('Backend::page.news.index')->with(['rows'=> $result['rows'], 'count'=>$result['count']]);
      }
 
 }

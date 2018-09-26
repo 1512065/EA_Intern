@@ -19,58 +19,51 @@ entries</label>
 
 
 <script>
+
+    var param = {!! json_encode($_GET) !!};
     function filter(){
         var value = $('#key').val();
-        recent_uri = document.location.search;
-        if (recent_uri.search(/key=/)==-1) {
-            new_uri = recent_uri + '&key=' +value;
+        if (param.length != 0) {
+            param['key'] = value;
+            var query = $.param(param);
+            window.location.search = '?' + query;
         } else {
-            new_uri = recent_uri.replace(/key=[a-zA-Z0-9]+/,'key='+value);
-        }
-        if (recent_uri=='') {
-            window.location.href = window.location.href + '/filter?' + new_uri;
-        } else {
-            window.location.href = ( window.location.origin+ window.location.pathname + new_uri);        
+            window.location.href = window.location.href + '/filter?key=' + value;
         }
     }
+   
     function limit() {
         var value = $('#limit').val();
-        recent_uri = document.location.search;
-        if (recent_uri.search(/limit=[0-9]+/)==-1) {
-            new_uri = recent_uri + '&limit=' +value;
+        if (param.length != 0) {
+            param['limit'] = value;
+            var query = $.param(param);
+            window.location.search = '?' + query;
         } else {
-            new_uri = recent_uri.replace(/limit=[0-9]+/,'limit='+value);
-        }
-        if (recent_uri=='') {
-            window.location.href = window.location.href + '/filter?' + new_uri;
-        } else {
-            window.location.href = ( window.location.origin+ window.location.pathname + new_uri);        
+            window.location.href = window.location.href + '/filter?limit=' + value;
         }
     }
+
+    if (typeof(param['limit']) !='undefined') {
+        $('#limit').val(param['limit']);
+    }
+   
+    $('#key').val(param['key']);
     
-        var pos = document.location.search.search(/limit=[0-9]+/);
-        if ( pos!=-1) {
-           str = document.location.search;
-           len = str.length;
-           var i = pos+6; //6 for 'limit='
-           var limit ='';
-           while (str[i]!='&' && i!=len) {
-               limit += str[i];
-               i++;
-           }
-           $('#limit').val(limit);
+    function sort(field) {
+        var param = {!! json_encode($_GET) !!};
+
+        if (param.length != 0) {
+            param['sortby'] = field;
+            if (param['order']=='asc') {
+                param['order']='desc';
+            } else {
+                param['order']='asc';
+            }
+            var query = $.param(param);
+            window.location.search = '?' + query;
+        } else {
+            window.location.href = window.location.href + '/filter?sortby=' + field +"&order=asc";
         }
-        var pos = document.location.search.search(/key=/);
-        if ( pos!=-1) {
-           str = document.location.search;
-           len = str.length;
-           var i = pos + 4; //4 for 'key='
-           var key ='';
-           while (str[i]!='&' && i!=len) {
-            key += str[i];
-               i++;
-           }
-           $('#key').val(key);
-        }
+    }
     
 </script>

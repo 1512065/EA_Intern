@@ -17,13 +17,13 @@
   
     <div class="card-body">
     @include('layout.filter')
-    @include('layout.sort')
+
         <table class="table" id="news_tbl">
             <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">News Title<i class="fa fa-sort"  onclick="sortTable(0);" style="margin-left: 5px;"></i></th>
-                <th scope="col">Created date<i class="fa fa-sort"  onclick="sortTable(1);" style="margin-left: 5px;"></i></th>
+                <th scope="col">News Title<i class="fa fa-sort"  onclick="sort('title');" style="margin-left: 5px;"></i></th>
+                <th scope="col">Created date<i class="fa fa-sort"  onclick="sort('created_at');" style="margin-left: 5px;"></i></th>
                 <th scope="col">Category</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
@@ -37,7 +37,10 @@
                 use App\Models\Category;
                // $allnews = News::all();
                 if (!isset($rows)) {
-                    $allnews = News::all()->take(10);
+                   
+                    $limit = News::getLimit();
+                    
+                    $allnews = News::all()->take($limit);
                     $rows= $allnews;
                 }
                 $relation = News_Category::all()->sortBy('news_id');
@@ -58,59 +61,102 @@
                     echo '<td><a onclick="confirmDelete('.$news->id.')"><i class="fa fa-trash-o"></i></a></td>';
                     echo '</tr>';
                 }
+
+                if (!isset($count)) {
+                    $all = News::all();
+                    $count = $all->count();
+                }
+   
             ?>            
             </tbody>
         </table>
 
     </div>
-</div>
+</div><div class="dataTables_paginate paging_simple_numbers" id="bootstrap-data-table_paginate" style="margin: 0 auto;">
+<ul class="pagination">
+<li class="paginate_button page-item previous" id="bootstrap-data-table_previous">
+<a onclick="prevPage();" aria-controls="bootstrap-data-table" class="page-link">Previous</a>
+</li>
+<li class="paginate_button page-item " id='clone' onclick="changePage(this);" style="display:none"><a  aria-controls="bootstrap-data-table" class="page-link"></a></li>
+<li class="paginate_button page-item next" id="bootstrap-data-table_next"><a onclick="nextPage();" aria-controls="bootstrap-data-table" class="page-link">Next</a></li>
+</ul>
+</div>@endsection
 
-@endsection
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
+var param = {!! json_encode($_GET) !!};
 function confirmDelete(id) {
     if(confirm('Are you sure to delete?')) {
-        debugger;
+      
         window.location.href =  window.location.href + "/delete/" + id;
     }
     else alert('Item is not deleted!');
 }
-function sortTable(n) {
-  var table, rows, switching, i, x, y, shouldSwitch;
-  var switchcount = 0;
-  table = document.getElementById("news_tbl");
-  switching = true;
-  dir = "asc"; 
-  while (switching) {
-    switching = false;
-    rows = table.rows;
-    for (i = 1; i < (rows.length - 1); i++) {
-     
-      shouldSwitch = false;
-      x = rows[i].getElementsByTagName("TD")[n];
-      y = rows[i + 1].getElementsByTagName("TD")[n];
-      if (dir == "asc") {
-        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-          shouldSwitch = true;
-          break;
+function changePage(elm) {
+    var new_page = parseInt(elm.innerText,10);
+    //check recent page is clicked?
+    if (typeof(param['page'])!=='undefined') {
+        if (param['page']!= new_page) {
+            param['page']= new_page;
+            var query = $.param(param);
+            window.location.search = '?' + query;
+        } 
+    } else {
+        if (window.location.search == "") {
+            window.location.href = window.location.href + '/filter?page=' + new_page;
+        } 
+        else 
+        {
+            window.location.href = window.location.href + '&page=' + new_page;
         }
-      } else if (dir == "desc") {
-        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-          shouldSwitch = true;
-          break;
-        }
-      }
     }
-    if (shouldSwitch) {
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-      switchcount ++;
-    }
-    if (switchcount == 0 && dir == "asc") {
-        dir = "desc";
-        switching = true;
-    }
-  }
 }
-</script>
+function nextPage(){
+    if (typeof(param['page'])=='undefined') {
+        $('#page2').click();
+    } else {
+        var page = param['page'];
+        var new_page= 1 + parseInt(page,10);
+        $('#page' + new_page).click();
+    }
+}
+function prevPage(){
+    if (typeof(param['page'])!=='undefined') {
+    
+        var page = param['page'];
+        var new_page= parseInt(page,10)-1;
+        $('#page' + new_page).click();
+    }
+}
+   
+$(document).ready(function(){
+    function generatePages() {
+       
+        var num = {{$count}};
+        var limit = $('#limit').val();
+        var page_count  = Math.floor(num / limit) +1;
+        for (let i=page_count; i>0; i--) {
+            var clone = $('#clone').clone();
+            var a = clone.find('a').html(i);
+            clone.attr("id",'page' + i);
+            clone.css("display","");
+            clone.insertAfter($('#clone'));
+        }
+    }
+    generatePages();
+    //active recent page
 
+    if (typeof(param['page'])=='undefined') {
+        $('#page1').addClass('active');
+    } else {
+        var page = param['page'];
+        $('#page'+page).addClass('active');
+    }
+
+    
+});
+
+</script>
