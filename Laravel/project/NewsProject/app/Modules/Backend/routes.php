@@ -88,5 +88,17 @@ Route::group(
         //filter
         Route::get('news/filter', [ 'uses' => 'NewsController@filterNews']
         );
+
+        // add comment
+        Route::get('news/{id}/addcomment', [ 'uses' => 'NewsController@addComment']
+        )->where('id','[0-9]+');
+
+        //approve
+        Route::get('news/{id}/approve/{cmt_id}', [ 'uses' => 'NewsController@approveComment']
+        )->where('id','[0-9]+')->where('cmt_id','[0-9]+');
+        //delete
+        Route::get('news/{id}/deletecomment', [ 'uses' => 'NewsController@deleteComment']
+        )->where('id','[0-9]+');
+
     }
 );

@@ -2,7 +2,7 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model{
+class Comment extends AbstractModel{
  
     protected $table = 'comments';
     public $timestamps = true;
@@ -13,7 +13,5 @@ class Comment extends Model{
         'content'
     ];
  
-    protected $guarded = [
-        'id'
-    ];
+    protected $primaryKey = 'comment_id';
 }

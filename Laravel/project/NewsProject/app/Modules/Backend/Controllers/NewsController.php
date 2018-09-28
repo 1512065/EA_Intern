@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use App\Models\News;
 use App\Models\News_Category;
+use App\Models\Comment;
 class NewsController extends Controller{
     public function addNews(Request $request){
         //add to news
@@ -128,4 +129,29 @@ class NewsController extends Controller{
          return view('Backend::page.news.index')->with(['rows'=> $result['rows'], 'count'=>$result['count']]);
      }
 
+    public function addComment($id) {
+        $comment = new Comment;
+        $comment->user_id = 1;
+        $comment->news_id = $id;
+        $comment->content =$_GET['content'];
+        $comment->status = 'pending';
+        $comment->save();
+        $url = "/news/$id";
+        return redirect($url)->with('id',$id);
+    }
+    public function approveComment($id, $cmt_id) {
+        $comment = Comment::where('comment_id','=',$cmt_id)->first();
+        $comment->status = 'approved';
+
+        $comment->save();
+        $url = "/news/$id";
+        return redirect($url)->with('id',$id);
+    }
+    public function deleteComment($id) {
+        $comment = Comment::where('comment_id','=',$id)->first();
+        $comment->status = 'deleted';
+        $comment->save();
+        $url = "/news/$id";
+        return redirect($url)->with('id',$id);
+    }
 }
